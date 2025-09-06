@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".login1"
+    android:padding="30dp">
+
+    <!-- Get Started TextView -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/back_button_description"
+        android:padding="0dp"
+        android:src="@drawable/ic_back"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView_get_started"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="110dp"
+        android:text="Get Started"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:layout_marginTop="100dp"/>
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textColor="?android:textColorPrimary"
+        android:layout_below="@id/textView_get_started"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Sign Up Button -->
+    <Button
+        android:id="@+id/button_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textColor="?android:textColorPrimary"
+        android:layout_below="@id/button_login"
+        android:layout_marginTop="16dp"/>
+
+</RelativeLayout>

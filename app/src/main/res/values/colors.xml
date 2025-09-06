@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="baby_pink">#FC8ECA</color>
+    <color name="blue">#3F51B5</color>
+    <color name="yellow">#FFC107</color>
+    <color name="sky_blue">#00BCD4</color>
+    <color name="textColor">#121212</color>
+    <color name="red">#ED1B34</color>
+    <color name="green">#4CAF50</color>
+    <color name="green2">#00BCD4</color>
+    <color name="deeppurple">#7c4dff</color>
+    <color name="lightGray">#6A6060</color>
+    <color name="purple">#9C27B0</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorAccent">#00BCD4</color>
+    <color name="colorPrimaryVariant">#3700B3</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorPrimaryLight">#6200EE</color> <!-- Primary color for light theme -->
+    <color name="colorPrimaryDarkLight">#3700B3</color> <!-- Darker variant of primary color for light theme -->
+    <color name="colorOnPrimaryLight">#FFFFFF</color>
+    <color name="colorPrimaryDark">#BB86FC</color> <!-- Primary color for dark theme -->
+    <color name="colorPrimaryDarkVariant">#3700B3</color> <!-- Darker variant of primary color for dark theme -->
+    <color name="colorOnPrimaryDark">#000000</color>
+    <color name="colorTextLight">#000000</color> <!-- Black text for light theme -->
+    <color name="colorBackgroundLight">#FFFFFF</color> <!-- Light background for light theme -->
+    <color name="colorTextDark">#FFFFFF</color> <!-- White text for dark theme -->
+    <color name="colorBackgroundDark">#121212</color> <!-- Dark background for dark theme -->
+    <color name="dropdown_bg_light">#FFFFFF</color>
+    <color name="dropdown_text_light">#000000</color>
+    <color name="dropdown_bg_dark">#121212</color>
+    <color name="dropdown_text_dark">#FFFFFF</color>
+
+
+
+    <color name="tab_text_color">#000000</color>
+
+    <color name="top_bg">#EEEBEB</color>
+
+    <color name="math_stat">#00BCD4</color>
+    <color name="math_end">#F8F8FA</color>
+
+</resources>

@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/banner_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#F8BBD0"
+            android:src="@drawable/oop_logo"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintDimensionRatio="H,8:6" />
+
+        <TextView
+            android:id="@+id/atc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About The Course"
+            android:layout_marginTop="10dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:paddingStart="9dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/banner_image"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Course Information Paragraph -->
+        <TextView
+            android:id="@+id/course_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="This course serves as an entry point into the world of Object-Oriented Programming (OOP) through the lens of C++. It equips students with the foundational understanding and practical skills necessary to comprehend and utilize core OOP principles. Delving into topics such as classes, objects, inheritance, polymorphism, encapsulation, and abstraction, the course fosters a deep comprehension of OOP concepts. Through hands-on exercises and projects, students not only grasp theoretical knowledge but also develop the ability to apply OOP techniques to real-world scenarios. By the course's conclusion, students emerge with a robust foundation in OOP and C++ programming, primed for further exploration and advancement in software engineering and related domains."
+            android:justificationMode="inter_word"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atc"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <!-- Course CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/course_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/course_info"
+            app:cardCornerRadius="8dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/course_image"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/ppd"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/course_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Department:\nComputer Science"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/course_image"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/instructor_institution"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="11dp"
+                    android:text="Institution:\nIIT Kharagpur"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/course_image"
+                    app:layout_constraintTop_toBottomOf="@+id/course_title" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Expertise: CSE-BCI"
+                    android:textStyle="bold"
+                    android:paddingTop="14dp"
+                    android:textSize="17dp"
+                    app:layout_constraintStart_toEndOf="@+id/course_image"
+                    app:layout_constraintTop_toBottomOf="@+id/instructor_institution"
+                    android:paddingStart="16dp" />
+
+                <TextView
+                    android:id="@+id/course_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="15sp"
+                    android:paddingStart="10dp"
+                    android:text="  Prof.Partha\n  Pratim Das"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/instructor_institution"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Course Code CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/course_code_cardview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/course_duration_cardview"
+            app:layout_constraintTop_toBottomOf="@+id/course_card"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="8dp">
+
+            <!-- Course Code Content -->
+            <TextView
+                android:id="@+id/course_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Course Code\nCM3104"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Course Duration CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/course_duration_cardview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/course_code_cardview"
+            app:layout_constraintTop_toBottomOf="@+id/course_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp">
+
+            <!-- Course Duration Content -->
+            <TextView
+                android:id="@+id/course_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Course Duration\n8 weeks"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Course Link CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/course_link_cardview"
+            android:layout_width="338dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/course_duration_cardview"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="8dp"
+            tools:ignore="MissingConstraints,NotSibling">
+
+            <!-- Course Link Content -->
+            <TextView
+                android:id="@+id/course_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Course Link \nhttps://onlinecourses.nptel.ac.in/noc25_cs144/preview"
+                android:textSize="18sp"
+                android:autoLink="web" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/course_link_cardview"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="8dp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text="Course Layout"
+                    android:textStyle="bold"
+                    android:textSize="19dp"/>
+
+                <!-- Week 1 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="\nWeek 1:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="\nProgramming in C++ is Fun : Build and execute a C program in C++, Write equivalent programs in C++" />
+                </TableRow>
+
+                <!-- Week 2 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 2:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="C++ as Better C : Procedural Extensions of C" />
+                </TableRow>
+
+                <!-- Week 3 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 3:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="Overview of OOP in C++ : Classes and basic Object-Oriented features (encapsulation)" />
+                </TableRow>
+
+                <!-- Week 4 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 4:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="Overview of OOP in C++ : More OO features, overloading, namespace and using struct and union" />
+                </TableRow>
+
+                <!-- Week 5 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 5:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="Inheritance : Generalization / Specialization of Object Modeling in C++" />
+                </TableRow>
+
+                <!-- Week 6 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 6:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="Polymorphism : Static and Dynamic Binding" />
+                </TableRow>
+
+                <!-- Week 7 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 7:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="Type Casting &amp; Exceptions : C++ cast operators; C++ Exceptions &amp; standard exception classes" />
+                </TableRow>
+
+                <!-- Week 8 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 8:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="Templates &amp; STL – Function and Class templates and using STL like containers, algorithms" />
+                </TableRow>
+            </TableLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+

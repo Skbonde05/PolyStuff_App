@@ -1,0 +1,7 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.UserApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Light mode colors -->
+        <item name="colorOnSurface">@color/colorTextLight</item>  <!-- Your custom light text color -->
+        <item name="android:textColorPrimary">@color/colorTextLight</item>
+    </style>
+</resources>

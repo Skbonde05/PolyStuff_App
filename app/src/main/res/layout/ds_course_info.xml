@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Banner Image -->
+        <ImageView
+            android:id="@+id/banner_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#F8BBD0"
+            android:src="@drawable/dsa"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintDimensionRatio="H,8:6" />
+
+
+        <TextView
+            android:id="@+id/atc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About The Course"
+            android:layout_marginTop="10dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:paddingStart="9dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/banner_image"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Course Information Paragraph -->
+        <TextView
+            android:id="@+id/course_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="In today's tech-driven world, building complex software demands solid knowledge of data structures and algorithms. This forms the backbone of robust, secure, and adaptable programs. Enter Java, the go-to language for crafting software that's platform-independent, web-ready, and easily modifiable. Our course focuses on mastering these essential concepts using Java. Whether you're diving into mobile apps or internet programming, Java's versatility shines through. By the end, you'll boost your skills to meet industry demands head-on and tackle real-world challenges in your field with confidence."
+            android:justificationMode="inter_word"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atc"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <!-- Course CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/course_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/course_info"
+            app:cardCornerRadius="8dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/course_image"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/dbs"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/course_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Department:\nComputer Science"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@+id/course_image"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/instructor_institution"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="11dp"
+                    android:text="Institution:\nIIT Kharagpur"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/course_image"
+                    app:layout_constraintTop_toBottomOf="@+id/course_title" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Expertise: CSE-BCI"
+                    android:textStyle="bold"
+                    android:paddingTop="14dp"
+                    android:textColor="@color/black"
+                    android:textSize="17dp"
+                    app:layout_constraintStart_toEndOf="@+id/course_image"
+                    app:layout_constraintTop_toBottomOf="@+id/instructor_institution"
+                    android:paddingStart="18dp" />
+
+                <TextView
+                    android:id="@+id/course_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:textSize="15sp"
+                    android:paddingStart="10dp"
+                    android:textColor="@color/black"
+                    android:text="Prof.Debasis\n   Samanta"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/instructor_institution"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Course Code CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/course_code_cardview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/course_duration_cardview"
+            app:layout_constraintTop_toBottomOf="@+id/course_card"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="8dp">
+
+            <!-- Course Code Content -->
+            <TextView
+                android:id="@+id/course_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:textColor="@color/black"
+                android:text="Course Code\nCM3103"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Course Duration CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/course_duration_cardview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/course_code_cardview"
+            app:layout_constraintTop_toBottomOf="@+id/course_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp">
+
+            <!-- Course Duration Content -->
+            <TextView
+                android:id="@+id/course_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:textColor="@color/black"
+                android:text="Course Duration\n4 weeks"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Course Link CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/course_link_cardview"
+            android:layout_width="338dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/course_duration_cardview"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="8dp"
+            tools:ignore="MissingConstraints,NotSibling">
+
+            <!-- Course Link Content -->
+            <TextView
+                android:id="@+id/course_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textColor="@color/black"
+                android:text="Course Link \nhttps://onlinecourses.nptel.ac.in/noc25_cs148/preview"
+                android:textSize="18sp"
+                android:autoLink="web" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/course_link_cardview"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="8dp"
+            >
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text="Course Layout"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="19dp"/>
+
+                <!-- Week 1 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="\nWeek 1:"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="start"
+                        android:text="\n1D array, list and vector, 2D matrices and tables of objects" />
+                </TableRow>
+
+                <!-- Week 2 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 2:"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:textColor="@color/black"
+                        android:text="Java implementation of 1D and 2D arrays and its operations" />
+                </TableRow>
+
+                <!-- Week 3 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 3:"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:textColor="@color/black"
+                        android:text="Linked lists and its various operations, stack and queue" />
+                </TableRow>
+
+                <!-- Week 4 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 4:"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:textColor="@color/black"
+                        android:text="Java implementation of linked lists, stack and queue" />
+                </TableRow>
+
+                <!-- Week 5 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 5:"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:textColor="@color/black"
+                        android:text="Binary trees: Representation and operations. Variations of binary tree: Binary search tree, Height balanced search tree, Heap tree" />
+                </TableRow>
+
+                <!-- Week 6 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 6:"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:textColor="@color/black"
+                        android:text="Java implementation of binary trees and its variations" />
+                </TableRow>
+
+                <!-- Week 7 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 7:"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="start"
+                        android:text="Graph : Structure, representation and operations" />
+                </TableRow>
+
+                <!-- Week 8 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 8:"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:textColor="@color/black"
+                        android:text="Java implementations of graph data structures" />
+                </TableRow>
+
+                <!-- Week 9 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 9:"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="start"
+                        android:text="Algorithms (Part-I): Searching and sorting algorithms" />
+                </TableRow>
+
+                <!-- Week 10 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 10:"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="start"
+                        android:text="Java implementation of Part-I algorithms" />
+                </TableRow>
+
+                <!-- Week 11 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 11:"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="start"
+                        android:text="Algorithms (Part-II): Greedy algorithms, shortest path algorithms" />
+                </TableRow>
+
+                <!-- Week 12 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:text="Week 12:"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"
+                        android:text="Java implementation of Part-II algorithms"
+                        android:layout_gravity="start" />
+                </TableRow>
+            </TableLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

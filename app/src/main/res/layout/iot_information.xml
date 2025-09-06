@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/banner_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#F8BBD0"
+            android:src="@drawable/iiot"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintDimensionRatio="H,8:6" />
+
+
+        <TextView
+            android:id="@+id/atc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About The Course"
+            android:layout_marginTop="10dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:paddingStart="9dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/banner_image"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Course Information Paragraph -->
+        <TextView
+            android:id="@+id/course_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="In today's connected era, mastering the intricacies of the Internet of Things (IoT) demands a solid foundation in data structures and algorithms. These elements are vital for constructing robust, secure, and adaptable IoT systems. Java stands out as the language of choice for IoT development, thanks to its platform independence, web integration, and ease of modification. Our course is designed to hone your skills in these essential areas using Java. Whether you're exploring wearable tech or home automation, Java's versatility ensures you're equipped to tackle real-world IoT challenges head-on. By course end, you'll have the confidence and expertise to thrive in this dynamic field."
+            android:justificationMode="inter_word"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atc"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <!-- Course CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/course_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/course_info"
+            app:cardCornerRadius="8dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/course_image"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/blank"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/course_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Department:\nComputer Science"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/course_image"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/instructor_institution"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="11dp"
+                    android:text="Institution:\nIIT Kharagpur"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/course_image"
+                    app:layout_constraintTop_toBottomOf="@+id/course_title" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Expertise: CSE-Wireless"
+                    android:textStyle="bold"
+                    android:paddingTop="14dp"
+                    android:textSize="17dp"
+                    app:layout_constraintStart_toEndOf="@+id/course_image"
+                    app:layout_constraintTop_toBottomOf="@+id/instructor_institution"
+                    android:paddingStart="18dp" />
+
+                <TextView
+                    android:id="@+id/course_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="15sp"
+                    android:paddingStart="10dp"
+                    android:text="  Prof.Sudip\n    Misra"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/instructor_institution"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Course Code CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/course_code_cardview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/course_duration_cardview"
+            app:layout_constraintTop_toBottomOf="@+id/course_card"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="8dp">
+
+            <!-- Course Code Content -->
+            <TextView
+                android:id="@+id/course_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Course Code\nIT4104"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Course Duration CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/course_duration_cardview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/course_code_cardview"
+            app:layout_constraintTop_toBottomOf="@+id/course_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp">
+
+            <!-- Course Duration Content -->
+            <TextView
+                android:id="@+id/course_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Course Duration\n12 weeks"
+                android:textSize="18sp" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Course Link CardView -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/course_link_cardview"
+            android:layout_width="338dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/course_duration_cardview"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="8dp"
+            tools:ignore="MissingConstraints,NotSibling">
+
+            <!-- Course Link Content -->
+            <TextView
+                android:id="@+id/course_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Course Link \nhttps://onlinecourses.nptel.ac.in/noc25_cs147/preview"
+                android:textSize="18sp"
+                android:autoLink="web" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/course_link_cardview"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="8dp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text="Course Layout"
+                    android:textStyle="bold"
+                    android:textSize="19dp"/>
+
+                <!-- Week 1 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="\nWeek 1:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="\nIntroduction to IoT:Part I,Part II,\nSensing, Actuation, Basics of Networking: Part-I" />
+                </TableRow>
+
+                <!-- Week 2 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 2:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="Basics of Networking: Part-II, Part III, Part IV, Communication Protocols: Part I, Part II" />
+                </TableRow>
+
+                <!-- Week 3 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 3:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="Communication Protocols: Part III, Part IV, Part V, Sensor Networks: Part I, Part II" />
+                </TableRow>
+
+                <!-- Week 4 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 4:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="Sensor Networks: Part III, Part IV, Part V, Part VI, Machine-to-Machine Communications" />
+                </TableRow>
+
+                <!-- Week 5 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 5:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="Interoperability in IoT, Introduction to Arduino Programming: Part I, Part II, Integration of Sensors and Actuators with Arduino: Part I, Part II" />
+                </TableRow>
+
+                <!-- Week 6 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 6:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="Introduction to Python programming, Introduction to Raspberry Pi, Implementation of IoT with Raspberry Pi" />
+                </TableRow>
+
+                <!-- Week 7 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 7:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="Implementation of IoT with Raspberry Pi (contd), Introduction to SDN, SDN for IoT" />
+                </TableRow>
+
+                <!-- Week 8 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 8:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="SDN for IoT (contd), Data Handling and Analytics, Cloud Computing" />
+                </TableRow>
+
+                <!-- Week 9 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 9:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="Cloud Computing(contd), Sensor-Cloud" />
+                </TableRow>
+
+                <!-- Week 10 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 10:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="Fog Computing, Smart Cities and Smart Homes" />
+                </TableRow>
+
+                <!-- Week 11 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:text="Week 11:"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:layout_gravity="start"
+                        android:text="Connected Vehicles, Smart Grid, Industrial IoT" />
+                </TableRow>
+
+                <!-- Week 12 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.9"
+                        android:textSize="16dp"
+                        android:text="Week 12:"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:textSize="16dp"
+                        android:text="Industrial IoT (contd), Case Study: Agriculture, Healthcare, Activity Monitoring"
+                        android:layout_gravity="start"
+                        />
+                </TableRow>
+            </TableLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,1068 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="myapp.org.userapp">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+
+   <application
+       android:allowBackup="true"
+       android:dataExtractionRules="@xml/data_extraction_rules"
+       android:fullBackupContent="@xml/backup_rules"
+       android:icon="@mipmap/ic_launcher"
+       android:label="@string/app_name"
+       android:roundIcon="@mipmap/ic_launcher_round"
+       android:supportsRtl="true"
+       android:theme="@style/Theme.UserApp"
+       tools:targetApi="31">
+
+      <!-- ✅ Correct AdMob App ID format -->
+      <meta-data
+          android:name="com.google.android.gms.ads.APPLICATION_ID"
+          android:value="ca-app-pub-8830492032016236~8970327758" />
+
+   <activity
+            android:name=".splash_screen1"
+            android:exported="true">
+            <!-- Entry point for the application -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:exported="true">
+        </activity>
+
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false"
+            android:directBootAware="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="myapp.org.userapp.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <activity
+            android:name=".Dashboard"
+            android:exported="false" />
+
+        <activity
+            android:name=".Dashboard2"
+            android:exported="false" />
+
+        <activity
+            android:name=".login1"
+            android:exported="false" />
+
+        <activity
+            android:name=".login"
+            android:exported="false" />
+
+        <activity
+            android:name=".sign_up"
+            android:exported="false" />
+
+        <activity
+            android:name=".ComputerLevels"
+            android:exported="false"/>
+
+        <activity
+            android:name=".rateus"
+            android:exported="false"/>
+
+        <activity
+            android:name=".notifications"
+            android:exported="false"/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        <activity
+            android:name=".Semesters"
+            android:exported="false" />
+        <activity android:name=".levels2"
+            android:exported="false" />
+        <activity android:name=".ItLevels"
+            android:exported="false" />
+        <activity android:name=".levels3"
+            android:exported="false" />
+        <activity android:name=".levels4"
+            android:exported="false" />
+        <activity android:name=".levels4b"
+            android:exported="false" />
+        <activity android:name=".levels5"
+            android:exported="false" />
+        <activity android:name=".levels1_it"
+            android:exported="false" />
+        <activity android:name=".levels2_it"
+            android:exported="false" />
+        <activity android:name=".levels3_it"
+            android:exported="false" />
+        <activity android:name=".levels4_it"
+            android:exported="false" />
+        <activity android:name=".levels4b_it"
+            android:exported="false" />
+        <activity android:name=".levels5_it"
+            android:exported="false" />
+
+
+        <activity android:name=".ce_cs"
+            android:exported="false" />
+        <activity android:name=".cms1_cs"
+            android:exported="false" />
+        <activity android:name=".cms2_cs"
+            android:exported="false" />
+        <activity android:name=".m1_cs"
+            android:exported="false" />
+        <activity android:name=".m2_cs"
+            android:exported="false" />
+        <activity android:name=".physics_cs"
+            android:exported="false" />
+        <activity android:name=".foe_cs"
+            android:exported="false" />
+        <activity android:name=".linux_cs"
+            android:exported="false" />
+        <activity android:name=".html_cs"
+            android:exported="false" />
+        <activity android:name=".ee_cs"
+            android:exported="false" />
+        <activity android:name=".ict_cs"
+            android:exported="false" />
+        <activity android:name=".m3_cs"
+            android:exported="false" />
+        <activity android:name=".ds_cs"
+            android:exported="false" />
+        <activity android:name=".oop_cs"
+            android:exported="false" />
+        <activity android:name=".jp1_cs"
+            android:exported="false" />
+        <activity android:name=".os_cs"
+            android:exported="false" />
+        <activity android:name=".cphm_cs"
+            android:exported="false" />
+        <activity android:name=".cg_cs"
+            android:exported="false"/>
+        <activity android:name=".cn_cs"
+            android:exported="false"/>
+        <activity android:name=".pdtmp_cs"
+            android:exported="false"/>
+        <activity android:name=".edp_cs"
+            android:exported="false"/>
+        <activity android:name=".im_cs"
+            android:exported="false"/>
+        <activity android:name=".set_cs"
+            android:exported="false"/>
+        <activity android:name=".acn_cs"
+            android:exported="false"/>
+        <activity android:name=".jp2_cs"
+            android:exported="false"/>
+        <activity android:name=".cs_cs"
+            android:exported="false"/>
+        <activity android:name=".rdbms_cs"
+            android:exported="false"/>
+        <activity android:name=".python_cs"
+            android:exported="false"/>
+        <activity android:name=".aap_cs"
+            android:exported="false"/>
+        <activity android:name=".dmi_cs"
+            android:exported="false"/>
+        <activity android:name=".cc_cs"
+            android:exported="false"/>
+        <activity android:name=".cms1_it"
+            android:exported="false"/>
+        <activity android:name=".cms2_it"
+            android:exported="false"/>
+        <activity android:name=".m1_it"
+            android:exported="false"/>
+        <activity android:name=".m2_it"
+            android:exported="false"/>
+        <activity android:name=".physics_it"
+            android:exported="false"/>
+        <activity android:name=".foe_it"
+            android:exported="false"/>
+        <activity android:name=".linux_it"
+            android:exported="false"/>
+        <activity android:name=".html_it"
+            android:exported="false"/>
+        <activity android:name=".ee_it"
+            android:exported="false"/>
+        <activity android:name=".ict_it"
+            android:exported="false"/>
+        <activity android:name=".m3_it"
+            android:exported="false"/>
+        <activity android:name=".ds_it"
+            android:exported="false"/>
+        <activity android:name=".oop_it"
+            android:exported="false"/>
+        <activity android:name=".jp1_it"
+            android:exported="false"/>
+        <activity android:name=".os_it"
+            android:exported="false"/>
+        <activity android:name=".ma_it"
+            android:exported="false"/>
+        <activity android:name=".dcn_it"
+            android:exported="false"/>
+        <activity android:name=".dbms_it"
+            android:exported="false"/>
+        <activity android:name=".pdtmp_it"
+            android:exported="false"/>
+        <activity android:name=".edp_it"
+            android:exported="false"/>
+        <activity android:name=".im_it"
+            android:exported="false"/>
+        <activity android:name=".se_it"
+            android:exported="false"/>
+        <activity android:name=".st_it"
+            android:exported="false"/>
+        <activity android:name=".jp2_it"
+            android:exported="false"/>
+        <activity android:name=".iot_it"
+            android:exported="false"/>
+        <activity android:name=".nma_it"
+            android:exported="false"/>
+        <activity android:name=".python_it"
+            android:exported="false"/>
+        <activity android:name=".php_it"
+            android:exported="false"/>
+        <activity android:name=".ggt_it"
+            android:exported="false"/>
+        <activity android:name=".ct_it"
+            android:exported="false"/>
+        <activity android:name=".is_it"
+            android:exported="false"/>
+
+        <activity android:name=".jp1_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".jp1_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".jp1_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".jp1_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".jp1_u5_pdf"
+            android:exported="false"/>
+        <activity android:name=".jp1_u6_pdf"
+            android:exported="false"/>
+        <activity android:name=".jp1_que_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".set_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".set_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".set_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".set_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".set_u5_pdf"
+            android:exported="false"/>
+        <activity android:name=".set_u6_pdf"
+            android:exported="false"/>
+        <activity android:name=".set_que_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".set_u1_main"
+            android:exported="false"/>
+        <activity android:name=".set_u2_main"
+            android:exported="false"/>
+        <activity android:name=".set_u3_main"
+            android:exported="false"/>
+        <activity android:name=".set_u4_main"
+            android:exported="false"/>
+        <activity android:name=".set_u5_main"
+            android:exported="false"/>
+        <activity android:name=".set_u6_main"
+            android:exported="false"/>
+        <activity android:name=".set_que_main"
+            android:exported="false"/>
+
+        <activity android:name=".ce_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".ce_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".ce_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".ce_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".ce_u5_pdf"
+            android:exported="false"/>
+        <activity android:name=".ce_u6_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".ce_u1_main"
+            android:exported="false"/>
+        <activity android:name=".ce_u2_main"
+            android:exported="false"/>
+        <activity android:name=".ce_u3_main"
+            android:exported="false"/>
+        <activity android:name=".ce_u4_main"
+            android:exported="false"/>
+        <activity android:name=".ce_u5_main"
+            android:exported="false"/>
+        <activity android:name=".ce_u6_main"
+            android:exported="false"/>
+
+        <activity android:name=".acn_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".acn_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".acn_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".acn_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".acn_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".acn_u5_pdf"
+            android:exported="false"/>
+        <activity android:name=".acn_u6_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".acn_que_main"
+            android:exported="false"/>
+        <activity android:name=".acn_u1_main"
+            android:exported="false"/>
+        <activity android:name=".acn_u2_main"
+            android:exported="false"/>
+        <activity android:name=".acn_u3_main"
+            android:exported="false"/>
+        <activity android:name=".acn_u4_main"
+            android:exported="false"/>
+        <activity android:name=".acn_u5_main"
+            android:exported="false"/>
+        <activity android:name=".acn_u6_main"
+            android:exported="false"/>
+
+        <activity android:name=".oop_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".oop_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".oop_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".oop_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".oop_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".oop_u5_pdf"
+            android:exported="false"/>
+        <activity android:name=".oop_u6_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".oop_que_main"
+            android:exported="false"/>
+        <activity android:name=".oop_u1_main"
+            android:exported="false"/>
+        <activity android:name=".oop_u2_main"
+            android:exported="false"/>
+        <activity android:name=".oop_u3_main"
+            android:exported="false"/>
+        <activity android:name=".oop_u4_main"
+            android:exported="false"/>
+        <activity android:name=".oop_u5_main"
+            android:exported="false"/>
+        <activity android:name=".oop_u6_main"
+            android:exported="false"/>
+
+        <activity android:name=".jp1_u1_main"
+            android:exported="false"/>
+        <activity android:name=".jp1_u2_main"
+            android:exported="false"/>
+        <activity android:name=".jp1_u3_main"
+            android:exported="false"/>
+        <activity android:name=".jp1_u4_main"
+            android:exported="false"/>
+        <activity android:name=".jp1_u5_main"
+            android:exported="false"/>
+        <activity android:name=".jp1_u6_main"
+            android:exported="false"/>
+        <activity android:name=".jp1_que_main"
+            android:exported="false"/>
+
+        <activity android:name=".cc_que_main"
+            android:exported="false"/>
+        <activity android:name=".cc_u1_main"
+            android:exported="false"/>
+        <activity android:name=".cc_u2_main"
+            android:exported="false"/>
+        <activity android:name=".cc_u3_main"
+            android:exported="false"/>
+        <activity android:name=".cc_u4_main"
+            android:exported="false"/>
+        <activity android:name=".cc_u5_main"
+            android:exported="false"/>
+        <activity android:name=".cc_u6_main"
+            android:exported="false"/>
+
+        <activity android:name=".cc_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".cc_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".cc_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".cc_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".cc_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".cc_u5_pdf"
+            android:exported="false"/>
+        <activity android:name=".cc_u6_pdf"
+            android:exported="false"/>
+        <activity android:name=".cms1_u1_main"
+            android:exported="false"/>
+
+        <activity android:name=".cms1_u2_main"
+            android:exported="false"/>
+        <activity android:name=".cms1_u3_main"
+            android:exported="false"/>
+        <activity android:name=".cms1_u4_main"
+            android:exported="false"/>
+        <activity android:name=".cms1_u5_main"
+            android:exported="false"/>
+
+        <activity android:name=".cms1_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".cms1_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".cms1_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".cms1_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".cms1_u5_pdf"
+            android:exported="false"/>
+
+
+        <activity android:name=".cms2_que_main"
+            android:exported="false"/>
+        <activity android:name=".cms2_u4_main"
+            android:exported="false"/>
+
+        <activity android:name=".cms2_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".cms2_u4_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".m1_tut_main"
+            android:exported="false"/>
+
+
+        <activity android:name=".m1_tut_pdf"
+            android:exported="false"/>
+
+
+        <activity android:name=".m2_tut_main"
+            android:exported="false"/>
+        <activity android:name=".m2_que_main"
+            android:exported="false"/>
+        <activity android:name=".m2_u1_main"
+            android:exported="false"/>
+        <activity android:name=".m2_u2_main"
+            android:exported="false"/>
+        <activity android:name=".m2_u3_main"
+            android:exported="false"/>
+        <activity android:name=".m2_u4_main"
+            android:exported="false"/>
+        <activity android:name=".m2_u5_main"
+            android:exported="false"/>
+
+        <activity android:name=".m2_tut_pdf"
+            android:exported="false"/>
+        <activity android:name=".m2_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".m2_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".m2_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".m2_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".m2_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".m2_u5_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".phy_u1_main"
+            android:exported="false"/>
+        <activity android:name=".phy_u2_main"
+            android:exported="false"/>
+        <activity android:name=".phy_u3_main"
+            android:exported="false"/>
+        <activity android:name=".phy_u4_main"
+            android:exported="false"/>
+        <activity android:name=".phy_u5_main"
+            android:exported="false"/>
+        <activity android:name=".phy_u6_main"
+            android:exported="false"/>
+
+        <activity android:name=".phy_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".phy_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".phy_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".phy_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".phy_u5_pdf"
+            android:exported="false"/>
+        <activity android:name=".phy_u6_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".ee_que_main"
+            android:exported="false"/>
+        <activity android:name=".ee_u1_main"
+            android:exported="false"/>
+        <activity android:name=".ee_u2_main"
+            android:exported="false"/>
+        <activity android:name=".ee_u3_main"
+            android:exported="false"/>
+        <activity android:name=".ee_u4_main"
+            android:exported="false"/>
+        <activity android:name=".ee_u5_main"
+            android:exported="false"/>
+
+        <activity android:name=".ee_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".ee_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".ee_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".ee_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".ee_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".ee_u5_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".html_u1_main"
+            android:exported="false"/>
+        <activity android:name=".html_u2_main"
+            android:exported="false"/>
+        <activity android:name=".html_u3_main"
+            android:exported="false"/>
+        <activity android:name=".html_u4_main"
+            android:exported="false"/>
+        <activity android:name=".html_u5_main"
+            android:exported="false"/>
+
+        <activity android:name=".html_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".html_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".html_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".html_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".html_u5_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".linux_cmd_main"
+            android:exported="false"/>
+
+        <activity android:name=".linux_cmd_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".fict_cmd_main"
+            android:exported="false"/>
+
+        <activity android:name=".fict_cmd_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".m3_tut_main"
+            android:exported="false"/>
+        <activity android:name=".m3_que_main"
+            android:exported="false"/>
+        <activity android:name=".m3_u1_main"
+            android:exported="false"/>
+        <activity android:name=".m3_u2_main"
+            android:exported="false"/>
+        <activity android:name=".m3_u3_main"
+            android:exported="false"/>
+        <activity android:name=".m3_u4_main"
+            android:exported="false"/>
+        <activity android:name=".m3_u5_main"
+            android:exported="false"/>
+
+        <activity android:name=".m3_tut_pdf"
+            android:exported="false"/>
+        <activity android:name=".m3_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".m3_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".m3_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".m3_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".m3_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".m3_u5_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".foe_que_main"
+            android:exported="false"/>
+        <activity android:name=".foe_u1_main"
+            android:exported="false"/>
+        <activity android:name=".foe_u2_main"
+            android:exported="false"/>
+        <activity android:name=".foe_u3_main"
+            android:exported="false"/>
+        <activity android:name=".foe_u4_main"
+            android:exported="false"/>
+        <activity android:name=".foe_u5_main"
+            android:exported="false"/>
+
+        <activity android:name=".foe_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".foe_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".foe_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".foe_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".foe_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".foe_u5_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".ds_que_main"
+            android:exported="false"/>
+        <activity android:name=".ds_u1_main"
+            android:exported="false"/>
+        <activity android:name=".ds_u2_main"
+            android:exported="false"/>
+        <activity android:name=".ds_u3_main"
+            android:exported="false"/>
+        <activity android:name=".ds_u4_main"
+            android:exported="false"/>
+        <activity android:name=".ds_u5_main"
+            android:exported="false"/>
+        <activity android:name=".ds_u6_main"
+            android:exported="false"/>
+
+        <activity android:name=".ds_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".ds_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".ds_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".ds_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".ds_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".ds_u5_pdf"
+            android:exported="false"/>
+        <activity android:name=".ds_u6_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".os_que_main"
+            android:exported="false"/>
+        <activity android:name=".os_u1_main"
+            android:exported="false"/>
+        <activity android:name=".os_u2_main"
+            android:exported="false"/>
+        <activity android:name=".os_u3_main"
+            android:exported="false"/>
+        <activity android:name=".os_u4_main"
+            android:exported="false"/>
+        <activity android:name=".os_u5_main"
+            android:exported="false"/>
+        <activity android:name=".os_u6_main"
+            android:exported="false"/>
+
+        <activity android:name=".os_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".os_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".os_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".os_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".os_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".os_u5_pdf"
+            android:exported="false"/>
+        <activity android:name=".os_u6_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".cphm_que_main"
+            android:exported="false"/>
+        <activity android:name=".cphm_u1_main"
+            android:exported="false"/>
+        <activity android:name=".cphm_u2_main"
+            android:exported="false"/>
+        <activity android:name=".cphm_u3_main"
+            android:exported="false"/>
+        <activity android:name=".cphm_u4_main"
+            android:exported="false"/>
+        <activity android:name=".cphm_u5_main"
+            android:exported="false"/>
+        <activity android:name=".cphm_u6_main"
+            android:exported="false"/>
+
+        <activity android:name=".cphm_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".cphm_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".cphm_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".cphm_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".cphm_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".cphm_u5_pdf"
+            android:exported="false"/>
+        <activity android:name=".cphm_u6_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".cg_que_main"
+            android:exported="false"/>
+        <activity android:name=".cg_u1_main"
+            android:exported="false"/>
+        <activity android:name=".cg_u2_main"
+            android:exported="false"/>
+        <activity android:name=".cg_u3_main"
+            android:exported="false"/>
+        <activity android:name=".cg_u4_main"
+            android:exported="false"/>
+        <activity android:name=".cg_u5_main"
+            android:exported="false"/>
+
+        <activity android:name=".cg_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".cg_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".cg_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".cg_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".cg_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".cg_u5_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".cn_que_main"
+            android:exported="false"/>
+        <activity android:name=".cn_u1_main"
+            android:exported="false"/>
+        <activity android:name=".cn_u2_main"
+            android:exported="false"/>
+        <activity android:name=".cn_u3_main"
+            android:exported="false"/>
+        <activity android:name=".cn_u4_main"
+            android:exported="false"/>
+        <activity android:name=".cn_u5_main"
+            android:exported="false"/>
+
+        <activity android:name=".cn_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".cn_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".cn_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".cn_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".cn_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".cn_u5_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".dtmp_que_main"
+            android:exported="false"/>
+        <activity android:name=".dtmp_u1_main"
+            android:exported="false"/>
+        <activity android:name=".dtmp_u2_main"
+            android:exported="false"/>
+        <activity android:name=".dtmp_u3_main"
+            android:exported="false"/>
+        <activity android:name=".dtmp_u4_main"
+            android:exported="false"/>
+        <activity android:name=".dtmp_u5_main"
+            android:exported="false"/>
+        <activity android:name=".dtmp_u6_main"
+            android:exported="false"/>
+
+        <activity android:name=".dtmp_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".dtmp_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".dtmp_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".dtmp_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".dtmp_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".dtmp_u5_pdf"
+            android:exported="false"/>
+        <activity android:name=".dtmp_u6_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".edp_u1_main"
+            android:exported="false"/>
+        <activity android:name=".edp_u2_main"
+            android:exported="false"/>
+        <activity android:name=".edp_u3_main"
+            android:exported="false"/>
+        <activity android:name=".edp_u4_main"
+            android:exported="false"/>
+
+        <activity android:name=".edp_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".edp_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".edp_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".edp_u4_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".im_u1_main"
+            android:exported="false"/>
+        <activity android:name=".im_u2_main"
+            android:exported="false"/>
+        <activity android:name=".im_u3_main"
+            android:exported="false"/>
+        <activity android:name=".im_u4_main"
+            android:exported="false"/>
+        <activity android:name=".im_u5_main"
+            android:exported="false"/>
+
+        <activity android:name=".im_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".im_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".im_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".im_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".im_u5_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".jp2_que_main"
+            android:exported="false"/>
+        <activity android:name=".jp2_u1_main"
+            android:exported="false"/>
+        <activity android:name=".jp2_u2_main"
+            android:exported="false"/>
+        <activity android:name=".jp2_u3_main"
+            android:exported="false"/>
+        <activity android:name=".jp2_u4_main"
+            android:exported="false"/>
+        <activity android:name=".jp2_u5_main"
+            android:exported="false"/>
+        <activity android:name=".jp2_u6_main"
+            android:exported="false"/>
+
+        <activity android:name=".jp2_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".jp2_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".jp2_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".jp2_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".jp2_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".jp2_u5_pdf"
+            android:exported="false"/>
+        <activity android:name=".jp2_u6_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".cs_que_main"
+            android:exported="false"/>
+        <activity android:name=".cs_u1_main"
+            android:exported="false"/>
+        <activity android:name=".cs_u2_main"
+            android:exported="false"/>
+        <activity android:name=".cs_u3_main"
+            android:exported="false"/>
+        <activity android:name=".cs_u4_main"
+            android:exported="false"/>
+        <activity android:name=".cs_u5_main"
+            android:exported="false"/>
+
+        <activity android:name=".cs_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".cs_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".cs_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".cs_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".cs_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".cs_u5_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".rdbms_que_main"
+            android:exported="false"/>
+        <activity android:name=".rdbms_u1_main"
+            android:exported="false"/>
+        <activity android:name=".rdbms_u2_main"
+            android:exported="false"/>
+        <activity android:name=".rdbms_u3_main"
+            android:exported="false"/>
+        <activity android:name=".rdbms_u4_main"
+            android:exported="false"/>
+        <activity android:name=".rdbms_u5_main"
+            android:exported="false"/>
+        <activity android:name=".rdbms_u6_main"
+            android:exported="false"/>
+
+        <activity android:name=".rdbms_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".rdbms_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".rdbms_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".rdbms_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".rdbms_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".rdbms_u5_pdf"
+            android:exported="false"/>
+        <activity android:name=".rdbms_u6_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".aap_mcq_main"
+            android:exported="false"/>
+
+        <activity android:name=".aap_mcq_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".pwp_mcq_main"
+            android:exported="false"/>
+
+        <activity android:name=".pwp_mcq_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".dmi_que_main"
+            android:exported="false"/>
+        <activity android:name=".dmi_u1_main"
+            android:exported="false"/>
+        <activity android:name=".dmi_u2_main"
+            android:exported="false"/>
+        <activity android:name=".dmi_u3_main"
+            android:exported="false"/>
+        <activity android:name=".dmi_u4_main"
+            android:exported="false"/>
+        <activity android:name=".dmi_u5_main"
+            android:exported="false"/>
+        <activity android:name=".dmi_u6_main"
+            android:exported="false"/>
+
+        <activity android:name=".dmi_que_pdf"
+            android:exported="false"/>
+        <activity android:name=".dmi_u1_pdf"
+            android:exported="false"/>
+        <activity android:name=".dmi_u2_pdf"
+            android:exported="false"/>
+        <activity android:name=".dmi_u3_pdf"
+            android:exported="false"/>
+        <activity android:name=".dmi_u4_pdf"
+            android:exported="false"/>
+        <activity android:name=".dmi_u5_pdf"
+            android:exported="false"/>
+        <activity android:name=".dmi_u6_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".php_ref_main"
+            android:exported="false"/>
+
+        <activity android:name=".php_ref_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".iot_ref_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".iot_ref_main"
+            android:exported="false"/>
+
+        <activity android:name=".nma_ref_main"
+            android:exported="false"/>
+
+        <activity android:name=".nma_ref_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".ma_ref_main"
+            android:exported="false"/>
+
+        <activity android:name=".ma_ref_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".mp_main"
+            android:exported="false"/>
+        <activity android:name=".mp_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".lab_manuals_main"
+            android:exported="false"/>
+        <activity android:name=".lab_manuals_pdf"
+            android:exported="false"/>
+
+        <activity android:name=".HomeFragment" android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".OnlineCoursesFragment" android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".VideosFragment" android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".ProfileFragment" android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".feedback"
+            android:exported="false"/>
+        <activity android:name=".edit_profile"
+            android:exported="false"/>
+        <activity android:name=".ds_course_info"
+            android:exported="false"/>
+        <activity android:name=".LogoutActivity"
+            android:exported="false"/>
+        <activity android:name=".cpp_information"
+            android:exported="false"/>
+        <activity android:name=".java_information"
+            android:exported="false"/>
+        <activity android:name=".python_information"
+            android:exported="false"/>
+        <activity android:name=".iot_information"
+            android:exported="false"/>
+        <activity android:name=".php_information"
+            android:exported="false"/>
+        <activity android:name=".c_information"
+            android:exported="false"/>
+
+        <activity android:name=".ds"
+            android:exported="false"/>
+        <activity android:name=".cpp"
+            android:exported="false"/>
+        <activity android:name=".os"
+            android:exported="false"/>
+        <activity android:name=".acn"
+            android:exported="false"/>
+        <activity android:name=".cc"
+            android:exported="false"/>
+        <activity android:name=".aap"
+            android:exported="false"/>
+        <activity android:name=".pwp"
+            android:exported="false"/>
+        <activity android:name=".dmi"
+            android:exported="false"/>
+        <activity android:name=".jp2"
+            android:exported="false"/>
+
+        <activity android:name=".VideoFullScreen"
+            android:screenOrientation="landscape" />
+
+    </application>
+</manifest>

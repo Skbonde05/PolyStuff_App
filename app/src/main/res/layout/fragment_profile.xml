@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6E4E1"
+    tools:context=".ProfileFragment">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/top_background"
+        app:layout_collapseMode="parallax"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription,NotSibling" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+    <!-- Back Button -->
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="Back"
+            android:src="@drawable/ic_arrow_back"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+    <!-- Circular button and pen icon -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        tools:ignore="MissingConstraints">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/addDeveloperImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/avatar" />
+
+        <ImageView
+            android:id="@+id/editProfileIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignTop="@id/addDeveloperImage"
+            android:layout_alignEnd="@id/addDeveloperImage"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/ic_profile" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/userNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <!-- About Us Button -->
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="298dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:hint="TextView" />
+
+        <!-- Feedback Button -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/feedbackCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="8dp">
+
+            <TextView
+                android:id="@+id/feedbackButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableStart="@drawable/ic_feedback"
+                android:gravity="start|center_vertical"
+                android:padding="12dp"
+                android:text="  Feedback"
+                android:textColor="?android:textColorPrimary"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/themeCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="8dp">
+
+            <TextView
+                android:id="@+id/theme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableStart="@drawable/ic_theme"
+                android:gravity="start|center_vertical"
+                android:padding="12dp"
+                android:text="  Choose Theme"
+                android:textColor="?android:textColorPrimary"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Rate Us Button -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/rateUsCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="8dp">
+
+            <TextView
+                android:id="@+id/rateus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableStart="@drawable/ic_rateus"
+                android:gravity="start|center_vertical"
+                android:padding="12dp"
+                android:text="  Rate Us"
+                android:textColor="?android:textColorPrimary"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Share App Button -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/shareAppCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="8dp">
+
+            <TextView
+                android:id="@+id/shareapp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableStart="@drawable/ic_shareapp"
+                android:gravity="start|center_vertical"
+                android:padding="12dp"
+                android:text="  Share App"
+                android:textColor="?android:textColorPrimary"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Share App Button -->
+        <!-- Share App Button -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/privacyCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="8dp">
+
+            <TextView
+                android:id="@+id/privacy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableStart="@drawable/ic_privacy"
+                android:gravity="start|center_vertical"
+                android:padding="12dp"
+                android:text="  Privacy Policy"
+                android:textColor="?android:textColorPrimary"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.cardview.widget.CardView>
+        <!-- Logout Button -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/logoutCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="8dp">
+
+            <TextView
+                android:id="@+id/logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableStart="@drawable/ic_logout"
+                android:tint="?attr/colorOnSurface"
+                android:gravity="start|center_vertical"
+                android:padding="12dp"
+                android:text="  Logout"
+                android:textColor="?android:textColorPrimary"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

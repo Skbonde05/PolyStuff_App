@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="loginButton" type="id" />
+    <item name="button_login1" type="id" />
+    <item name="m1_cs" type="id" />
+    <item name="bottomNavigationView" type="id" />
+    <item name="profile" type="id" />
+    <item name="profileFragment" type="id" />
+    <item name="frame_layout" type="id" />
+    <item name="container" type="id" />
+    <item name="cn_u1" type="id" />
+</resources>

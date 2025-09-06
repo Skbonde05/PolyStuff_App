@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PolyStuff</string>
+    <string name="web_client_id">543004615360-7sl9apaba644il02ts64rd0l311nq7ss.apps.googleusercontent.com</string>
+
+    <string name="back_button_description">Back</string>
+    <string name="pdf_activity_title">\n\n</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
