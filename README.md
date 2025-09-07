@@ -1,6 +1,5 @@
 <p align="center">
-  <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/512/external-app-development-agile-flaticons-flat-flat-icons.png" 
-       alt="PolyStuff Logo" width="120"/>
+ <img src="app/src/main/res/drawable/polystuff.png" width="120" alt="PolyStuff Logo"/>
 </p>
 
 <h1 align="center">📱 PolyStuff – Android Application</h1>
