@@ -36,10 +36,12 @@ public class linux_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(linux_cs.this, linux_cmd_main.class);
+                Intent intent = new Intent(linux_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "linux_cmd_main");
                 startActivity(intent);
             }
         });
 
     }
 }
+

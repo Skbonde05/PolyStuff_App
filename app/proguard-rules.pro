@@ -1,21 +1,38 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# Keep Firebase model annotations and members
+-keepclassmembers class * {
+    @com.google.firebase.database.IgnoreExtraProperties <fields>;
+    @com.google.firebase.database.PropertyName <methods>;
+}
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# Keep PDF Viewer library classes
+-keep class com.github.barteksc.pdfviewer.** { *; }
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# Keep PdfViewer subclasses referenced via reflection
+-keep class myapp.org.userapp.*_pdf { *; }
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# Keep class names for reflection-based lookup (SearchManager)
+-keepnames class myapp.org.userapp.**
+
+# Keep Glide
+-keep public class * extends com.bumptech.glide.module.AppGlideModule
+-keep class com.bumptech.glide.GeneratedAppGlideModuleImpl { *; }
+
+# Keep line numbers for stack traces
+-keepattributes SourceFile,LineNumberTable
+
+# Keep Parcelable and Serializable classes
+-keepclassmembers class * implements android.os.Parcelable {
+    public static final android.os.Parcelable$Creator *;
+}
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
+
+# Keep Supabase client classes
+-keep class io.github.jan.supabase.** { *; }
+-keepattributes *Annotation*

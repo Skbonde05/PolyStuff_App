@@ -38,7 +38,8 @@ public class ee_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(ee_cs.this, ee_que_main.class);
+                Intent intent = new Intent(ee_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "ee_que_main");
                 startActivity(intent);
             }
         });
@@ -50,7 +51,8 @@ public class ee_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(ee_cs.this, ee_u1_main.class);
+                Intent intent = new Intent(ee_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "ee_u1_main");
                 startActivity(intent);
             }
         });
@@ -62,7 +64,8 @@ public class ee_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(ee_cs.this, ee_u2_main.class);
+                Intent intent = new Intent(ee_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "ee_u2_main");
                 startActivity(intent);
             }
         });
@@ -74,7 +77,8 @@ public class ee_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(ee_cs.this, ee_u3_main.class);
+                Intent intent = new Intent(ee_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "ee_u3_main");
                 startActivity(intent);
             }
         });
@@ -86,7 +90,8 @@ public class ee_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(ee_cs.this, ee_u4_main.class);
+                Intent intent = new Intent(ee_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "ee_u4_main");
                 startActivity(intent);
             }
         });
@@ -98,10 +103,12 @@ public class ee_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(ee_cs.this, ee_u5_main.class);
+                Intent intent = new Intent(ee_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "ee_u5_main");
                 startActivity(intent);
             }
         });
 
     }
 }
+

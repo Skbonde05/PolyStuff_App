@@ -60,15 +60,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("ProductAdapter", "PDF URL: " + product.getLink());
+                Log.d("ProductAdapter", "Opening PDF URL in built-in viewer: " + product.getLink());
                 try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setDataAndType(Uri.parse(product.getLink()), "application/pdf");
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    Intent intent = new Intent(mCtx, PdfViewerActivity.class);
+                    intent.putExtra(PdfViewerActivity.EXTRA_PDF_TITLE, product.getTitle().trim());
+                    intent.putExtra(PdfViewerActivity.EXTRA_PDF_URL, product.getLink());
                     mCtx.startActivity(intent);
                 } catch (Exception e) {
                     Log.e("ProductAdapter", "Error opening PDF: " + e.getMessage());
-                    Toast.makeText(mCtx, "Error opening PDF", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mCtx, "Error opening PDF document", Toast.LENGTH_SHORT).show();
                 }
             }
         });

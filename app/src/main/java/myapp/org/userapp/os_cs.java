@@ -38,7 +38,8 @@ public class os_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(os_cs.this, os_que_main.class);
+                Intent intent = new Intent(os_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "os_que_main");
                 startActivity(intent);
             }
         });
@@ -50,7 +51,8 @@ public class os_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(os_cs.this, os_u1_main.class);
+                Intent intent = new Intent(os_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "os_u1_main");
                 startActivity(intent);
             }
         });
@@ -62,7 +64,8 @@ public class os_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(os_cs.this, os_u2_main.class);
+                Intent intent = new Intent(os_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "os_u2_main");
                 startActivity(intent);
             }
         });
@@ -74,7 +77,8 @@ public class os_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(os_cs.this, os_u3_main.class);
+                Intent intent = new Intent(os_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "os_u3_main");
                 startActivity(intent);
             }
         });
@@ -86,7 +90,8 @@ public class os_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(os_cs.this, os_u4_main.class);
+                Intent intent = new Intent(os_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "os_u4_main");
                 startActivity(intent);
             }
         });
@@ -98,7 +103,8 @@ public class os_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(os_cs.this, os_u5_main.class);
+                Intent intent = new Intent(os_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "os_u5_main");
                 startActivity(intent);
             }
         });
@@ -109,9 +115,11 @@ public class os_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(os_cs.this, os_u6_main.class);
+                Intent intent = new Intent(os_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "os_u6_main");
                 startActivity(intent);
             }
         });
     }
 }
+

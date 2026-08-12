@@ -11,9 +11,8 @@ import androidx.cardview.widget.CardView;
 
 public class cms1_it extends AppCompatActivity {
 
-    CardView cms1_ass,cms1_lab,cms1_u1,cms1_u2,cms1_u3,cms1_u4,cms1_u5;
+    CardView cms1_u1,cms1_u2,cms1_u3,cms1_u4,cms1_u5;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

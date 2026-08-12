@@ -37,7 +37,8 @@ public class im_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(im_cs.this, im_u1_main.class);
+                Intent intent = new Intent(im_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "im_u1_main");
                 startActivity(intent);
             }
         });
@@ -49,7 +50,8 @@ public class im_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(im_cs.this, im_u2_main.class);
+                Intent intent = new Intent(im_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "im_u2_main");
                 startActivity(intent);
             }
         });
@@ -61,7 +63,8 @@ public class im_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(im_cs.this, im_u3_main.class);
+                Intent intent = new Intent(im_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "im_u3_main");
                 startActivity(intent);
             }
         });
@@ -73,7 +76,8 @@ public class im_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(im_cs.this, im_u4_main.class);
+                Intent intent = new Intent(im_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "im_u4_main");
                 startActivity(intent);
             }
         });
@@ -85,10 +89,12 @@ public class im_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(im_cs.this, im_u5_main.class);
+                Intent intent = new Intent(im_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "im_u5_main");
                 startActivity(intent);
             }
         });
 
     }
 }
+

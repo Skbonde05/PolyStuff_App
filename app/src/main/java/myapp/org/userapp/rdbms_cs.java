@@ -37,7 +37,8 @@ public class rdbms_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(rdbms_cs.this, rdbms_que_main.class);
+                Intent intent = new Intent(rdbms_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "rdbms_que_main");
                 startActivity(intent);
             }
         });
@@ -49,7 +50,8 @@ public class rdbms_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(rdbms_cs.this, rdbms_u1_main.class);
+                Intent intent = new Intent(rdbms_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "rdbms_u1_main");
                 startActivity(intent);
             }
         });
@@ -61,7 +63,8 @@ public class rdbms_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(rdbms_cs.this, rdbms_u2_main.class);
+                Intent intent = new Intent(rdbms_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "rdbms_u2_main");
                 startActivity(intent);
             }
         });
@@ -73,7 +76,8 @@ public class rdbms_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(rdbms_cs.this, rdbms_u3_main.class);
+                Intent intent = new Intent(rdbms_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "rdbms_u3_main");
                 startActivity(intent);
             }
         });
@@ -85,7 +89,8 @@ public class rdbms_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(rdbms_cs.this, rdbms_u4_main.class);
+                Intent intent = new Intent(rdbms_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "rdbms_u4_main");
                 startActivity(intent);
             }
         });
@@ -97,7 +102,8 @@ public class rdbms_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(rdbms_cs.this, rdbms_u5_main.class);
+                Intent intent = new Intent(rdbms_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "rdbms_u5_main");
                 startActivity(intent);
             }
         });
@@ -109,7 +115,8 @@ public class rdbms_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(rdbms_cs.this, rdbms_u6_main.class);
+                Intent intent = new Intent(rdbms_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "rdbms_u6_main");
                 startActivity(intent);
             }
         });
@@ -117,3 +124,4 @@ public class rdbms_cs extends AppCompatActivity {
 
     }
 }
+

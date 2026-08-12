@@ -38,9 +38,11 @@ public class ict_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(ict_cs.this, fict_cmd_main.class);
+                Intent intent = new Intent(ict_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "fict_cmd_main");
                 startActivity(intent);
             }
         });
     }
 }
+

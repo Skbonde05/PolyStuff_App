@@ -11,9 +11,8 @@ import androidx.cardview.widget.CardView;
 
 public class cc_cs extends AppCompatActivity {
 
-    CardView cc_u1,cc_u2,cc_u3,cc_u4,cc_u5,cc_u6,cc_prac,cc_lab,cc_que;
+    CardView cc_u1,cc_u2,cc_u3,cc_u4,cc_u5,cc_u6,cc_que;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +39,8 @@ public class cc_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(cc_cs.this, cc_que_main.class);
+                Intent intent = new Intent(cc_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cc_que_main");
                 startActivity(intent);
             }
         });
@@ -53,7 +53,8 @@ public class cc_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(cc_cs.this, cc_u1_main.class);
+                Intent intent = new Intent(cc_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cc_u1_main");
                 startActivity(intent);
             }
         });
@@ -63,7 +64,8 @@ public class cc_cs extends AppCompatActivity {
         cc_u2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(cc_cs.this, cc_u2_main.class);
+                Intent intent = new Intent(cc_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cc_u2_main");
                 startActivity(intent);
             }
         });
@@ -73,7 +75,8 @@ public class cc_cs extends AppCompatActivity {
         cc_u3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(cc_cs.this, cc_u3_main.class);
+                Intent intent = new Intent(cc_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cc_u3_main");
                 startActivity(intent);
             }
         });
@@ -83,7 +86,8 @@ public class cc_cs extends AppCompatActivity {
         cc_u4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(cc_cs.this, cc_u4_main.class);
+                Intent intent = new Intent(cc_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cc_u4_main");
                 startActivity(intent);
             }
         });
@@ -93,7 +97,8 @@ public class cc_cs extends AppCompatActivity {
         cc_u5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(cc_cs.this, cc_u5_main.class);
+                Intent intent = new Intent(cc_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cc_u5_main");
                 startActivity(intent);
             }
         });
@@ -103,10 +108,12 @@ public class cc_cs extends AppCompatActivity {
         cc_u6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(cc_cs.this, cc_u6_main.class);
+                Intent intent = new Intent(cc_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cc_u6_main");
                 startActivity(intent);
             }
         });
 
     }
 }
+

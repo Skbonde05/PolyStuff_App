@@ -36,9 +36,11 @@ public class python_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(python_cs.this, pwp_mcq_main.class);
+                Intent intent = new Intent(python_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "pwp_mcq_main");
                 startActivity(intent);
             }
         });
     }
 }
+

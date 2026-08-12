@@ -37,9 +37,11 @@ public class aap_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(aap_cs.this, aap_mcq_main.class);
+                Intent intent = new Intent(aap_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "aap_mcq_main");
                 startActivity(intent);
             }
         });
     }
 }
+

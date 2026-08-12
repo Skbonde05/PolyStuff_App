@@ -36,7 +36,8 @@ public class pdtmp_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(pdtmp_cs.this, dtmp_que_main.class);
+                Intent intent = new Intent(pdtmp_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "dtmp_que_main");
                 startActivity(intent);
             }
         });
@@ -48,7 +49,8 @@ public class pdtmp_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(pdtmp_cs.this, dtmp_u1_main.class);
+                Intent intent = new Intent(pdtmp_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "dtmp_u1_main");
                 startActivity(intent);
             }
         });
@@ -60,7 +62,8 @@ public class pdtmp_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(pdtmp_cs.this, dtmp_u2_main.class);
+                Intent intent = new Intent(pdtmp_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "dtmp_u2_main");
                 startActivity(intent);
             }
         });
@@ -71,7 +74,8 @@ public class pdtmp_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(pdtmp_cs.this, dtmp_u3_main.class);
+                Intent intent = new Intent(pdtmp_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "dtmp_u3_main");
                 startActivity(intent);
             }
         });
@@ -82,7 +86,8 @@ public class pdtmp_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(pdtmp_cs.this, dtmp_u4_main.class);
+                Intent intent = new Intent(pdtmp_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "dtmp_u4_main");
                 startActivity(intent);
             }
         });
@@ -93,7 +98,8 @@ public class pdtmp_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(pdtmp_cs.this, dtmp_u5_main.class);
+                Intent intent = new Intent(pdtmp_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "dtmp_u5_main");
                 startActivity(intent);
             }
         });
@@ -104,10 +110,12 @@ public class pdtmp_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(pdtmp_cs.this, dtmp_u6_main.class);
+                Intent intent = new Intent(pdtmp_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "dtmp_u6_main");
                 startActivity(intent);
             }
         });
 
     }
 }
+

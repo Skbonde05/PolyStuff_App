@@ -2,7 +2,9 @@ package myapp.org.userapp;
 
 public class HelperClass {
 
-    String name, email, username, password;
+    private String name;
+    private String email;
+    private String username;
 
     public String getName() {
         return name;
@@ -28,19 +30,10 @@ public class HelperClass {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public HelperClass(String name, String email, String username, String password) {
+    public HelperClass(String name, String email, String username) {
         this.name = name;
         this.email = email;
         this.username = username;
-        this.password = password;
     }
 
     public HelperClass() {

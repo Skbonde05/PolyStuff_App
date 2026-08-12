@@ -36,7 +36,8 @@ public class cphm_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(cphm_cs.this, cphm_que_main.class);
+                Intent intent = new Intent(cphm_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cphm_que_main");
                 startActivity(intent);
             }
         });
@@ -48,7 +49,8 @@ public class cphm_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(cphm_cs.this, cphm_u1_main.class);
+                Intent intent = new Intent(cphm_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cphm_u1_main");
                 startActivity(intent);
             }
         });
@@ -60,7 +62,8 @@ public class cphm_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(cphm_cs.this, cphm_u2_main.class);
+                Intent intent = new Intent(cphm_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cphm_u2_main");
                 startActivity(intent);
             }
         });
@@ -72,7 +75,8 @@ public class cphm_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(cphm_cs.this, cphm_u3_main.class);
+                Intent intent = new Intent(cphm_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cphm_u3_main");
                 startActivity(intent);
             }
         });
@@ -84,7 +88,8 @@ public class cphm_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(cphm_cs.this, cphm_u4_main.class);
+                Intent intent = new Intent(cphm_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cphm_u4_main");
                 startActivity(intent);
             }
         });
@@ -96,7 +101,8 @@ public class cphm_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(cphm_cs.this, cphm_u5_main.class);
+                Intent intent = new Intent(cphm_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cphm_u5_main");
                 startActivity(intent);
             }
         });
@@ -108,7 +114,8 @@ public class cphm_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(cphm_cs.this, cphm_u6_main.class);
+                Intent intent = new Intent(cphm_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cphm_u6_main");
                 startActivity(intent);
             }
         });
@@ -116,3 +123,4 @@ public class cphm_cs extends AppCompatActivity {
 
     }
 }
+

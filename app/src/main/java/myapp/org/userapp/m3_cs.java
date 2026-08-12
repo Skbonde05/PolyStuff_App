@@ -36,7 +36,8 @@ public class m3_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(m3_cs.this, m3_tut_main.class);
+                Intent intent = new Intent(m3_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "m3_tut_main");
                 startActivity(intent);
             }
         });
@@ -47,7 +48,8 @@ public class m3_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(m3_cs.this, m3_que_main.class);
+                Intent intent = new Intent(m3_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "m3_que_main");
                 startActivity(intent);
             }
         });
@@ -58,7 +60,8 @@ public class m3_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(m3_cs.this, m3_u1_main.class);
+                Intent intent = new Intent(m3_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "m3_u1_main");
                 startActivity(intent);
             }
         });
@@ -69,7 +72,8 @@ public class m3_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(m3_cs.this, m3_u2_main.class);
+                Intent intent = new Intent(m3_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "m3_u2_main");
                 startActivity(intent);
             }
         });
@@ -80,7 +84,8 @@ public class m3_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(m3_cs.this, m3_u3_main.class);
+                Intent intent = new Intent(m3_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "m3_u3_main");
                 startActivity(intent);
             }
         });
@@ -91,7 +96,8 @@ public class m3_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(m3_cs.this, m3_u4_main.class);
+                Intent intent = new Intent(m3_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "m3_u4_main");
                 startActivity(intent);
             }
         });
@@ -102,9 +108,11 @@ public class m3_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(m3_cs.this, m3_u5_main.class);
+                Intent intent = new Intent(m3_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "m3_u5_main");
                 startActivity(intent);
             }
         });
     }
 }
+

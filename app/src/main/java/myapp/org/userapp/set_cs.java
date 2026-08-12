@@ -39,7 +39,8 @@ public class set_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(set_cs.this, set_que_main.class);
+                Intent intent = new Intent(set_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "set_que_main");
                 startActivity(intent);
             }
         });
@@ -51,7 +52,8 @@ public class set_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(set_cs.this, set_u1_main.class);
+                Intent intent = new Intent(set_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "set_u1_main");
                 startActivity(intent);
             }
         });
@@ -63,7 +65,8 @@ public class set_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(set_cs.this, set_u2_main.class);
+                Intent intent = new Intent(set_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "set_u2_main");
                 startActivity(intent);
             }
         });
@@ -75,7 +78,8 @@ public class set_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(set_cs.this, set_u3_main.class);
+                Intent intent = new Intent(set_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "set_u3_main");
                 startActivity(intent);
             }
         });
@@ -87,7 +91,8 @@ public class set_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(set_cs.this, set_u4_main.class);
+                Intent intent = new Intent(set_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "set_u4_main");
                 startActivity(intent);
             }
         });
@@ -99,7 +104,8 @@ public class set_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(set_cs.this, set_u5_main.class);
+                Intent intent = new Intent(set_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "set_u5_main");
                 startActivity(intent);
             }
         });
@@ -111,10 +117,12 @@ public class set_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(set_cs.this, set_u6_main.class);
+                Intent intent = new Intent(set_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "set_u6_main");
                 startActivity(intent);
             }
         });
 
     }
 }
+

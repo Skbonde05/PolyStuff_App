@@ -40,7 +40,8 @@ public class cms2_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(cms2_cs.this, cms2_que_main.class);
+                Intent intent = new Intent(cms2_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cms2_que_main");
                 startActivity(intent);
             }
         });
@@ -53,10 +54,12 @@ public class cms2_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(cms2_cs.this, cms2_u4_main.class);
+                Intent intent = new Intent(cms2_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cms2_u4_main");
                 startActivity(intent);
             }
         });
 
     }
 }
+

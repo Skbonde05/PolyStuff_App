@@ -28,7 +28,7 @@ public class LogoutActivity extends AppCompatActivity {
                 firebaseAuth.signOut();
 
                 // Redirect to sign-up activity
-                startActivity(new Intent(LogoutActivity.this, sign_up.class));
+                startActivity(new Intent(LogoutActivity.this, SignUpActivity.class));
                 finish(); // Finish the current activity
             }
         });

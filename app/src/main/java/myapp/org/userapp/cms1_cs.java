@@ -11,9 +11,8 @@ import androidx.cardview.widget.CardView;
 
 public class cms1_cs extends AppCompatActivity {
 
-    CardView cms1_ass,cms1_lab,cms1_u1,cms1_u2,cms1_u3,cms1_u4,cms1_u5;
+    CardView cms1_u1,cms1_u2,cms1_u3,cms1_u4,cms1_u5;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +40,8 @@ public class cms1_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(cms1_cs.this, cms1_u1_main.class);
+                Intent intent = new Intent(cms1_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cms1_u1_main");
                 startActivity(intent);
             }
         });
@@ -53,7 +53,8 @@ public class cms1_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(cms1_cs.this, cms1_u2_main.class);
+                Intent intent = new Intent(cms1_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cms1_u2_main");
                 startActivity(intent);
             }
         });
@@ -65,7 +66,8 @@ public class cms1_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(cms1_cs.this, cms1_u3_main.class);
+                Intent intent = new Intent(cms1_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cms1_u3_main");
                 startActivity(intent);
             }
         });
@@ -77,7 +79,8 @@ public class cms1_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(cms1_cs.this, cms1_u4_main.class);
+                Intent intent = new Intent(cms1_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cms1_u4_main");
                 startActivity(intent);
             }
         });
@@ -89,10 +92,12 @@ public class cms1_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(cms1_cs.this, cms1_u5_main.class);
+                Intent intent = new Intent(cms1_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "cms1_u5_main");
                 startActivity(intent);
             }
         });
 
     }
 }
+

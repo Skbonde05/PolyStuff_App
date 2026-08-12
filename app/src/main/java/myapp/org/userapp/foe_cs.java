@@ -36,7 +36,8 @@ public class foe_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(foe_cs.this, foe_que_main.class);
+                Intent intent = new Intent(foe_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "foe_que_main");
                 startActivity(intent);
             }
         });
@@ -48,7 +49,8 @@ public class foe_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(foe_cs.this, foe_u1_main.class);
+                Intent intent = new Intent(foe_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "foe_u1_main");
                 startActivity(intent);
             }
         });
@@ -60,7 +62,8 @@ public class foe_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(foe_cs.this, foe_u2_main.class);
+                Intent intent = new Intent(foe_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "foe_u2_main");
                 startActivity(intent);
             }
         });
@@ -72,7 +75,8 @@ public class foe_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(foe_cs.this, foe_u3_main.class);
+                Intent intent = new Intent(foe_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "foe_u3_main");
                 startActivity(intent);
             }
         });
@@ -84,7 +88,8 @@ public class foe_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(foe_cs.this, foe_u4_main.class);
+                Intent intent = new Intent(foe_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "foe_u4_main");
                 startActivity(intent);
             }
         });
@@ -96,9 +101,11 @@ public class foe_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(foe_cs.this, foe_u5_main.class);
+                Intent intent = new Intent(foe_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "foe_u5_main");
                 startActivity(intent);
             }
         });
     }
 }
+

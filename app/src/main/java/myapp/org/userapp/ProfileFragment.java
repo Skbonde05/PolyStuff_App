@@ -78,7 +78,7 @@ public class ProfileFragment extends Fragment {
 
         TextView privacyTextView = view.findViewById(R.id.privacy);
         privacyTextView.setOnClickListener(v -> {
-            String url = "https://skbonde05.github.io/PolyStuff/privacy_policy.html";
+            String url = "https://docs.google.com/document/d/e/2PACX-1vSYCfqT352NwPXuSYX5aGnwz2R6qHoZwKShqwNViPvivgqk2DkuNNb5YZatYVdkj5eW3GpHXw3JYF5v/pub";
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(Uri.parse(url));
             startActivity(intent);
@@ -120,6 +120,18 @@ public class ProfileFragment extends Fragment {
                     .show();
         });
 
+        View adminCardView = view.findViewById(R.id.adminCardView);
+        TextView btnAdminDashboard = view.findViewById(R.id.btnAdminDashboard);
+
+        AdminManager.getInstance().checkIsAdmin(isAdmin -> {
+            if (isAdmin && isAdded()) {
+                adminCardView.setVisibility(View.VISIBLE);
+                btnAdminDashboard.setOnClickListener(v -> {
+                    startActivity(new Intent(requireActivity(), AdminDashboardActivity.class));
+                });
+            }
+        });
+
         return view;
     }
 
@@ -142,7 +154,7 @@ public class ProfileFragment extends Fragment {
         editor.clear();
         editor.apply();
 
-        startActivity(new Intent(requireActivity(), login.class));
+        startActivity(new Intent(requireActivity(), LoginActivity.class));
         requireActivity().finish();
     }
 }

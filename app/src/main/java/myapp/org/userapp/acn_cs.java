@@ -11,9 +11,8 @@ import androidx.cardview.widget.CardView;
 
 public class acn_cs extends AppCompatActivity {
 
-    CardView acn_u1,acn_u2,acn_u3,acn_u4,acn_u5,acn_u6,acn_prac,acn_lab,acn_que;
+    CardView acn_u1,acn_u2,acn_u3,acn_u4,acn_u5,acn_u6,acn_que;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +38,8 @@ public class acn_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(acn_cs.this, acn_que_main.class);
+                Intent intent = new Intent(acn_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "acn_que_main");
                 startActivity(intent);
             }
         });
@@ -51,7 +51,8 @@ public class acn_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(acn_cs.this, acn_u1_main.class);
+                Intent intent = new Intent(acn_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "acn_u1_main");
                 startActivity(intent);
             }
         });
@@ -63,7 +64,8 @@ public class acn_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(acn_cs.this, acn_u2_main.class);
+                Intent intent = new Intent(acn_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "acn_u2_main");
                 startActivity(intent);
             }
         });
@@ -75,7 +77,8 @@ public class acn_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(acn_cs.this, acn_u3_main.class);
+                Intent intent = new Intent(acn_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "acn_u3_main");
                 startActivity(intent);
             }
         });
@@ -87,7 +90,8 @@ public class acn_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(acn_cs.this, acn_u4_main.class);
+                Intent intent = new Intent(acn_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "acn_u4_main");
                 startActivity(intent);
             }
         });
@@ -99,7 +103,8 @@ public class acn_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(acn_cs.this, acn_u5_main.class);
+                Intent intent = new Intent(acn_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "acn_u5_main");
                 startActivity(intent);
             }
         });
@@ -111,10 +116,12 @@ public class acn_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(acn_cs.this, acn_u6_main.class);
+                Intent intent = new Intent(acn_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "acn_u6_main");
                 startActivity(intent);
             }
         });
 
     }
 }
+

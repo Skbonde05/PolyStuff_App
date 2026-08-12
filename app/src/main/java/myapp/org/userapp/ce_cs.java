@@ -11,9 +11,8 @@ import androidx.cardview.widget.CardView;
 
 public class ce_cs extends AppCompatActivity {
 
-    CardView ce_u1,ce_u2,ce_u3,ce_u4,ce_u5,ce_u6,ce_ass,ce_lab;
+    CardView ce_u1,ce_u2,ce_u3,ce_u4,ce_u5,ce_u6;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +39,8 @@ public class ce_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(ce_cs.this, ce_u1_main.class);
+                Intent intent = new Intent(ce_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "ce_u1_main");
                 startActivity(intent);
             }
         });
@@ -52,7 +52,8 @@ public class ce_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(ce_cs.this, ce_u2_main.class);
+                Intent intent = new Intent(ce_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "ce_u2_main");
                 startActivity(intent);
             }
         });
@@ -64,7 +65,8 @@ public class ce_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(ce_cs.this, ce_u3_main.class);
+                Intent intent = new Intent(ce_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "ce_u3_main");
                 startActivity(intent);
             }
         });
@@ -76,7 +78,8 @@ public class ce_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(ce_cs.this, ce_u4_main.class);
+                Intent intent = new Intent(ce_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "ce_u4_main");
                 startActivity(intent);
             }
         });
@@ -88,7 +91,8 @@ public class ce_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(ce_cs.this, ce_u5_main.class);
+                Intent intent = new Intent(ce_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "ce_u5_main");
                 startActivity(intent);
             }
         });
@@ -100,10 +104,12 @@ public class ce_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(ce_cs.this, ce_u6_main.class);
+                Intent intent = new Intent(ce_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "ce_u6_main");
                 startActivity(intent);
             }
         });
 
     }
 }
+

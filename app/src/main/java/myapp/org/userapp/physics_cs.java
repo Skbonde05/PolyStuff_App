@@ -36,7 +36,8 @@ public class physics_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(physics_cs.this, phy_u1_main.class);
+                Intent intent = new Intent(physics_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "phy_u1_main");
                 startActivity(intent);
             }
         });
@@ -48,7 +49,8 @@ public class physics_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(physics_cs.this, phy_u2_main.class);
+                Intent intent = new Intent(physics_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "phy_u2_main");
                 startActivity(intent);
             }
         });
@@ -60,7 +62,8 @@ public class physics_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(physics_cs.this, phy_u3_main.class);
+                Intent intent = new Intent(physics_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "phy_u3_main");
                 startActivity(intent);
             }
         });
@@ -72,7 +75,8 @@ public class physics_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(physics_cs.this, phy_u4_main.class);
+                Intent intent = new Intent(physics_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "phy_u4_main");
                 startActivity(intent);
             }
         });
@@ -84,7 +88,8 @@ public class physics_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(physics_cs.this, phy_u5_main.class);
+                Intent intent = new Intent(physics_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "phy_u5_main");
                 startActivity(intent);
             }
         });
@@ -96,7 +101,8 @@ public class physics_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(physics_cs.this, phy_u6_main.class);
+                Intent intent = new Intent(physics_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "phy_u6_main");
                 startActivity(intent);
             }
         });
@@ -105,3 +111,4 @@ public class physics_cs extends AppCompatActivity {
 
     }
 }
+

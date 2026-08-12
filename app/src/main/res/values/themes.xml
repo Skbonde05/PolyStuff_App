@@ -1,7 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.UserApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Light mode colors -->
-        <item name="colorOnSurface">@color/colorTextLight</item>  <!-- Your custom light text color -->
-        <item name="android:textColorPrimary">@color/colorTextLight</item>
+        <item name="colorPrimary">@color/smart_primary</item>
+        <item name="colorPrimaryVariant">@color/smart_primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/smart_accent_cyan</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:colorBackground">@color/smart_card_bg</item>
+        <item name="colorSurface">@color/smart_card_bg</item>
+        <item name="colorOnSurface">@color/smart_text_main</item>
+        <item name="android:textColorPrimary">@color/smart_text_main</item>
+        <item name="android:statusBarColor">@color/smart_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
+
+    <style name="Theme.UserApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.UserApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

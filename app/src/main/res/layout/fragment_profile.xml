@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F6E4E1"
-    tools:context=".ProfileFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/smart_bg_start"
+        tools:context=".ProfileFragment">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -202,6 +202,32 @@
                 tools:ignore="MissingConstraints" />
 
         </androidx.cardview.widget.CardView>
+        <!-- Admin Dashboard Button -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/adminCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="gone"
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="#EEF2FF">
+
+            <TextView
+                android:id="@+id/btnAdminDashboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableStart="@drawable/ic_profile"
+                android:gravity="start|center_vertical"
+                android:padding="12dp"
+                android:text="  Admin Dashboard"
+                android:textColor="#4F46E5"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
         <!-- Logout Button -->
         <androidx.cardview.widget.CardView
             android:id="@+id/logoutCardView"

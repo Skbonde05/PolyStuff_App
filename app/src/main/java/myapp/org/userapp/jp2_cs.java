@@ -40,7 +40,8 @@ public class jp2_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(jp2_cs.this, jp2_que_main.class);
+                Intent intent = new Intent(jp2_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "jp2_que_main");
                 startActivity(intent);
             }
         });
@@ -52,7 +53,8 @@ public class jp2_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(jp2_cs.this, jp2_u1_main.class);
+                Intent intent = new Intent(jp2_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "jp2_u1_main");
                 startActivity(intent);
             }
         });
@@ -63,7 +65,8 @@ public class jp2_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(jp2_cs.this, jp2_u2_main.class);
+                Intent intent = new Intent(jp2_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "jp2_u2_main");
                 startActivity(intent);
             }
         });
@@ -74,7 +77,8 @@ public class jp2_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(jp2_cs.this, jp2_u3_main.class);
+                Intent intent = new Intent(jp2_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "jp2_u3_main");
                 startActivity(intent);
             }
         });
@@ -85,7 +89,8 @@ public class jp2_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(jp2_cs.this, jp2_u4_main.class);
+                Intent intent = new Intent(jp2_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "jp2_u4_main");
                 startActivity(intent);
             }
         });
@@ -96,7 +101,8 @@ public class jp2_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(jp2_cs.this, jp2_u5_main.class);
+                Intent intent = new Intent(jp2_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "jp2_u5_main");
                 startActivity(intent);
             }
         });
@@ -107,9 +113,11 @@ public class jp2_cs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Open jp1_u1_main activity
-                Intent intent = new Intent(jp2_cs.this, jp2_u6_main.class);
+                Intent intent = new Intent(jp2_cs.this, SubjectContentActivity.class);
+                intent.putExtra(SubjectContentActivity.EXTRA_SUBJECT_KEY, "jp2_u6_main");
                 startActivity(intent);
             }
         });
     }
 }
+
