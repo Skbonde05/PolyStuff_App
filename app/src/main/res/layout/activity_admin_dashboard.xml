@@ -1,208 +1,265 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC">
+    android:fitsSystemWindows="true"
+    android:background="#F5F7FA"
+    tools:context=".AdminCMSActivity">
 
+    <!-- Navy Blue App Bar -->
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        app:elevation="0dp">
+        android:background="#0A2540"
+        app:elevation="0dp"
+        app:liftOnScroll="true"
+        app:liftOnScrollTargetViewId="@id/nestedScrollView">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#6366F1"
-            app:title="Smart Notes - Admin CMS"
-            app:titleTextColor="@android:color/white"
-            app:navigationIcon="@drawable/ic_back" />
+            android:background="#0A2540"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationIconTint="#FFFFFF"
+            app:title="Admin CMS"
+            app:titleTextColor="#FFFFFF"
+            app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge"
+            app:menu="@menu/admin_menu" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <!-- Progress Bar -->
+    <ProgressBar
+        android:id="@+id/adminProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminateTint="#0A2540"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:padding="16dp">
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:background="#F5F7FA"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="96dp">
 
-            <!-- Stat Header Banner -->
-            <com.google.android.material.card.MaterialCardView
+            <!-- Search Field -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/searchLayout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="#EEF2FF"
-                app:strokeColor="#C7D2FE"
-                app:strokeWidth="1dp"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="20dp"
+                android:hint="Search content"
+                app:boxBackgroundColor="#FFFFFF"
+                app:boxStrokeColor="#0A2540"
+                app:boxStrokeWidth="1dp"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:startIconDrawable="@drawable/ic_search"
+                app:startIconTint="#0A2540"
+                app:endIconMode="clear_text"
+                app:endIconTint="#0A2540">
 
-                <LinearLayout
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/searchView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
+                    android:inputType="text"
+                    android:textColor="#0A2540"
+                    android:textColorHint="#5A6B7B"
+                    android:maxLines="1"
+                    android:fontFamily="sans-serif"
+                    android:textSize="15sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Admin Content Hub"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="#312E81" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Manage application subjects, notes, and CDN mirrors in real time."
-                        android:textSize="14sp"
-                        android:textColor="#4338CA"
-                        android:layout_marginTop="4dp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="16dp">
-
-                        <!-- Stat 1 -->
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/tvTotalSubjects"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="--"
-                                android:textSize="24sp"
-                                android:textStyle="bold"
-                                android:textColor="#4F46E5" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Subjects"
-                                android:textSize="12sp"
-                                android:textColor="#6B7280" />
-                        </LinearLayout>
-
-                        <!-- Stat 2 -->
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/tvTotalPdfs"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="--"
-                                android:textSize="24sp"
-                                android:textStyle="bold"
-                                android:textColor="#10B981" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Notes &amp; PDFs"
-                                android:textSize="12sp"
-                                android:textColor="#6B7280" />
-                        </LinearLayout>
-
-                        <!-- Stat 3 -->
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="jsDelivr CDN"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:textColor="#8B5CF6" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Free Unlimited"
-                                android:textSize="12sp"
-                                android:textColor="#6B7280" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Quick Action Buttons -->
+            <!-- Stats Row -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="20dp">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAddContent"
+                <!-- Total Subjects Stat Card -->
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
-                    android:layout_height="56dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="+ Add New Note"
-                    android:textSize="14sp"
-                    android:textAllCaps="false"
-                    app:cornerRadius="12dp"
-                    app:backgroundTint="#4F46E5"
-                    android:layout_marginEnd="8dp" />
+                    android:layout_marginEnd="6dp"
+                    app:cardBackgroundColor="#0A2540"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#0A2540"
+                    app:strokeWidth="0dp">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnRefreshData"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        android:gravity="start">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:cardBackgroundColor="#FFFFFF"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginBottom="12dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_subject"
+                                android:contentDescription="Total Subjects"
+                                app:tint="#0A2540" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:id="@+id/tvTotalSubjects"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="--"
+                            android:textSize="26sp"
+                            android:fontFamily="sans-serif-black"
+                            android:textColor="#FFFFFF"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Subjects"
+                            android:textSize="12sp"
+                            android:textColor="#B8C5D1"
+                            android:letterSpacing="0.02"
+                            android:layout_marginTop="4dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Total Files Stat Card -->
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
-                    android:layout_height="56dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Sync Database"
-                    android:textSize="14sp"
-                    android:textAllCaps="false"
-                    app:cornerRadius="12dp"
-                    app:backgroundTint="#10B981"
-                    android:layout_marginStart="8dp" />
+                    android:layout_marginStart="6dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        android:gravity="start">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:cardBackgroundColor="#0A2540"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginBottom="12dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_pdf"
+                                android:contentDescription="Total Files"
+                                app:tint="#FFFFFF" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:id="@+id/tvTotalPdfs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="--"
+                            android:textSize="26sp"
+                            android:fontFamily="sans-serif-black"
+                            android:textColor="#0A2540"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Files"
+                            android:textSize="12sp"
+                            android:textColor="#5A6B7B"
+                            android:letterSpacing="0.02"
+                            android:layout_marginTop="4dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
             </LinearLayout>
 
-            <!-- Content List Header -->
+            <!-- Section Label -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Managed Content"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#1E293B"
-                android:layout_marginBottom="12dp" />
+                android:text="CONTENT MANAGEMENT"
+                android:textColor="#0A2540"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="4dp" />
 
-            <ProgressBar
-                android:id="@+id/adminProgressBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:visibility="gone"
-                android:layout_marginVertical="24dp" />
-
+            <!-- RecyclerView -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/adminRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false" />
+                android:nestedScrollingEnabled="false"
+                android:clipToPadding="false"
+                tools:listitem="@layout/item_admin_content" />
 
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
+
+    <!-- FAB with Navy Blue background -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_add"
+        android:contentDescription="Add content"
+        app:tint="#FFFFFF"
+        app:backgroundTint="#0A2540"
+        app:rippleColor="#1A3A5C"
+        app:elevation="6dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

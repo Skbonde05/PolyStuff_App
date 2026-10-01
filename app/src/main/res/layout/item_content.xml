@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contentItemCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:foreground="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="2dp"
+    app:strokeColor="#E1E7ED"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:minHeight="88dp">
+
+        <!-- Navy Blue Icon Container -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            app:cardBackgroundColor="#0A2540"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            android:layout_marginEnd="16dp">
+
+            <ImageView
+                android:id="@+id/imageViewIcon"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_pdf"
+                android:contentDescription="Item icon"
+                app:tint="#FFFFFF" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#0A2540"
+                android:textSize="17sp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.01"
+                android:maxLines="2"
+                android:ellipsize="end"
+                tools:text="Unit 1: Introduction to Operating Systems" />
+
+            <TextView
+                android:id="@+id/textViewSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#5A6B7B"
+                android:textSize="13sp"
+                android:letterSpacing="0.01"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginTop="4dp"
+                tools:text="PDF · Updated recently" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_chevron_right"
+            android:contentDescription="Open"
+            app:tint="#0A2540"
+            android:alpha="0.4" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

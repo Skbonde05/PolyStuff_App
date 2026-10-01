@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="?attr/colorBackground">
+
+    <LinearLayout
+        android:id="@+id/headerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Hero Top Welcome Banner -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0A2540"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="28dp">
+
+            <TextView
+                android:id="@+id/textViewHello"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Welcome back"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/profileHeaderAvatar"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/subHelloText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Study Notes, Solved Manuals &amp; Papers"
+                android:textColor="#D1D5DB"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginTop="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/profileHeaderAvatar"
+                app:layout_constraintTop_toBottomOf="@id/textViewHello" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileHeaderAvatar"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/avatar"
+                app:civ_border_color="#80FFFFFF"
+                app:civ_border_width="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="-16dp">
+
+            <!-- Floating Search Pill -->
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:queryHint="Search study notes, subjects, manuals..."
+                app:iconifiedByDefault="false"
+                app:queryBackground="@android:color/transparent"
+                android:background="@drawable/bg_search_pill"
+                android:elevation="6dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/mainScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/headerContainer"
+        app:layout_constraintBottom_toTopOf="@id/adContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:clipToPadding="false"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <!-- Banner ViewPager Slider -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Featured Updates"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="17sp"
+                android:fontFamily="sans-serif-bold"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:strokeWidth="0dp">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:clipChildren="false" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Dots Indicator -->
+            <LinearLayout
+                android:id="@+id/dotIndicators"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:layout_marginHorizontal="4dp"
+                    app:chipBackgroundColor="?attr/colorPrimary"
+                    app:chipStrokeWidth="0dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:layout_marginHorizontal="4dp"
+                    app:chipBackgroundColor="?attr/colorOnSurface"
+                    app:chipStrokeWidth="0dp"
+                    android:alpha="0.3" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:layout_marginHorizontal="4dp"
+                    app:chipBackgroundColor="?attr/colorOnSurface"
+                    app:chipStrokeWidth="0dp"
+                    android:alpha="0.3" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:layout_marginHorizontal="4dp"
+                    app:chipBackgroundColor="?attr/colorOnSurface"
+                    app:chipStrokeWidth="0dp"
+                    android:alpha="0.3" />
+
+            </LinearLayout>
+
+            <!-- Section Title: Categories -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Explore Disciplines"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="17sp"
+                android:fontFamily="sans-serif-bold"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Grid Row 1: Computer Science & IT -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Computer Science Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/computerLevelsCard"
+                    android:layout_width="0dp"
+                    android:layout_height="185dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="0dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_card_computer"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/badgeCs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_pill_badge"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"
+                            android:text="6 Levels"
+                            android:textColor="@color/white"
+                            android:textSize="11sp"
+                            android:fontFamily="sans-serif-bold" />
+
+                        <ImageView
+                            android:id="@+id/iconCs"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_below="@id/badgeCs"
+                            android:layout_marginTop="12dp"
+                            android:src="@drawable/comppp"
+                            android:contentDescription="Computer Engineering" />
+
+                        <TextView
+                            android:id="@+id/titleCs"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/iconCs"
+                            android:layout_marginTop="10dp"
+                            android:text="Computer Engineering"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-black"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Information Technology Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/semestersCard"
+                    android:layout_width="0dp"
+                    android:layout_height="185dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="0dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_card_it"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/badgeIt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_pill_badge"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"
+                            android:text="All Semesters"
+                            android:textColor="@color/white"
+                            android:textSize="11sp"
+                            android:fontFamily="sans-serif-bold" />
+
+                        <ImageView
+                            android:id="@+id/iconIt"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_below="@id/badgeIt"
+                            android:layout_marginTop="12dp"
+                            android:src="@drawable/information_technology"
+                            android:contentDescription="Information Technology" />
+
+                        <TextView
+                            android:id="@+id/titleIt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/iconIt"
+                            android:layout_marginTop="10dp"
+                            android:text="Information Technology"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-black"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- Grid Row 2: Lab Manuals & Micro Projects -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="14dp">
+
+                <!-- Lab Manuals Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/labmanualCard"
+                    android:layout_width="0dp"
+                    android:layout_height="185dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="0dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_card_lab"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/badgeLab"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_pill_badge"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"
+                            android:text="PDF Manuals"
+                            android:textColor="@color/white"
+                            android:textSize="11sp"
+                            android:fontFamily="sans-serif-bold" />
+
+                        <ImageView
+                            android:id="@+id/iconLab"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_below="@id/badgeLab"
+                            android:layout_marginTop="12dp"
+                            android:src="@drawable/lab"
+                            android:contentDescription="Lab Manuals" />
+
+                        <TextView
+                            android:id="@+id/titleLab"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/iconLab"
+                            android:layout_marginTop="10dp"
+                            android:text="Lab Manuals"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-black"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Micro Projects Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mpCard"
+                    android:layout_width="0dp"
+                    android:layout_height="185dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="0dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_card_mp"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/badgeMp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_pill_badge"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"
+                            android:text="Source &amp; Reports"
+                            android:textColor="@color/white"
+                            android:textSize="11sp"
+                            android:fontFamily="sans-serif-bold" />
+
+                        <ImageView
+                            android:id="@+id/iconMp"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_below="@id/badgeMp"
+                            android:layout_marginTop="12dp"
+                            android:src="@drawable/mp"
+                            android:contentDescription="Micro Projects" />
+
+                        <TextView
+                            android:id="@+id/titleMp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/iconMp"
+                            android:layout_marginTop="10dp"
+                            android:text="Micro Projects"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-black"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/adContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/headerContainer"
+        app:layout_constraintBottom_toTopOf="@id/adContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="?attr/colorSurface"
+        android:elevation="12dp"
+        android:visibility="gone"
+        android:divider="?attr/colorOutline"
+        android:dividerHeight="0.5dp" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/adContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardBackgroundColor="?attr/colorSurface"
+        app:strokeColor="?attr/colorOutline"
+        app:strokeWidth="1dp">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-8830492032016236/7956628985" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:menu="@menu/bottom_navigation_menu"
+        app:labelVisibilityMode="labeled" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

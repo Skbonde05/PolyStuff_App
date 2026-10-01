@@ -8,6 +8,7 @@ import android.util.Log;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,6 +72,9 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+        ImageButton backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(v -> onBackPressed());
+
         loginRedirectText.setOnClickListener(v ->
                 startActivity(new Intent(SignUpActivity.this, LoginActivity.class)));
     }
@@ -99,6 +103,7 @@ public class SignUpActivity extends AppCompatActivity {
                             userProfile.setName(name);
                             userProfile.setEmail(email);
                             userProfile.setUsername(username);
+                            userProfile.setImageUrl(""); // Default empty during signup
                             userProfile.setAdmin(false);
                             sessionManager.saveSession(userProfile);
 
@@ -107,7 +112,13 @@ public class SignUpActivity extends AppCompatActivity {
 
                             Toast.makeText(SignUpActivity.this,
                                     "You have signed up successfully!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                            
+                            Intent mainIntent = new Intent(SignUpActivity.this, MainActivity.class);
+                            mainIntent.putExtra("name", name);
+                            mainIntent.putExtra("email", email);
+                            mainIntent.putExtra("username", username);
+                            mainIntent.putExtra("isAdmin", false);
+                            startActivity(mainIntent);
                             finish();
                         }
                     } else {
@@ -128,7 +139,7 @@ public class SignUpActivity extends AppCompatActivity {
      */
     private void insertUserIntoSupabase(String firebaseUid, String name, String email, String username) {
         if (!myapp.org.userapp.supabase.SupabaseClientWrapper.isConfigured()) {
-            Log.e(TAG, "❌ Cannot insert into Supabase: Anon key in SupabaseConfig.java is truncated or missing.");
+            Log.e(TAG, "Cannot insert into Supabase: Anon key in SupabaseConfig.java is truncated or missing.");
             return;
         }
         executor.execute(() -> {

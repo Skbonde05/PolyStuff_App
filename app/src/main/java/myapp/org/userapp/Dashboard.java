@@ -21,12 +21,12 @@ public class Dashboard extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDashboard2();
+                openLoginActivity1();
             }
         });
     }
 
-    private void openDashboard2() {
+    private void openLoginActivity1() {
         Intent intent = new Intent(Dashboard.this, Dashboard2.class);
         startActivity(intent);
     }

@@ -1,7 +1,36 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.UserApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Dark mode colors (force white text) -->
-        <item name="colorOnSurface">@android:color/white</item>
-        <item name="android:textColorPrimary">@android:color/white</item>
+
+        <!-- Primary Brand Colors (Dark Mode) -->
+        <item name="colorPrimary">#6366F1</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#312E81</item>
+        <item name="colorOnPrimaryContainer">#EEF2FF</item>
+
+        <!-- Secondary Brand Colors (Dark Mode) -->
+        <item name="colorSecondary">#38BDF8</item>
+        <item name="colorOnSecondary">#082F49</item>
+        <item name="colorSecondaryContainer">#0C4A6E</item>
+        <item name="colorOnSecondaryContainer">#E0F2FE</item>
+
+        <!-- Surface & Background (Dark Mode) -->
+        <item name="android:colorBackground">@color/slate_bg</item>
+        <item name="colorBackground">@color/slate_bg</item>
+        <item name="colorOnBackground">@color/slate_text_primary</item>
+        <item name="colorSurface">@color/slate_surface</item>
+        <item name="colorOnSurface">@color/slate_text_primary</item>
+        <item name="colorSurfaceVariant">@color/slate_border</item>
+        <item name="colorOnSurfaceVariant">@color/slate_text_secondary</item>
+        <item name="colorOutline">@color/slate_border</item>
+        <item name="colorOutlineVariant">@color/slate_border</item>
+
+        <!-- Window Status & Navigation Bar -->
+        <item name="android:statusBarColor">@color/slate_bg</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/slate_surface</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
     </style>
+
+    <style name="Theme.UserApp.AppBarOverlay" parent="ThemeOverlay.Material3.Dark.ActionBar" />
+    <style name="Theme.UserApp.PopupOverlay" parent="ThemeOverlay.Material3.Dark" />
 </resources>

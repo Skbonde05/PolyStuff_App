@@ -1,14 +1,36 @@
 package myapp.org.userapp.supabase;
 
+import android.content.Context;
+import android.util.Log;
+
+import myapp.org.userapp.BuildConfig;
+
 public class SupabaseConfig {
-    public static final String SUPABASE_URL = "https://gvanbazxuootjfoetupd.supabase.co";
-    public static final String SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd2YW5iYXp4dW9vdGpmb2V0dXBkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY1NDg5NDEsImV4cCI6MjEwMjEyNDk0MX0.BPnGtFkUX0-hqN-y3fFya4hCyrL-B31x73KllAesPhI";
+
+    private static final String TAG = "SupabaseConfig";
 
     public static String getSupabaseUrl() {
-        return SUPABASE_URL;
+        return BuildConfig.SUPABASE_URL;
     }
 
     public static String getSupabaseAnonKey() {
-        return SUPABASE_ANON_KEY;
+        return BuildConfig.SUPABASE_ANON_KEY;
+    }
+
+    public static boolean isConfigured() {
+        String url = getSupabaseUrl();
+        String key = getSupabaseAnonKey();
+        boolean configured = url != null && !url.isEmpty() && !url.contains("your-project")
+                && key != null && !key.isEmpty() && !key.contains("your-anon-key")
+                && !key.endsWith("...");
+        if (!configured) {
+            Log.w(TAG, "Supabase is not configured. Update gradle.properties with SUPABASE_URL and SUPABASE_ANON_KEY.");
+        }
+        return configured;
+    }
+
+    public static void logStatus(Context context) {
+        Log.i(TAG, "Supabase URL: " + getSupabaseUrl());
+        Log.i(TAG, "Supabase configured: " + isConfigured());
     }
 }

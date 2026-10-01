@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import myapp.org.userapp.auth.SessionManager;
 
 public class LogoutActivity extends AppCompatActivity {
 
@@ -27,8 +28,12 @@ public class LogoutActivity extends AppCompatActivity {
                 // Delete user credentials from Firebase Authentication
                 firebaseAuth.signOut();
 
-                // Redirect to sign-up activity
-                startActivity(new Intent(LogoutActivity.this, SignUpActivity.class));
+                // Clear session
+                SessionManager sessionManager = new SessionManager(LogoutActivity.this);
+                sessionManager.clearSession();
+
+                // Redirect to Login activity
+                startActivity(new Intent(LogoutActivity.this, LoginActivity.class));
                 finish(); // Finish the current activity
             }
         });

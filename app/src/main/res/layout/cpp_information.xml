@@ -1,371 +1,922 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:clipToPadding="false"
+    android:background="#F5F7FA">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="32dp">
 
+        <!-- Hero Banner Image -->
         <ImageView
             android:id="@+id/banner_image"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#F8BBD0"
-            android:src="@drawable/oop_logo"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
             android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintDimensionRatio="H,8:6" />
+            android:src="@drawable/oop_logo"
+            android:contentDescription="Course banner"
+            tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/atc"
+        <!-- Content container with horizontal padding -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="About The Course"
-            android:layout_marginTop="10dp"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:paddingStart="9dp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/banner_image"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp">
 
-        <!-- Course Information Paragraph -->
-        <TextView
-            android:id="@+id/course_info"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="This course serves as an entry point into the world of Object-Oriented Programming (OOP) through the lens of C++. It equips students with the foundational understanding and practical skills necessary to comprehend and utilize core OOP principles. Delving into topics such as classes, objects, inheritance, polymorphism, encapsulation, and abstraction, the course fosters a deep comprehension of OOP concepts. Through hands-on exercises and projects, students not only grasp theoretical knowledge but also develop the ability to apply OOP techniques to real-world scenarios. By the course's conclusion, students emerge with a robust foundation in OOP and C++ programming, primed for further exploration and advancement in software engineering and related domains."
-            android:justificationMode="inter_word"
-            android:textSize="16dp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/atc"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-
-        <!-- Course CardView -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/course_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/course_info"
-            app:cardCornerRadius="8dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp">
-
-                <ImageView
-                    android:id="@+id/course_image"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/ppd"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/course_title"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Department:\nComputer Science"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/course_image"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/instructor_institution"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="11dp"
-                    android:text="Institution:\nIIT Kharagpur"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/course_image"
-                    app:layout_constraintTop_toBottomOf="@+id/course_title" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Expertise: CSE-BCI"
-                    android:textStyle="bold"
-                    android:paddingTop="14dp"
-                    android:textSize="17dp"
-                    app:layout_constraintStart_toEndOf="@+id/course_image"
-                    app:layout_constraintTop_toBottomOf="@+id/instructor_institution"
-                    android:paddingStart="16dp" />
-
-                <TextView
-                    android:id="@+id/course_description"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:textSize="15sp"
-                    android:paddingStart="10dp"
-                    android:text="  Prof.Partha\n  Pratim Das"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/instructor_institution"
-                    app:layout_constraintBottom_toBottomOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <!-- Course Code CardView -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/course_code_cardview"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/course_duration_cardview"
-            app:layout_constraintTop_toBottomOf="@+id/course_card"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="8dp">
-
-            <!-- Course Code Content -->
+            <!-- Section: About The Course -->
             <TextView
-                android:id="@+id/course_code"
+                android:id="@+id/atc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="12dp"
-                android:text="Course Code\nCM3104"
-                android:textSize="18sp" />
-        </androidx.cardview.widget.CardView>
+                android:text="About The Course"
+                android:textColor="#0A2540"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.01"
+                android:layout_marginBottom="8dp" />
 
-        <!-- Course Duration CardView -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/course_duration_cardview"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/course_code_cardview"
-            app:layout_constraintTop_toBottomOf="@+id/course_card"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp">
-
-            <!-- Course Duration Content -->
             <TextView
-                android:id="@+id/course_duration"
+                android:id="@+id/course_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This course serves as an entry point into the world of Object-Oriented Programming (OOP) through the lens of C++. It equips students with the foundational understanding and practical skills necessary to comprehend and utilize core OOP principles. Delving into topics such as classes, objects, inheritance, polymorphism, encapsulation, and abstraction, the course fosters a deep comprehension of OOP concepts. Through hands-on exercises and projects, students not only grasp theoretical knowledge but also develop the ability to apply OOP techniques to real-world scenarios. By the course\'s conclusion, students emerge with a robust foundation in OOP and C++ programming, primed for further exploration and advancement in software engineering and related domains."
+                android:textSize="14sp"
+                android:textColor="#5A6B7B"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Instructor Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/course_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="16dp">
+
+                        <ImageView
+                            android:id="@+id/course_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ppd"
+                            android:contentDescription="Instructor" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/course_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Prof. Partha Pratim Das"
+                            android:textColor="#0A2540"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:id="@+id/instructor_institution"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Computer Science · IIT Kharagpur"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:id="@+id/course_description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Expertise: CSE · BCI"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="2dp"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Course Code + Duration Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <!-- Course Code Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/course_code_cardview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:gravity="center"
+                        android:minHeight="100dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:cardBackgroundColor="#0A2540"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginBottom="10dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_code"
+                                android:contentDescription="Course Code"
+                                app:tint="#FFFFFF" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CM3104"
+                            android:textColor="#0A2540"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Course Code"
+                            android:textColor="#5A6B7B"
+                            android:textSize="12sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Course Duration Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/course_duration_cardview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:gravity="center"
+                        android:minHeight="100dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:cardBackgroundColor="#0A2540"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginBottom="10dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_clock"
+                                android:contentDescription="Course Duration"
+                                app:tint="#FFFFFF" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="8 weeks"
+                            android:textColor="#0A2540"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Course Duration"
+                            android:textColor="#5A6B7B"
+                            android:textSize="12sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- Course Link Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/course_link_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:minHeight="72dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="14dp">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_link"
+                            android:contentDescription="Course Link"
+                            app:tint="#FFFFFF" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Course Link"
+                            android:textColor="#0A2540"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:id="@+id/course_link"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="onlinecourses.nptel.ac.in"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="2dp"
+                            android:maxLines="1"
+                            android:ellipsize="middle"
+                            android:autoLink="web" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_open_in_new"
+                        android:contentDescription="Open link"
+                        app:tint="#0A2540"
+                        android:alpha="0.5" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Section: Course Layout -->
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="12dp"
-                android:text="Course Duration\n8 weeks"
-                android:textSize="18sp" />
-        </androidx.cardview.widget.CardView>
+                android:text="Course Layout"
+                android:textColor="#0A2540"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.01"
+                android:layout_marginBottom="12dp" />
 
-        <!-- Course Link CardView -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/course_link_cardview"
-            android:layout_width="338dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/course_duration_cardview"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="8dp"
-            tools:ignore="MissingConstraints,NotSibling">
-
-            <!-- Course Link Content -->
-            <TextView
-                android:id="@+id/course_link"
+            <!-- Week 1 -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="Course Link \nhttps://onlinecourses.nptel.ac.in/noc25_cs144/preview"
-                android:textSize="18sp"
-                android:autoLink="web" />
-        </androidx.cardview.widget.CardView>
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/course_link_cardview"
-            android:layout_margin="16dp"
-            app:cardCornerRadius="8dp">
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp">
-
-                <TextView
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Course Layout"
-                    android:textStyle="bold"
-                    android:textSize="19dp"/>
+                    android:orientation="horizontal"
+                    android:padding="14dp">
 
-                <!-- Week 1 -->
-                <TableRow>
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.9"
-                        android:text="\nWeek 1:"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:text="\nProgramming in C++ is Fun : Build and execute a C program in C++, Write equivalent programs in C++" />
-                </TableRow>
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="14dp">
 
-                <!-- Week 2 -->
-                <TableRow>
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.9"
-                        android:text="Week 2:"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:text="C++ as Better C : Procedural Extensions of C" />
-                </TableRow>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="1"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium" />
 
-                <!-- Week 3 -->
-                <TableRow>
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.9"
-                        android:text="Week 3:"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:text="Overview of OOP in C++ : Classes and basic Object-Oriented features (encapsulation)" />
-                </TableRow>
+                    </com.google.android.material.card.MaterialCardView>
 
-                <!-- Week 4 -->
-                <TableRow>
-                    <TextView
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.9"
-                        android:text="Week 4:"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:text="Overview of OOP in C++ : More OO features, overloading, namespace and using struct and union" />
-                </TableRow>
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:minHeight="40dp">
 
-                <!-- Week 5 -->
-                <TableRow>
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.9"
-                        android:text="Week 5:"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:text="Inheritance : Generalization / Specialization of Object Modeling in C++" />
-                </TableRow>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 1"
+                            android:textColor="#0A2540"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
 
-                <!-- Week 6 -->
-                <TableRow>
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.9"
-                        android:text="Week 6:"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:text="Polymorphism : Static and Dynamic Binding" />
-                </TableRow>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Programming in C++ is Fun: Build and execute a C program in C++, Write equivalent programs in C++"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:lineSpacingExtra="2dp"
+                            android:layout_marginTop="4dp" />
 
-                <!-- Week 7 -->
-                <TableRow>
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.9"
-                        android:text="Week 7:"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:text="Type Casting &amp; Exceptions : C++ cast operators; C++ Exceptions &amp; standard exception classes" />
-                </TableRow>
+                    </LinearLayout>
 
-                <!-- Week 8 -->
-                <TableRow>
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.9"
-                        android:text="Week 8:"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:text="Templates &amp; STL – Function and Class templates and using STL like containers, algorithms" />
-                </TableRow>
-            </TableLayout>
-        </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+                </LinearLayout>
 
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Week 2 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="14dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="2"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:minHeight="40dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 2"
+                            android:textColor="#0A2540"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="C++ as Better C: Procedural Extensions of C"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Week 3 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="14dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="3"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:minHeight="40dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 3"
+                            android:textColor="#0A2540"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Overview of OOP in C++: Classes and basic Object-Oriented features (encapsulation)"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:lineSpacingExtra="2dp"
+                            android:layout_marginTop="4dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Week 4 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="14dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="4"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:minHeight="40dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 4"
+                            android:textColor="#0A2540"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Overview of OOP in C++: More OO features, overloading, namespace and using struct and union"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:lineSpacingExtra="2dp"
+                            android:layout_marginTop="4dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Week 5 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="14dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="5"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:minHeight="40dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 5"
+                            android:textColor="#0A2540"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Inheritance: Generalization / Specialization of Object Modeling in C++"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:lineSpacingExtra="2dp"
+                            android:layout_marginTop="4dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Week 6 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="14dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="6"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:minHeight="40dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 6"
+                            android:textColor="#0A2540"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Polymorphism: Static and Dynamic Binding"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Week 7 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="14dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="7"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:minHeight="40dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 7"
+                            android:textColor="#0A2540"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Type Casting &amp; Exceptions: C++ cast operators; C++ Exceptions &amp; standard exception classes"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:lineSpacingExtra="2dp"
+                            android:layout_marginTop="4dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Week 8 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="14dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="14dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="8"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:minHeight="40dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Week 8"
+                            android:textColor="#0A2540"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Templates &amp; STL – Function and Class templates and using STL like containers, algorithms"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:lineSpacingExtra="2dp"
+                            android:layout_marginTop="4dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

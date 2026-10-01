@@ -1,28 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginVertical="8dp"
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp"
+    app:strokeColor="#E1E7ED"
+    app:strokeWidth="1dp">
 
-    <TextView
-        android:id="@+id/titleTextView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp" />
+        android:orientation="vertical"
+        android:padding="12dp">
 
-    <WebView
-        android:id="@+id/video_view"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        tools:ignore="WebViewLayout" />
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0A2540"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_marginBottom="8dp" />
 
-    <Button
-        android:id="@+id/fullscreen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Full Screen" />
-</LinearLayout>
+        <WebView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#000000"
+            tools:ignore="WebViewLayout" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fullscreen"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="4dp"
+            android:text="Full Screen"
+            android:textColor="#0A2540"
+            app:iconTint="#0A2540"
+            app:iconGravity="textStart" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

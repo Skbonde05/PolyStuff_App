@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -19,7 +20,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 public class levels2_it extends AppCompatActivity {
 
-    private CardView pic_it, foe_it, linux_it, html_it, ee_it, ict_it, m3_it;
+    private CardView foe_it, linux_it, html_it, ee_it, ict_it, m3_it;
     private InterstitialAd mInterstitialAd;
     private final String INTERSTITIAL_AD_ID = "ca-app-pub-8830492032016236/3616577654";
     private final String BANNER_AD_ID = "ca-app-pub-8830492032016236/7956628985";
@@ -33,22 +34,32 @@ public class levels2_it extends AppCompatActivity {
         // Initialize Mobile Ads SDK
         MobileAds.initialize(this, initializationStatus -> {});
 
-        // Load banner ad
+        // Load banner ad (null-safe)
         AdView adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+        if (adView != null) {
+            AdRequest adRequest = new AdRequest.Builder().build();
+            adView.loadAd(adRequest);
+        }
 
         // Load interstitial ad
         loadInterstitialAd();
 
-        // Back button with interstitial ad
+        // -------- Back button (null-safe, ImageButton OR Toolbar fallback) --------
         ImageButton backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(v -> {
-            showInterstitialAd(() -> {
+        if (backButton != null) {
+            backButton.setOnClickListener(v -> showInterstitialAd(() -> {
                 startActivity(new Intent(levels2_it.this, ItLevels.class));
                 finish();
-            });
-        });
+            }));
+        } else {
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            if (toolbar != null) {
+                toolbar.setNavigationOnClickListener(v -> showInterstitialAd(() -> {
+                    startActivity(new Intent(levels2_it.this, ItLevels.class));
+                    finish();
+                }));
+            }
+        }
 
         // Initialize card views
         initializeCardViews();
@@ -75,48 +86,59 @@ public class levels2_it extends AppCompatActivity {
             mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
                 @Override
                 public void onAdDismissedFullScreenContent() {
-                    loadInterstitialAd(); // Load next ad
-                    afterAdClosed.run(); // Execute the intended action
+                    loadInterstitialAd();
+                    afterAdClosed.run();
                 }
 
                 @Override
                 public void onAdFailedToShowFullScreenContent(com.google.android.gms.ads.AdError adError) {
-                    afterAdClosed.run(); // Proceed if ad fails to show
-                    loadInterstitialAd(); // Try loading another ad
+                    afterAdClosed.run();
+                    loadInterstitialAd();
                 }
             });
             mInterstitialAd.show(this);
         } else {
-            afterAdClosed.run(); // If no ad loaded, proceed immediately
-            loadInterstitialAd(); // Load ad for next time
+            afterAdClosed.run();
+            loadInterstitialAd();
         }
     }
 
     private void initializeCardViews() {
-        foe_it = findViewById(R.id.foe_it);
+        foe_it   = findViewById(R.id.foe_it);
         linux_it = findViewById(R.id.linux_it);
-        html_it = findViewById(R.id.html_it);
-        ee_it = findViewById(R.id.ee_it);
-        ict_it = findViewById(R.id.ict_it);
-        m3_it = findViewById(R.id.m3_it);
+        html_it  = findViewById(R.id.html_it);
+        ee_it    = findViewById(R.id.ee_it);
+        ict_it   = findViewById(R.id.ict_it);
+        m3_it    = findViewById(R.id.m3_it);
 
-        // Set click listeners with interstitial ads
-        foe_it.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels2_it.this, foe_it.class))));
+        if (foe_it != null) {
+            foe_it.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels2_it.this, "foe_it")));
+        }
 
-        linux_it.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels2_it.this, linux_it.class))));
+        if (linux_it != null) {
+            linux_it.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels2_it.this, "linux_it")));
+        }
 
-        html_it.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels2_it.this, html_it.class))));
+        if (html_it != null) {
+            html_it.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels2_it.this, "html_it")));
+        }
 
-        ee_it.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels2_it.this, ee_it.class))));
+        if (ee_it != null) {
+            ee_it.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels2_it.this, "ee_it")));
+        }
 
-        ict_it.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels2_it.this, ict_it.class))));
+        if (ict_it != null) {
+            ict_it.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels2_it.this, "ict_it")));
+        }
 
-        m3_it.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels2_it.this, m3_it.class))));
+        if (m3_it != null) {
+            m3_it.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels2_it.this, "m3_it")));
+        }
     }
 }

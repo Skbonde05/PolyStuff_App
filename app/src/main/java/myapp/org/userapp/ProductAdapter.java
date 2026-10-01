@@ -2,45 +2,32 @@ package myapp.org.userapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import android.util.TypedValue;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
-    private Context mCtx;
     private List<Product> productList;
 
-    public ProductAdapter(Context mCtx, List<Product> productList) {
-        this.mCtx = mCtx;
+    public ProductAdapter(List<Product> productList) {
         this.productList = productList;
     }
 
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = null;
-        switch (viewType) {
-            case 1:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.jp1_u1_layout, parent, false);
-                break;
-            case 2:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.jp1_u2_layout, parent, false);
-                break;
-        }
-
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pdf, parent, false);
         return new ProductViewHolder(view);
     }
 
@@ -48,36 +35,26 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         final Product product = productList.get(position);
 
-        // Apply theme-aware text color
-        TypedValue typedValue = new TypedValue();
-        Context context = holder.itemView.getContext();
-        context.getTheme().resolveAttribute(android.R.attr.textColorPrimary, typedValue, true);
-        holder.textViewTitle.setTextColor(typedValue.data);
-
-        holder.textViewTitle.setText(product.getTitle());
-        holder.imageView.setImageResource(product.getImage());
-
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("ProductAdapter", "Opening PDF URL in built-in viewer: " + product.getLink());
-                try {
-                    Intent intent = new Intent(mCtx, PdfViewerActivity.class);
-                    intent.putExtra(PdfViewerActivity.EXTRA_PDF_TITLE, product.getTitle().trim());
-                    intent.putExtra(PdfViewerActivity.EXTRA_PDF_URL, product.getLink());
-                    mCtx.startActivity(intent);
-                } catch (Exception e) {
-                    Log.e("ProductAdapter", "Error opening PDF: " + e.getMessage());
-                    Toast.makeText(mCtx, "Error opening PDF document", Toast.LENGTH_SHORT).show();
-                }
+        if (holder.textViewTitle != null) {
+            TypedValue typedValue = new TypedValue();
+            Context context = holder.itemView.getContext();
+            if (context.getTheme().resolveAttribute(com.google.android.material.R.attr.colorOnSurface, typedValue, true)) {
+                holder.textViewTitle.setTextColor(typedValue.data);
+            } else {
+                holder.textViewTitle.setTextColor(0xFF0F172A);
             }
-        });
-    }
+            holder.textViewTitle.setText(product.getTitle());
+        }
 
-    @Override
-    public int getItemViewType(int position) {
-        // For simplicity, let's assume the odd positions have jp1_u1_layout and even positions have jp1_u2_layout
-        return position % 2 == 0 ? 1 : 2;
+        if (holder.imageViewIcon != null) {
+            holder.imageViewIcon.setImageResource(product.getImage());
+        }
+
+        if (holder.textViewSubtitle != null) {
+            holder.textViewSubtitle.setText("PDF Document");
+        }
+
+        holder.bind(product);
     }
 
     @Override
@@ -85,16 +62,48 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         return productList.size();
     }
 
-    static class ProductViewHolder extends RecyclerView.ViewHolder {
+    class ProductViewHolder extends RecyclerView.ViewHolder {
+        View cardView;
+        ImageView imageViewIcon;
         TextView textViewTitle;
-        ImageView imageView;
-        CardView cardView;
+        TextView textViewSubtitle;
+        private Product currentProduct;
 
-        public ProductViewHolder(View itemView) {
+        public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.cardview);
-            textViewTitle = itemView.findViewById(R.id.textViewTitle);
-            imageView = itemView.findViewById(R.id.imageView);
+            if (cardView == null) {
+                cardView = itemView;
+            }
+            imageViewIcon = itemView.findViewById(R.id.pdfIcon);
+            if (imageViewIcon == null) imageViewIcon = itemView.findViewById(R.id.imageViewIcon);
+            if (imageViewIcon == null) imageViewIcon = itemView.findViewById(R.id.imageView);
+
+            textViewTitle = itemView.findViewById(R.id.pdfTitle);
+            if (textViewTitle == null) textViewTitle = itemView.findViewById(R.id.textViewTitle);
+
+            textViewSubtitle = itemView.findViewById(R.id.pdfSize);
+            if (textViewSubtitle == null) textViewSubtitle = itemView.findViewById(R.id.textViewSubtitle);
+
+            View clickTarget = cardView != null ? cardView : itemView;
+            clickTarget.setOnClickListener(v -> {
+                if (currentProduct == null) return;
+                Log.d("ProductAdapter", "Opening PDF: " + currentProduct.getTitle() + " URL: " + currentProduct.getLink());
+                try {
+                    Context context = itemView.getContext();
+                    Intent intent = new Intent(context, PdfViewerActivity.class);
+                    intent.putExtra(PdfViewerActivity.EXTRA_PDF_TITLE, currentProduct.getTitle().trim());
+                    intent.putExtra(PdfViewerActivity.EXTRA_PDF_URL, currentProduct.getLink());
+                    context.startActivity(intent);
+                } catch (Exception e) {
+                    Log.e("ProductAdapter", "Error opening PDF: " + e.getMessage(), e);
+                    android.widget.Toast.makeText(itemView.getContext(), "Error opening PDF: " + e.getMessage(), android.widget.Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        void bind(Product product) {
+            currentProduct = product;
         }
     }
 }

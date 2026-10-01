@@ -32,10 +32,9 @@ public class OnlineCoursesFragment extends Fragment {
 
 
         ImageButton backButton = rootView.findViewById(R.id.backButton);
-        backButton.setOnClickListener(v -> {
-            Intent intent = new Intent(requireActivity(), MainActivity.class);
-            startActivity(intent);
-        });
+        if (backButton != null) {
+            backButton.setOnClickListener(v -> requireActivity().getOnBackPressedDispatcher().onBackPressed());
+        }
 
         setupCardClickListeners(rootView);
         return rootView;
@@ -88,24 +87,24 @@ public class OnlineCoursesFragment extends Fragment {
         CardView pythonCardView = rootView.findViewById(R.id.python);
 
         cppCardView.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(getActivity(), cpp_information.class))));
+                SimpleActivity.launch(getActivity(), R.layout.cpp_information)));
 
         javaCardView.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(getActivity(), java_information.class))));
+                SimpleActivity.launch(getActivity(), R.layout.java_information)));
 
         iotCardView.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(getActivity(), iot_information.class))));
+                SimpleActivity.launch(getActivity(), R.layout.iot_information)));
 
         phpCardView.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(getActivity(), php_information.class))));
+                SimpleActivity.launch(getActivity(), R.layout.php_information)));
 
         pythonCardView.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(getActivity(), python_information.class))));
+                SimpleActivity.launch(getActivity(), R.layout.python_information)));
 
         cCardView.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(getActivity(), c_information.class))));
+                SimpleActivity.launch(getActivity(), R.layout.c_information)));
 
         dsCardView.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(getActivity(), ds_course_info.class))));
+                SimpleActivity.launch(getActivity(), R.layout.ds_course_info)));
     }
 }

@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -33,22 +34,32 @@ public class levels4 extends AppCompatActivity {
         // Initialize Mobile Ads SDK
         MobileAds.initialize(this, initializationStatus -> {});
 
-        // Load banner ad
+        // Load banner ad (null-safe)
         AdView adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+        if (adView != null) {
+            AdRequest adRequest = new AdRequest.Builder().build();
+            adView.loadAd(adRequest);
+        }
 
         // Load interstitial ad
         loadInterstitialAd();
 
-        // Back button with interstitial ad
+        // -------- Back button (null-safe, ImageButton OR Toolbar fallback) --------
         ImageButton backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(v -> {
-            showInterstitialAd(() -> {
+        if (backButton != null) {
+            backButton.setOnClickListener(v -> showInterstitialAd(() -> {
                 startActivity(new Intent(levels4.this, ComputerLevels.class));
                 finish();
-            });
-        });
+            }));
+        } else {
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            if (toolbar != null) {
+                toolbar.setNavigationOnClickListener(v -> showInterstitialAd(() -> {
+                    startActivity(new Intent(levels4.this, ComputerLevels.class));
+                    finish();
+                }));
+            }
+        }
 
         // Initialize card views
         initializeCardViews();
@@ -75,32 +86,35 @@ public class levels4 extends AppCompatActivity {
             mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
                 @Override
                 public void onAdDismissedFullScreenContent() {
-                    loadInterstitialAd(); // Load next ad
-                    afterAdClosed.run(); // Execute the intended action
+                    loadInterstitialAd();
+                    afterAdClosed.run();
                 }
 
                 @Override
                 public void onAdFailedToShowFullScreenContent(com.google.android.gms.ads.AdError adError) {
-                    afterAdClosed.run(); // Proceed if ad fails to show
-                    loadInterstitialAd(); // Try loading another ad
+                    afterAdClosed.run();
+                    loadInterstitialAd();
                 }
             });
             mInterstitialAd.show(this);
         } else {
-            afterAdClosed.run(); // If no ad loaded, proceed immediately
-            loadInterstitialAd(); // Load ad for next time
+            afterAdClosed.run();
+            loadInterstitialAd();
         }
     }
 
     private void initializeCardViews() {
         edp_cs = findViewById(R.id.edp_cs);
-        im_cs = findViewById(R.id.im_cs);
+        im_cs  = findViewById(R.id.im_cs);
 
-        // Set click listeners with interstitial ads
-        edp_cs.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels4.this, edp_cs.class))));
+        if (edp_cs != null) {
+            edp_cs.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels4.this, "edp_cs")));
+        }
 
-        im_cs.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels4.this, im_cs.class))));
+        if (im_cs != null) {
+            im_cs.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels4.this, "im_cs")));
+        }
     }
 }

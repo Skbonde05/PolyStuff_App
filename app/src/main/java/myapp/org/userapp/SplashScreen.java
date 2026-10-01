@@ -24,12 +24,28 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setStatusBarColor(android.graphics.Color.WHITE);
+        getWindow().setNavigationBarColor(android.graphics.Color.WHITE);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            int flags = android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                flags |= android.view.View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
+            }
+            getWindow().getDecorView().setSystemUiVisibility(flags);
+        }
         setContentView(R.layout.splash_screen1);
 
         bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
-        image = findViewById(R.id.imageView);
-        image.setAnimation(bottomAnim);
+        android.view.View brandContainer = findViewById(R.id.centerBrandContainer);
+        if (brandContainer != null) {
+            brandContainer.startAnimation(bottomAnim);
+        } else {
+            image = findViewById(R.id.imageView);
+            if (image != null) {
+                image.startAnimation(bottomAnim);
+            }
+        }
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -41,7 +57,7 @@ public class SplashScreen extends AppCompatActivity {
                     Intent intent = new Intent(SplashScreen.this, MainActivity.class);
                     startActivity(intent);
                 } else {
-                    Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
+                    Intent intent = new Intent(SplashScreen.this, Dashboard.class);
                     startActivity(intent);
                 }
                 finish();

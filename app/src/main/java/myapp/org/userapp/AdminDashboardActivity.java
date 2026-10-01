@@ -60,8 +60,8 @@ public class AdminDashboardActivity extends AppCompatActivity {
         tvTotalPdfs = findViewById(R.id.tvTotalPdfs);
         adminProgressBar = findViewById(R.id.adminProgressBar);
         adminRecyclerView = findViewById(R.id.adminRecyclerView);
-        btnAddContent = findViewById(R.id.btnAddContent);
-        btnRefreshData = findViewById(R.id.btnRefreshData);
+        btnAddContent = findViewById(R.id.fabAddContent);
+        btnRefreshData = null;
 
         adminRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new AdminContentAdapter(itemList);
@@ -87,8 +87,12 @@ public class AdminDashboardActivity extends AppCompatActivity {
     }
 
     private void setupAdminFeatures() {
-        btnAddContent.setOnClickListener(v -> showAddEditDialog(null));
-        btnRefreshData.setOnClickListener(v -> loadContentFromFirebase());
+        if (btnAddContent != null) {
+            btnAddContent.setOnClickListener(v -> showAddEditDialog(null));
+        }
+        if (btnRefreshData != null) {
+            btnRefreshData.setOnClickListener(v -> loadContentFromFirebase());
+        }
     }
 
     private void loadContentFromFirebase() {

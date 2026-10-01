@@ -4,22 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:visibility="visible"
-    tools:context=".splash_screen1"
-    tools:visibility="visible"
-    android:layout_gravity="center"
-    >
+    android:background="@color/white"
+    tools:context=".SplashScreen">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="280dp"
+    <!-- Center Brand Container -->
+    <LinearLayout
+        android:id="@+id/centerBrandContainer"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="150dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/polystuff1" />
+        app:layout_constraintBottom_toTopOf="@id/bottomFooterContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.42">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:contentDescription="PolyStuff App Logo"
+            android:scaleType="fitCenter"
+            android:src="@drawable/polystuff1" />
+
+        <TextView
+            android:id="@+id/splashTagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Smart Study Notes Companion"
+            android:textColor="#64748B"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.03"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+    <!-- Bottom Loading and Academic Footer -->
+    <LinearLayout
+        android:id="@+id/bottomFooterContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="44dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:indeterminateTint="@color/indigo_primary"
+            android:layout_marginBottom="16dp" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

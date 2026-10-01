@@ -19,6 +19,9 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 
+import myapp.org.userapp.auth.SessionManager;
+import myapp.org.userapp.model.UserProfile;
+
 public class ProfileFragment extends Fragment {
 
     @Override
@@ -27,32 +30,33 @@ public class ProfileFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        ImageButton backButton = view.findViewById(R.id.backButton);
+        com.google.android.material.appbar.MaterialToolbar toolbar = view.findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            toolbar.setNavigationOnClickListener(v -> requireActivity().getOnBackPressedDispatcher().onBackPressed());
+        }
 
-        backButton.setOnClickListener(v -> {
-            Intent intent = new Intent(requireActivity(), MainActivity.class);
-            startActivity(intent);
-        });
-
-        SharedPreferences prefs = requireActivity().getSharedPreferences("UserData", Context.MODE_PRIVATE);
-        String userName = prefs.getString("UserName", "");
-        String profileImageURL = prefs.getString("ProfileImageURL", "");
+        SessionManager sessionManager = new SessionManager(requireContext());
+        UserProfile userProfile = sessionManager.getSession();
+        String userName = (userProfile != null && userProfile.getName() != null) ? userProfile.getName() : "User";
+        String profileImageURL = (userProfile != null) ? userProfile.getImageUrl() : "";
 
         TextView userNameTextView = view.findViewById(R.id.textView10);
         userNameTextView.setText(userName);
 
         ImageView profileImageView = view.findViewById(R.id.addDeveloperImage);
         if (profileImageURL != null && !profileImageURL.isEmpty()) {
-            Glide.with(requireContext()).load(profileImageURL).into(profileImageView);
+            Glide.with(requireContext()).load(profileImageURL).placeholder(R.drawable.avatar).into(profileImageView);
         } else {
             Glide.with(requireContext()).load(R.drawable.avatar).into(profileImageView);
         }
 
-        ImageView editProfileIcon = view.findViewById(R.id.editProfileIcon);
-        editProfileIcon.setOnClickListener(v -> {
-            Intent intent = new Intent(requireActivity(), edit_profile.class);
-            startActivity(intent);
-        });
+        ImageButton editProfileToolbarIcon = view.findViewById(R.id.editProfileToolbarIcon);
+        if (editProfileToolbarIcon != null) {
+            editProfileToolbarIcon.setOnClickListener(v -> {
+                Intent intent = new Intent(requireActivity(), edit_profile.class);
+                startActivity(intent);
+            });
+        }
 
         TextView feedbackButton = view.findViewById(R.id.feedbackButton);
         feedbackButton.setOnClickListener(v -> {
@@ -110,12 +114,13 @@ public class ProfileFragment extends Fragment {
                         if (selectedPosition == 0) mode = AppCompatDelegate.MODE_NIGHT_NO;
                         else if (selectedPosition == 1) mode = AppCompatDelegate.MODE_NIGHT_YES;
 
-                        SharedPreferences.Editor editor = themePrefs.edit();
-                        editor.putInt("theme_mode", mode);
-                        editor.apply();
+                        if (currentMode != mode) {
+                            SharedPreferences.Editor editor = themePrefs.edit();
+                            editor.putInt("theme_mode", mode);
+                            editor.apply();
 
-                        AppCompatDelegate.setDefaultNightMode(mode);
-                        requireActivity().recreate(); // Apply theme change
+                            AppCompatDelegate.setDefaultNightMode(mode);
+                        }
                     })
                     .show();
         });
@@ -148,6 +153,9 @@ public class ProfileFragment extends Fragment {
 
     private void logout() {
         FirebaseAuth.getInstance().signOut();
+
+        SessionManager sessionManager = new SessionManager(requireContext());
+        sessionManager.clearSession();
 
         SharedPreferences prefs = requireActivity().getSharedPreferences("UserData", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();

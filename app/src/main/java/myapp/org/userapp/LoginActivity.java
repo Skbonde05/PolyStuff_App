@@ -6,6 +6,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,9 @@ public class LoginActivity extends AppCompatActivity {
         signupRedirectText = findViewById(R.id.signupRedirectText);
 
         firebaseAuth = FirebaseAuth.getInstance();
+
+        ImageButton backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(v -> onBackPressed());
 
         loginButton.setOnClickListener(v -> {
             String username = loginUsername.getText().toString().trim();
@@ -115,6 +119,7 @@ public class LoginActivity extends AppCompatActivity {
                         String name = dataSnapshot.child("name").getValue(String.class);
                         String email = dataSnapshot.child("email").getValue(String.class);
                         String username = dataSnapshot.child("username").getValue(String.class);
+                        String imageUrl = dataSnapshot.child("imageUrl").getValue(String.class);
                         Boolean isAdmin = dataSnapshot.child("isAdmin").getValue(Boolean.class);
                         String role = dataSnapshot.child("role").getValue(String.class);
                         boolean adminStatus = isAdmin != null && isAdmin || "admin".equalsIgnoreCase(role);
@@ -125,6 +130,7 @@ public class LoginActivity extends AppCompatActivity {
                         userProfile.setName(name);
                         userProfile.setEmail(email);
                         userProfile.setUsername(username);
+                        userProfile.setImageUrl(imageUrl);
                         userProfile.setAdmin(adminStatus);
                         sessionManager.saveSession(userProfile);
 

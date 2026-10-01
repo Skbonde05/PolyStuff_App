@@ -1,186 +1,560 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#F5F7FA"
+    tools:context=".dcn_it">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <!-- Navy Blue App Bar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:minHeight="?attr/actionBarSize"
-        tools:ignore="MissingConstraints">
+        android:layout_height="wrap_content"
+        android:background="#0A2540"
+        app:elevation="0dp"
+        app:liftOnScroll="true"
+        app:liftOnScrollTargetViewId="@id/nestedScrollView">
 
-        <ImageButton
-            android:id="@+id/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackground"
-            android:contentDescription="@string/back_button_description"
-            android:src="@drawable/ic_back"
-            tools:ignore="TouchTargetSizeCheck" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#0A2540"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationIconTint="#FFFFFF"
+            app:title="DCN"
+            app:titleTextColor="#FFFFFF"
+            app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
-        <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DCN"
-            android:fontFamily="sans-serif-black"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:layout_marginLeft="30dp"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    </androidx.appcompat.widget.Toolbar>
-
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingStart="16dp"
-        android:paddingTop="75dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="16dp"
-        tools:ignore="MissingDefaultResource">
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:background="#F5F7FA"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <!-- Level 2 -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cn_que"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/white"
-            android:clickable="true"
-            android:elevation="4dp"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="29dp">
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="24dp">
 
-            <TextView
+            <!-- Questions Paper Card (Navy Blue highlight) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cn_que"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="Questions Paper"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#0A2540"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:strokeColor="#0A2540"
+                app:strokeWidth="0dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
-        </androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:minHeight="88dp">
 
-        <!-- Level 3 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="16dp">
 
-        <!-- Level 4 -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cn_u1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/white"
-            android:clickable="true"
-            android:elevation="4dp"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="29dp">
+                        <ImageView
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:layout_gravity="center"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_pdf"
+                            android:contentDescription="Questions Paper"
+                            app:tint="#0A2540" />
 
-            <TextView
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Questions Paper"
+                            android:textColor="#FFFFFF"
+                            android:textSize="17sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Previous year question papers"
+                            android:textColor="#B8C5D1"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:contentDescription="Navigate"
+                        app:tint="#FFFFFF"
+                        android:alpha="0.7" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Unit 1 Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cn_u1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="Unit 1: Fundamentals of computer network "
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
-        </androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:minHeight="88dp">
 
-        <!-- Level 5 -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cn_u2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/white"
-            android:clickable="true"
-            android:elevation="4dp"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="29dp">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="16dp">
 
-            <TextView
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="1"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Unit 1: Fundamentals of Computer Network"
+                            android:textColor="#0A2540"
+                            android:textSize="17sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Networking basics &amp; concepts"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:contentDescription="Navigate"
+                        app:tint="#0A2540"
+                        android:alpha="0.4" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Unit 2 Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cn_u2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="Unit 2: Transmission Media"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
-        </androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:minHeight="88dp">
 
-        <!-- Level 6 -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cn_u3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/white"
-            android:clickable="true"
-            android:elevation="4dp"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="29dp">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="16dp">
 
-            <TextView
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="2"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Unit 2: Transmission Media"
+                            android:textColor="#0A2540"
+                            android:textSize="17sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Guided &amp; unguided media"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:contentDescription="Navigate"
+                        app:tint="#0A2540"
+                        android:alpha="0.4" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Unit 3 Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cn_u3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="Unit 3: Wireless Communication"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
-        </androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:minHeight="88dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cn_u4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/white"
-            android:clickable="true"
-            android:elevation="4dp"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="29dp">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="16dp">
 
-            <TextView
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="3"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Unit 3: Wireless Communication"
+                            android:textColor="#0A2540"
+                            android:textSize="17sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Wi-Fi, cellular &amp; Bluetooth"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:contentDescription="Navigate"
+                        app:tint="#0A2540"
+                        android:alpha="0.4" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Unit 4 Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cn_u4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="Unit 4: Network Topologies and Networking Devices"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
-        </androidx.cardview.widget.CardView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:minHeight="88dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cn_u5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/white"
-            android:clickable="true"
-            android:elevation="4dp"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="29dp">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="16dp">
 
-            <TextView
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="4"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Unit 4: Topologies &amp; Networking Devices"
+                            android:textColor="#0A2540"
+                            android:textSize="17sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Star, mesh, hubs &amp; switches"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:contentDescription="Navigate"
+                        app:tint="#0A2540"
+                        android:alpha="0.4" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Unit 5 Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cn_u5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="Unit 5: OSI Reference Model And TCP/IP Model"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:minHeight="88dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="16dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="5"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Unit 5: OSI &amp; TCP/IP Models"
+                            android:textColor="#0A2540"
+                            android:textSize="17sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Layers, protocols &amp; encapsulation"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:contentDescription="Navigate"
+                        app:tint="#0A2540"
+                        android:alpha="0.4" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

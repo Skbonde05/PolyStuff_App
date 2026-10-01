@@ -12,12 +12,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -27,7 +27,9 @@ import com.google.firebase.storage.StorageReference;
 import java.util.HashMap;
 
 public class feedback extends AppCompatActivity {
+
     private static final int REQUEST_CODE_AUDIO_FILE = 1;
+
     private DatabaseReference databaseReference;
     private EditText username, feedback;
     private Uri audioData;
@@ -40,66 +42,65 @@ public class feedback extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.feedback);
 
-        ImageButton backButton = findViewById(R.id.backButton);
+        // -------- Toolbar back button --------
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            toolbar.setNavigationOnClickListener(v -> finish());
+        }
 
-        // Set OnClickListener for the back button
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create an intent to open the Semesters activity
-                Intent intent = new Intent(feedback.this, ProfileFragment.class);
-                startActivity(intent);
-                finish(); // Optional: finish the current activity
-            }
-        });
-
-        // Initialize Firebase Realtime Database
+        // -------- Firebase --------
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference();
 
-        // Initialize Firebase Storage
         FirebaseStorage storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
-        username = findViewById(R.id.username);
-        feedback = findViewById(R.id.feedback);
+        // -------- Views --------
+        username      = findViewById(R.id.username);
+        feedback      = findViewById(R.id.feedback);
         audioTextView = findViewById(R.id.audioTextView);
 
-        // Find the "Send Feedback" button by its ID
-        findViewById(R.id.sendFeedbackButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Call the feedbacksent() method when the button is clicked
-                feedbacksent(v);
-            }
-        });
+        // -------- Audio upload card click -> open file picker --------
+        View uploadAudioBtn = findViewById(R.id.uploadAudioBtn);
+        if (uploadAudioBtn != null) {
+            uploadAudioBtn.setOnClickListener(v -> selectAudioFile(v));
+        }
+
+        // -------- Send Feedback button --------
+        View sendFeedbackButton = findViewById(R.id.sendFeedbackButton);
+        if (sendFeedbackButton != null) {
+            sendFeedbackButton.setOnClickListener(this::feedbacksent);
+        }
     }
 
     private void feedbacksent(View view) {
-        String usernameInput = username.getText().toString();
-        String feedbackInput = feedback.getText().toString();
+        if (username == null || feedback == null) return;
 
-        // Check if username and feedback are not empty
+        String usernameInput = username.getText().toString().trim();
+        String feedbackInput = feedback.getText().toString().trim();
+
         if (TextUtils.isEmpty(usernameInput) || TextUtils.isEmpty(feedbackInput)) {
             Toast.makeText(this, "Username and Feedback cannot be empty", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Show progress dialog while uploading
         ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Uploading Feedback");
         progressDialog.setMessage("Please wait...");
+        progressDialog.setCancelable(false);
         progressDialog.show();
 
-        // Create a unique key for the feedback entry
         String feedbackKey = databaseReference.child("feedback").push().getKey();
+        if (feedbackKey == null) {
+            progressDialog.dismiss();
+            Toast.makeText(this, "Failed to send feedback", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        // Create a HashMap to store feedback data
         HashMap<String, Object> feedbackData = new HashMap<>();
         feedbackData.put("username", usernameInput);
         feedbackData.put("feedback", feedbackInput);
 
-        // Upload the audio file if available
         if (audioData != null) {
             uploadAudioAndFeedback(feedbackKey, feedbackData, progressDialog);
         } else {
@@ -107,56 +108,48 @@ public class feedback extends AppCompatActivity {
         }
     }
 
-
-    private void uploadAudioAndFeedback(String feedbackKey, HashMap<String, Object> feedbackData, ProgressDialog progressDialog) {
-        // Create storage reference for the audio file
+    private void uploadAudioAndFeedback(String feedbackKey,
+                                        HashMap<String, Object> feedbackData,
+                                        ProgressDialog progressDialog) {
         StorageReference audioRef = storageReference.child("audio").child(feedbackKey + ".mp3");
 
-        // Upload the audio file to Firebase Storage
         audioRef.putFile(audioData)
-                .addOnSuccessListener(taskSnapshot -> {
-                    // Get the download URL of the uploaded audio file
-                    audioRef.getDownloadUrl().addOnSuccessListener(uri -> {
-                        String audioDownloadUrl = uri.toString();
-                        feedbackData.put("audioUrl", audioDownloadUrl);
-                        // Store the feedback data in Firebase Realtime Database under "feedback" node with the unique key
-                        databaseReference.child("feedback").child(feedbackKey).setValue(feedbackData).addOnCompleteListener(task -> {
-                                    progressDialog.dismiss();
-                                    if (task.isSuccessful()) {
-                                        Toast.makeText(this, "Feedback sent successfully", Toast.LENGTH_SHORT).show();
-                                        // Clear input fields
-                                        username.setText("");
-                                        feedback.setText("");
-                                        audioTextView.setText("");
-                                        audioData = null; // Reset audioData after upload
-                                    } else {
-                                        Toast.makeText(this, "Failed to send feedback", Toast.LENGTH_SHORT).show();
-                                    }
-                                })
-                                .addOnFailureListener(e -> {
-                                    progressDialog.dismiss();
-                                    Toast.makeText(this, "Failed to upload feedback data", Toast.LENGTH_SHORT).show();
-                                    Log.e("Feedback", "Failed to upload feedback data", e);
-                                });
-                    });
-                })
+                .addOnSuccessListener(taskSnapshot ->
+                        audioRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                            String audioDownloadUrl = uri.toString();
+                            feedbackData.put("audioUrl", audioDownloadUrl);
+                            databaseReference.child("feedback").child(feedbackKey).setValue(feedbackData)
+                                    .addOnCompleteListener(task -> {
+                                        progressDialog.dismiss();
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(this, "Feedback sent successfully", Toast.LENGTH_SHORT).show();
+                                            clearInputs();
+                                        } else {
+                                            Toast.makeText(this, "Failed to send feedback", Toast.LENGTH_SHORT).show();
+                                        }
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        progressDialog.dismiss();
+                                        Toast.makeText(this, "Failed to upload feedback data", Toast.LENGTH_SHORT).show();
+                                        Log.e("Feedback", "Failed to upload feedback data", e);
+                                    });
+                        }))
                 .addOnFailureListener(e -> {
                     progressDialog.dismiss();
-                    Toast.makeText(this, "Failed to upload audio", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Failed to upload audio: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     Log.e("Feedback", "Failed to upload audio", e);
                 });
     }
 
-    private void uploadFeedbackOnly(String feedbackKey, HashMap<String, Object> feedbackData, ProgressDialog progressDialog) {
-        // Store the feedback data in Firebase Realtime Database under "feedback" node with the unique key
+    private void uploadFeedbackOnly(String feedbackKey,
+                                    HashMap<String, Object> feedbackData,
+                                    ProgressDialog progressDialog) {
         databaseReference.child("feedback").child(feedbackKey).setValue(feedbackData)
                 .addOnCompleteListener(task -> {
                     progressDialog.dismiss();
                     if (task.isSuccessful()) {
                         Toast.makeText(this, "Feedback sent successfully", Toast.LENGTH_SHORT).show();
-                        // Clear input fields
-                        username.setText("");
-                        feedback.setText("");
+                        clearInputs();
                     } else {
                         Toast.makeText(this, "Failed to send feedback", Toast.LENGTH_SHORT).show();
                     }
@@ -168,12 +161,18 @@ public class feedback extends AppCompatActivity {
                 });
     }
 
+    private void clearInputs() {
+        if (username != null) username.setText("");
+        if (feedback != null) feedback.setText("");
+        if (audioTextView != null) audioTextView.setText("Tap to select an audio file");
+        audioData = null;
+    }
 
-    // Method to select audio file
-    public void selectAudioFile(View view) {
+    private void selectAudioFile(View view) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("audio/*");
-        startActivityForResult(intent, REQUEST_CODE_AUDIO_FILE);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        startActivityForResult(Intent.createChooser(intent, "Select Audio"), REQUEST_CODE_AUDIO_FILE);
     }
 
     @Override
@@ -181,10 +180,9 @@ public class feedback extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_AUDIO_FILE && resultCode == Activity.RESULT_OK && data != null) {
             audioData = data.getData();
-            if (audioData != null) {
-                // Update the TextView to display the selected audio file name
+            if (audioData != null && audioTextView != null) {
                 String audioFileName = getFileName(audioData);
-                audioTextView.setText(audioFileName);
+                audioTextView.setText(audioFileName != null ? audioFileName : "Audio selected");
             }
         }
     }
@@ -195,15 +193,24 @@ public class feedback extends AppCompatActivity {
         if (uri.getScheme() != null && uri.getScheme().equals("content")) {
             try (Cursor cursor = getContentResolver().query(uri, null, null, null, null)) {
                 if (cursor != null && cursor.moveToFirst()) {
-                    result = cursor.getString(cursor.getColumnIndex(MediaStore.Images.ImageColumns.DISPLAY_NAME));
+                    // Try DISPLAY_NAME first
+                    int nameIndex = cursor.getColumnIndex(MediaStore.Audio.Media.DISPLAY_NAME);
+                    if (nameIndex == -1) {
+                        nameIndex = cursor.getColumnIndex(MediaStore.MediaColumns.DISPLAY_NAME);
+                    }
+                    if (nameIndex != -1) {
+                        result = cursor.getString(nameIndex);
+                    }
                 }
             }
         }
         if (result == null) {
             result = uri.getPath();
-            int index = result.lastIndexOf("/");
-            if (index != -1) {
-                result = result.substring(index + 1);
+            if (result != null) {
+                int index = result.lastIndexOf("/");
+                if (index != -1) {
+                    result = result.substring(index + 1);
+                }
             }
         }
         return result;

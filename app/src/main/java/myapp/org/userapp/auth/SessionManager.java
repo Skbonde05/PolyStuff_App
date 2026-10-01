@@ -12,6 +12,7 @@ public class SessionManager {
     private static final String KEY_EMAIL = "email";
     private static final String KEY_NAME = "name";
     private static final String KEY_USERNAME = "username";
+    private static final String KEY_IMAGE_URL = "image_url";
     private static final String KEY_IS_ADMIN = "is_admin";
 
     private final SharedPreferences prefs;
@@ -26,6 +27,7 @@ public class SessionManager {
         editor.putString(KEY_EMAIL, user.getEmail());
         editor.putString(KEY_NAME, user.getName());
         editor.putString(KEY_USERNAME, user.getUsername());
+        editor.putString(KEY_IMAGE_URL, user.getImageUrl());
         editor.putBoolean(KEY_IS_ADMIN, user.isAdmin());
         editor.apply();
     }
@@ -39,6 +41,7 @@ public class SessionManager {
         user.setName(prefs.getString(KEY_NAME, null));
         user.setEmail(prefs.getString(KEY_EMAIL, null));
         user.setUsername(prefs.getString(KEY_USERNAME, null));
+        user.setImageUrl(prefs.getString(KEY_IMAGE_URL, null));
         user.setAdmin(prefs.getBoolean(KEY_IS_ADMIN, false));
         return user;
     }

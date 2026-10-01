@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -33,22 +34,32 @@ public class levels3 extends AppCompatActivity {
         // Initialize Mobile Ads SDK
         MobileAds.initialize(this, initializationStatus -> {});
 
-        // Load banner ad
+        // Load banner ad (null-safe)
         AdView adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+        if (adView != null) {
+            AdRequest adRequest = new AdRequest.Builder().build();
+            adView.loadAd(adRequest);
+        }
 
         // Load interstitial ad
         loadInterstitialAd();
 
-        // Back button with interstitial ad
+        // -------- Back button (null-safe, ImageButton OR Toolbar fallback) --------
         ImageButton backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(v -> {
-            showInterstitialAd(() -> {
+        if (backButton != null) {
+            backButton.setOnClickListener(v -> showInterstitialAd(() -> {
                 startActivity(new Intent(levels3.this, ComputerLevels.class));
                 finish();
-            });
-        });
+            }));
+        } else {
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            if (toolbar != null) {
+                toolbar.setNavigationOnClickListener(v -> showInterstitialAd(() -> {
+                    startActivity(new Intent(levels3.this, ComputerLevels.class));
+                    finish();
+                }));
+            }
+        }
 
         // Initialize card views
         initializeCardViews();
@@ -75,56 +86,71 @@ public class levels3 extends AppCompatActivity {
             mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
                 @Override
                 public void onAdDismissedFullScreenContent() {
-                    loadInterstitialAd(); // Load next ad
-                    afterAdClosed.run(); // Execute the intended action
+                    loadInterstitialAd();
+                    afterAdClosed.run();
                 }
 
                 @Override
                 public void onAdFailedToShowFullScreenContent(com.google.android.gms.ads.AdError adError) {
-                    afterAdClosed.run(); // Proceed if ad fails to show
-                    loadInterstitialAd(); // Try loading another ad
+                    afterAdClosed.run();
+                    loadInterstitialAd();
                 }
             });
             mInterstitialAd.show(this);
         } else {
-            afterAdClosed.run(); // If no ad loaded, proceed immediately
-            loadInterstitialAd(); // Load ad for next time
+            afterAdClosed.run();
+            loadInterstitialAd();
         }
     }
 
     private void initializeCardViews() {
-        ds_cs = findViewById(R.id.ds_cs);
-        oop_cs = findViewById(R.id.oop_cs);
-        jp1_cs = findViewById(R.id.jp1_cs);
-        os_cs = findViewById(R.id.os_cs);
-        cphm_cs = findViewById(R.id.cphm_cs);
-        cg_cs = findViewById(R.id.cg_cs);
-        cn_cs = findViewById(R.id.cn_cs);
+        ds_cs    = findViewById(R.id.ds_cs);
+        oop_cs   = findViewById(R.id.oop_cs);
+        jp1_cs   = findViewById(R.id.jp1_cs);
+        os_cs    = findViewById(R.id.os_cs);
+        cphm_cs  = findViewById(R.id.cphm_cs);
+        cg_cs    = findViewById(R.id.cg_cs);
+        cn_cs    = findViewById(R.id.cn_cs);
         pdtmp_cs = findViewById(R.id.pdtmp_cs);
 
-        // Set click listeners with interstitial ads
-        ds_cs.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels3.this, ds_cs.class))));
+        if (ds_cs != null) {
+            ds_cs.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels3.this, "ds_cs")));
+        }
 
-        oop_cs.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels3.this, oop_cs.class))));
+        if (oop_cs != null) {
+            oop_cs.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels3.this, "oop_cs")));
+        }
 
-        jp1_cs.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels3.this, jp1_cs.class))));
+        if (jp1_cs != null) {
+            jp1_cs.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels3.this, "jp1_cs")));
+        }
 
-        os_cs.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels3.this, os_cs.class))));
+        if (os_cs != null) {
+            os_cs.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels3.this, "os_cs")));
+        }
 
-        cphm_cs.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels3.this, cphm_cs.class))));
+        if (cphm_cs != null) {
+            cphm_cs.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels3.this, "cphm_cs")));
+        }
 
-        cg_cs.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels3.this, cg_cs.class))));
+        if (cg_cs != null) {
+            cg_cs.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels3.this, "cg_cs")));
+        }
 
-        cn_cs.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels3.this, cn_cs.class))));
+        if (cn_cs != null) {
+            cn_cs.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels3.this, "cn_cs")));
+        }
 
-        pdtmp_cs.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels3.this, pdtmp_cs.class))));
+        if (pdtmp_cs != null) {
+            pdtmp_cs.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels3.this, "pdtmp_cs")));
+        }
     }
 }

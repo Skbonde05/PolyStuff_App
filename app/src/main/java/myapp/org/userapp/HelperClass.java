@@ -5,6 +5,7 @@ public class HelperClass {
     private String name;
     private String email;
     private String username;
+    private String imageUrl;
 
     public String getName() {
         return name;
@@ -30,10 +31,25 @@ public class HelperClass {
         this.username = username;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     public HelperClass(String name, String email, String username) {
         this.name = name;
         this.email = email;
         this.username = username;
+    }
+
+    public HelperClass(String name, String email, String username, String imageUrl) {
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.imageUrl = imageUrl;
     }
 
     public HelperClass() {

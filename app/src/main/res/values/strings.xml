@@ -5,8 +5,74 @@
     <string name="admob_interstitial_ad_unit">ca-app-pub-8830492032016236/3616577654</string>
 
     <string name="back_button_description">Back</string>
+    <string name="edit_profile">Edit Profile</string>
     <string name="pdf_activity_title">\n\n</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Java Information Screen -->
+    <string name="course_banner_desc">Course banner</string>
+    <string name="about_the_course">About The Course</string>
+    <string name="course_description_long">This course provides a comprehensive exploration of Java programming, highlighting its significance in modern software development. With a focus on mastering data structures and algorithms, participants will develop the skills necessary to build robust and efficient software solutions. Java\'s platform independence and versatility make it an ideal choice for various applications, from web development to enterprise software. By the end of the course, participants will have the confidence and expertise to tackle real-world programming challenges using Java effectively.</string>
+    <string name="instructor_desc">Instructor</string>
+    <string name="instructor_name">Prof. Debasis Samanta</string>
+    <string name="instructor_institution">Computer Science · IIT Kharagpur</string>
+    <string name="instructor_expertise">Expertise: CSE · BCI</string>
+    <string name="course_code_label">Course Code</string>
+    <string name="course_code_value">CM4109</string>
+    <string name="course_duration_label">Course Duration</string>
+    <string name="course_duration_value">12 weeks</string>
+    <string name="course_link_label">Course Link</string>
+    <string name="course_link_url">onlinecourses.nptel.ac.in</string>
+    <string name="open_link_desc">Open link</string>
+    <string name="course_layout_title">Course Layout</string>
+
+    <string name="week_1_label">Week 1</string>
+    <string name="week_1_desc">Overview of Object-Oriented Programming and Java</string>
+    <string name="week_2_label">Week 2</string>
+    <string name="week_2_desc">Java Programming Elements</string>
+    <string name="week_3_label">Week 3</string>
+    <string name="week_3_desc">Input-Output Handling in Java</string>
+    <string name="week_4_label">Week 4</string>
+    <string name="week_4_desc">Encapsulation</string>
+    <string name="week_5_label">Week 5</string>
+    <string name="week_5_desc">Inheritance</string>
+    <string name="week_6_label">Week 6</string>
+    <string name="week_6_desc">Exception Handling</string>
+    <string name="week_7_label">Week 7</string>
+    <string name="week_7_desc">Multithreaded Programming</string>
+    <string name="week_8_label">Week 8</string>
+    <string name="week_8_desc">Java Applets and Servlet</string>
+    <string name="week_9_label">Week 9</string>
+    <string name="week_9_desc">Java Swing and Abstract Windowing Toolkit (AWT)</string>
+    <string name="week_10_label">Week 10</string>
+    <string name="week_10_desc">Networking with Java</string>
+    <string name="week_11_label">Week 11</string>
+    <string name="week_11_desc">Java Database Connectivity (JDBC)</string>
+    <string name="week_12_label">Week 12</string>
+    <string name="week_12_desc">Interface and Packages for Software Development</string>
+
+    <!-- IoT Information Screen -->
+    <string name="iot_course_description_long">In today\'s connected era, mastering the intricacies of the Internet of Things (IoT) demands a solid foundation in data structures and algorithms. These elements are vital for constructing robust, secure, and adaptable IoT systems. Java stands out as the language of choice for IoT development, thanks to its platform independence, web integration, and ease of modification. Our course is designed to hone your skills in these essential areas using Java. Whether you\'re exploring wearable tech or home automation, Java\'s versatility ensures you\'re equipped to tackle real-world IoT challenges head-on. By course end, you\'ll have the confidence and expertise to thrive in this dynamic field.</string>
+    <string name="instructor_sudip_misra">Prof. Sudip Misra</string>
+    <string name="instructor_expertise_wireless">Expertise: CSE · Wireless</string>
+    <string name="iot_course_code">IT4104</string>
+
+    <string name="iot_week_1_desc">Introduction to IoT: Part I, Part II, Sensing, Actuation, Basics of Networking: Part-I</string>
+    <string name="iot_week_2_desc">Basics of Networking: Part-II, Part III, Part IV, Communication Protocols: Part I, Part II</string>
+    <string name="iot_week_3_desc">Communication Protocols: Part III, Part IV, Part V, Sensor Networks: Part I, Part II</string>
+    <string name="iot_week_4_desc">Sensor Networks: Part III, Part IV, Part V, Part VI, Machine-to-Machine Communications</string>
+    <string name="iot_week_5_desc">Interoperability in IoT, Introduction to Arduino Programming: Part I, Part II, Integration of Sensors and Actuators with Arduino: Part I, Part II</string>
+    <string name="iot_week_6_desc">Introduction to Python programming, Introduction to Raspberry Pi, Implementation of IoT with Raspberry Pi</string>
+    <string name="iot_week_7_desc">Implementation of IoT with Raspberry Pi (contd), Introduction to SDN, SDN for IoT</string>
+    <string name="iot_week_8_desc">SDN for IoT (contd), Data Handling and Analytics, Cloud Computing</string>
+    <string name="iot_week_9_desc">Cloud Computing (contd), Sensor-Cloud</string>
+    <string name="iot_week_10_desc">Fog Computing, Smart Cities and Smart Homes</string>
+    <string name="iot_week_11_label">Week 11</string>
+    <string name="iot_week_11_desc">Connected Vehicles, Smart Grid, Industrial IoT (IIoT)</string>
+    <string name="iot_week_12_label">Week 12</string>
+    <string name="iot_week_12_desc">Industrial IoT (Continued), Case Studies: Agriculture, Healthcare, and Activity Monitoring</string>
+
+
 
 </resources>

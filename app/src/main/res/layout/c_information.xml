@@ -1,370 +1,927 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:clipToPadding="false"
+    android:background="#F5F7FA">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="32dp">
 
+        <!-- Hero Banner Image -->
         <ImageView
             android:id="@+id/banner_image"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#F8BBD0"
-            android:src="@drawable/pic"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
             android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintDimensionRatio="H,8:6" />
+            android:src="@drawable/pic"
+            android:contentDescription="Course banner"
+            tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/atc"
+        <!-- Content container with horizontal padding -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="About The Course"
-            android:layout_marginTop="10dp"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:paddingStart="9dp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/banner_image"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp">
 
-        <!-- Course Information Paragraph -->
-        <TextView
-            android:id="@+id/course_info"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="In today's connected era, mastering the intricacies of the Internet of Things (IoT) demands a solid foundation in data structures and algorithms. These elements are vital for constructing robust, secure, and adaptable IoT systems. Java stands out as the language of choice for IoT development, thanks to its platform independence, web integration, and ease of modification. Our course is designed to hone your skills in these essential areas using Java. Whether you're exploring wearable tech or home automation, Java's versatility ensures you're equipped to tackle real-world IoT challenges head-on. By course end, you'll have the confidence and expertise to thrive in this dynamic field."
-            android:justificationMode="inter_word"
-            android:textSize="16dp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/atc"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- Course CardView -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/course_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/course_info"
-            app:cardCornerRadius="8dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp">
-
-                <ImageView
-                    android:id="@+id/course_image"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/satya"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/course_title"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Department:\nComputer Science"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/course_image"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/instructor_institution"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="11dp"
-                    android:text="Institution:\nIIT Kharagpur"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/course_image"
-                    app:layout_constraintTop_toBottomOf="@+id/course_title" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Expertise: CSE-Wireless"
-                    android:textStyle="bold"
-                    android:paddingTop="14dp"
-                    android:textSize="17dp"
-                    app:layout_constraintStart_toEndOf="@+id/course_image"
-                    app:layout_constraintTop_toBottomOf="@+id/instructor_institution"
-                    android:paddingStart="18dp" />
-
-                <TextView
-                    android:id="@+id/course_description"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:textSize="15sp"
-                    android:paddingStart="10dp"
-                    android:text="Prof.Satyadev\n NandaKumar"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/instructor_institution"
-                    app:layout_constraintBottom_toBottomOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <!-- Course Code CardView -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/course_code_cardview"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/course_duration_cardview"
-            app:layout_constraintTop_toBottomOf="@+id/course_card"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="8dp">
-
-            <!-- Course Code Content -->
+            <!-- Section: About The Course -->
             <TextView
-                android:id="@+id/course_code"
+                android:id="@+id/atc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="12dp"
-                android:text="Course Code\nCM2101"
-                android:textSize="18sp" />
-        </androidx.cardview.widget.CardView>
+                android:text="About The Course"
+                android:textColor="#0A2540"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.01"
+                android:layout_marginBottom="8dp" />
 
-        <!-- Course Duration CardView -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/course_duration_cardview"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/course_code_cardview"
-            app:layout_constraintTop_toBottomOf="@+id/course_card"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp">
-
-            <!-- Course Duration Content -->
             <TextView
-                android:id="@+id/course_duration"
+                android:id="@+id/course_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The course provides a thorough grounding in the C programming language, a fundamental pillar of modern computing. Starting from basic syntax and control structures, participants will advance through functions, recursion, and complex data structures like linked lists. With a strong emphasis on practical problem-solving and efficiency, this course equips students with the technical expertise to build optimized software and understand low-level system operations. By the conclusion, learners will be capable of organizing large C projects and handling real-world programming tasks with precision."
+                android:textSize="14sp"
+                android:textColor="#5A6B7B"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Instructor Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/course_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <!-- Instructor Image in Navy container -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="16dp">
+
+                        <ImageView
+                            android:id="@+id/course_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/satya"
+                            android:contentDescription="Instructor" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/course_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Prof. Satyadev NandaKumar"
+                            android:textColor="#0A2540"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:id="@+id/instructor_institution"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Computer Science · IIT Kharagpur"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:id="@+id/course_description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Expertise: Programming · Algorithms"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="2dp"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Course Code + Duration Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <!-- Course Code Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/course_code_cardview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:gravity="center"
+                        android:minHeight="100dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:cardBackgroundColor="#0A2540"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginBottom="10dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_code"
+                                android:contentDescription="Course Code"
+                                app:tint="#FFFFFF" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CM2101"
+                            android:textColor="#0A2540"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Course Code"
+                            android:textColor="#5A6B7B"
+                            android:textSize="12sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Course Duration Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/course_duration_cardview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:gravity="center"
+                        android:minHeight="100dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:cardBackgroundColor="#0A2540"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginBottom="10dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_clock"
+                                android:contentDescription="Course Duration"
+                                app:tint="#FFFFFF" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="8 weeks"
+                            android:textColor="#0A2540"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Course Duration"
+                            android:textColor="#5A6B7B"
+                            android:textSize="12sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- Course Link Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/course_link_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:minHeight="72dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="14dp">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_link"
+                            android:contentDescription="Course Link"
+                            app:tint="#FFFFFF" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Course Link"
+                            android:textColor="#0A2540"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:id="@+id/course_link"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="onlinecourses.nptel.ac.in"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="2dp"
+                            android:maxLines="1"
+                            android:ellipsize="middle"
+                            android:autoLink="web" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_open_in_new"
+                        android:contentDescription="Open link"
+                        app:tint="#0A2540"
+                        android:alpha="0.5" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Section: Course Layout -->
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="12dp"
-                android:text="Course Duration\n8 weeks"
-                android:textSize="18sp" />
-        </androidx.cardview.widget.CardView>
+                android:text="Course Layout"
+                android:textColor="#0A2540"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.01"
+                android:layout_marginBottom="12dp" />
 
-        <!-- Course Link CardView -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/course_link_cardview"
-            android:layout_width="338dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/course_duration_cardview"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="8dp"
-            tools:ignore="MissingConstraints,NotSibling">
-
-            <!-- Course Link Content -->
-            <TextView
-                android:id="@+id/course_link"
+            <!-- Week Cards Container -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="Course Link \nhttps://onlinecourses.nptel.ac.in/noc25_cs119/preview"
-                android:textSize="18sp"
-                android:autoLink="web" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/course_link_cardview"
-            android:layout_margin="16dp"
-            app:cardCornerRadius="8dp">
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:text="Course Layout"
-                    android:textStyle="bold"
-                    android:textSize="19dp"/>
+                android:orientation="vertical">
 
                 <!-- Week 1 -->
-                <TableRow>
-                    <TextView
-                        android:layout_width="0dp"
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.9"
-                        android:text="\nWeek 1:"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:text="\nIntroduction. Straight-Line Code. Variables, Operators, Expressions and Conditionals." />
-                </TableRow>
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="#0A2540"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginEnd="14dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textColor="#FFFFFF"
+                                android:textSize="16sp"
+                                android:fontFamily="sans-serif-medium" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center_vertical"
+                            android:minHeight="40dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Week 1"
+                                android:textColor="#0A2540"
+                                android:textSize="15sp"
+                                android:fontFamily="sans-serif-medium"
+                                android:letterSpacing="0.01" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Introduction. Straight-Line Code. Variables, Operators, Expressions and Conditionals."
+                                android:textColor="#5A6B7B"
+                                android:textSize="13sp"
+                                android:letterSpacing="0.01"
+                                android:lineSpacingExtra="2dp"
+                                android:layout_marginTop="4dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <!-- Week 2 -->
-                <TableRow>
-                    <TextView
-                        android:layout_width="0dp"
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.9"
-                        android:text="Week 2:"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:text="Loops" />
-                </TableRow>
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="#0A2540"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginEnd="14dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="2"
+                                android:textColor="#FFFFFF"
+                                android:textSize="16sp"
+                                android:fontFamily="sans-serif-medium" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center_vertical"
+                            android:minHeight="40dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Week 2"
+                                android:textColor="#0A2540"
+                                android:textSize="15sp"
+                                android:fontFamily="sans-serif-medium"
+                                android:letterSpacing="0.01" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Loops"
+                                android:textColor="#5A6B7B"
+                                android:textSize="13sp"
+                                android:letterSpacing="0.01"
+                                android:layout_marginTop="4dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <!-- Week 3 -->
-                <TableRow>
-                    <TextView
-                        android:layout_width="0dp"
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.9"
-                        android:text="Week 3:"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:text="Functions" />
-                </TableRow>
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="#0A2540"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginEnd="14dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="3"
+                                android:textColor="#FFFFFF"
+                                android:textSize="16sp"
+                                android:fontFamily="sans-serif-medium" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center_vertical"
+                            android:minHeight="40dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Week 3"
+                                android:textColor="#0A2540"
+                                android:textSize="15sp"
+                                android:fontFamily="sans-serif-medium"
+                                android:letterSpacing="0.01" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Functions"
+                                android:textColor="#5A6B7B"
+                                android:textSize="13sp"
+                                android:letterSpacing="0.01"
+                                android:layout_marginTop="4dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <!-- Week 4 -->
-                <TableRow>
-                    <TextView
-                        android:layout_width="0dp"
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.9"
-                        android:text="Week 4:"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:text="One-Dimensional Arrays and Pointers" />
-                </TableRow>
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="#0A2540"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginEnd="14dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="4"
+                                android:textColor="#FFFFFF"
+                                android:textSize="16sp"
+                                android:fontFamily="sans-serif-medium" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center_vertical"
+                            android:minHeight="40dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Week 4"
+                                android:textColor="#0A2540"
+                                android:textSize="15sp"
+                                android:fontFamily="sans-serif-medium"
+                                android:letterSpacing="0.01" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="One-Dimensional Arrays and Pointers"
+                                android:textColor="#5A6B7B"
+                                android:textSize="13sp"
+                                android:letterSpacing="0.01"
+                                android:layout_marginTop="4dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <!-- Week 5 -->
-                <TableRow>
-                    <TextView
-                        android:layout_width="0dp"
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.9"
-                        android:text="Week 5:"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:text="Recursion" />
-                </TableRow>
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="#0A2540"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginEnd="14dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="5"
+                                android:textColor="#FFFFFF"
+                                android:textSize="16sp"
+                                android:fontFamily="sans-serif-medium" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center_vertical"
+                            android:minHeight="40dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Week 5"
+                                android:textColor="#0A2540"
+                                android:textSize="15sp"
+                                android:fontFamily="sans-serif-medium"
+                                android:letterSpacing="0.01" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Recursion"
+                                android:textColor="#5A6B7B"
+                                android:textSize="13sp"
+                                android:letterSpacing="0.01"
+                                android:layout_marginTop="4dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <!-- Week 6 -->
-                <TableRow>
-                    <TextView
-                        android:layout_width="0dp"
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.9"
-                        android:text="Week 6:"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:text="Multi-dimensional Arrays, Linked Lists." />
-                </TableRow>
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="#0A2540"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginEnd="14dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="6"
+                                android:textColor="#FFFFFF"
+                                android:textSize="16sp"
+                                android:fontFamily="sans-serif-medium" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center_vertical"
+                            android:minHeight="40dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Week 6"
+                                android:textColor="#0A2540"
+                                android:textSize="15sp"
+                                android:fontFamily="sans-serif-medium"
+                                android:letterSpacing="0.01" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Multi-dimensional Arrays, Linked Lists."
+                                android:textColor="#5A6B7B"
+                                android:textSize="13sp"
+                                android:letterSpacing="0.01"
+                                android:layout_marginTop="4dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <!-- Week 7 -->
-                <TableRow>
-                    <TextView
-                        android:layout_width="0dp"
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.9"
-                        android:text="Week 7:"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:text="Operating on Files" />
-                </TableRow>
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="#0A2540"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginEnd="14dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="7"
+                                android:textColor="#FFFFFF"
+                                android:textSize="16sp"
+                                android:fontFamily="sans-serif-medium" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center_vertical"
+                            android:minHeight="40dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Week 7"
+                                android:textColor="#0A2540"
+                                android:textSize="15sp"
+                                android:fontFamily="sans-serif-medium"
+                                android:letterSpacing="0.01" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Operating on Files"
+                                android:textColor="#5A6B7B"
+                                android:textSize="13sp"
+                                android:letterSpacing="0.01"
+                                android:layout_marginTop="4dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <!-- Week 8 -->
-                <TableRow>
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1.9"
-                        android:text="Week 8:"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:textSize="16dp"
-                        android:layout_gravity="start"
-                        android:text="Organizing C projects, working with multiple source directories, makefiles." />
-                </TableRow>
-            </TableLayout>
-        </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="#0A2540"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginEnd="14dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="8"
+                                android:textColor="#FFFFFF"
+                                android:textSize="16sp"
+                                android:fontFamily="sans-serif-medium" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center_vertical"
+                            android:minHeight="40dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Week 8"
+                                android:textColor="#0A2540"
+                                android:textSize="15sp"
+                                android:fontFamily="sans-serif-medium"
+                                android:letterSpacing="0.01" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Organizing C projects, working with multiple source directories, makefiles."
+                                android:textColor="#5A6B7B"
+                                android:textSize="13sp"
+                                android:letterSpacing="0.01"
+                                android:lineSpacingExtra="2dp"
+                                android:layout_marginTop="4dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

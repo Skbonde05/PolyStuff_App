@@ -1,12 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#F5F7FA"
+    tools:context=".shareapp">
 
-    <Button
-        android:id="@+id/btnShareApp"
-        android:layout_width="wrap_content"
+    <!-- Navy Blue App Bar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Share App" />
+        android:background="#0A2540"
+        app:elevation="0dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#0A2540"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationIconTint="#FFFFFF"
+            app:title="Share App"
+            app:titleTextColor="#FFFFFF"
+            app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:background="#F5F7FA"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="40dp"
+            android:paddingBottom="32dp">
+
+            <!-- Share Illustration -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                app:cardBackgroundColor="#0A2540"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="4dp"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_shareapp"
+                    android:contentDescription="Share"
+                    app:tint="#FFFFFF" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tvShareTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share Study Notes"
+                android:textColor="#0A2540"
+                android:textSize="22sp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.01"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Subtitle -->
+            <TextView
+                android:id="@+id/tvShareSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Help your classmates discover study notes, PDFs, and course resources — all in one app."
+                android:textColor="#5A6B7B"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp"
+                android:gravity="center"
+                android:layout_marginBottom="32dp" />
+
+            <!-- Share App Primary Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShareApp"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Share App"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.02"
+                app:backgroundTint="#0A2540"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/ic_shareapp"
+                app:iconTint="#FFFFFF"
+                app:iconGravity="textStart" />
+
+            <!-- Optional: Quick Share Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="24dp">
+
+                <!-- WhatsApp -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnWhatsApp"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="8dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_phone"
+                        android:contentDescription="Share on WhatsApp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Telegram -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnTelegram"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="8dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_shareapp"
+                        android:contentDescription="Share on Telegram" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Copy Link -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnCopyLink"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_link"
+                        android:contentDescription="Copy Link"
+                        app:tint="#0A2540" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- Divider with label -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quick share"
+                android:textColor="#5A6B7B"
+                android:textSize="12sp"
+                android:letterSpacing="0.05"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="0dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

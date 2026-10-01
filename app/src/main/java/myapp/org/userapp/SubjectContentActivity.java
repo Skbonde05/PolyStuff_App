@@ -2,6 +2,7 @@ package myapp.org.userapp;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,7 +30,7 @@ public class SubjectContentActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProductAdapter adapter;
     private SubjectViewModel viewModel;
-    private RelativeLayout rootLayout;
+    private View rootLayout;
     private View progressOverlay;
     private TextView emptyStateText;
 
@@ -79,7 +80,7 @@ public class SubjectContentActivity extends AppCompatActivity {
                         pdf.getUrl()
                     ));
                 }
-                adapter = new ProductAdapter(this, products);
+                adapter = new ProductAdapter(products);
                 recyclerView.setAdapter(adapter);
                 emptyStateText.setVisibility(View.GONE);
                 recyclerView.setVisibility(View.VISIBLE);
@@ -116,6 +117,12 @@ public class SubjectContentActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    public static void launch(Context context, String subjectKey) {
+        Intent intent = new Intent(context, SubjectContentActivity.class);
+        intent.putExtra(EXTRA_SUBJECT_KEY, subjectKey);
+        context.startActivity(intent);
     }
 
     private String deriveTitle(String key) {

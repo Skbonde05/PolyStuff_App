@@ -1,205 +1,361 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:clipToPadding="false"
+    android:background="#F5F7FA">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="32dp">
 
+        <!-- Hero Banner Image -->
         <ImageView
             android:id="@+id/banner_image"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:src="@drawable/php"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
             android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintDimensionRatio="H,8:6" />
+            android:src="@drawable/php"
+            android:contentDescription="Course banner"
+            tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/atc"
+        <!-- Content container with horizontal padding -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="About The Course"
-            android:layout_marginTop="10dp"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:paddingStart="9dp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/banner_image"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp">
 
-        <!-- Course Information Paragraph -->
-        <TextView
-            android:id="@+id/course_info"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="Introduction to Web Development with PHP and SQL serves as a gateway to understanding the fundamentals of web programming using PHP and SQL. Students will gain essential knowledge and practical skills in building dynamic web applications by exploring topics such as PHP syntax, SQL database management, and integration techniques. Through hands-on projects and exercises, students will not only grasp theoretical concepts but also develop proficiency in applying PHP and SQL to real-world scenarios. By the end of the course, students will possess a solid foundation in web development with PHP and SQL, paving the way for further exploration and advancement in the field of web development and database management."
-            android:justificationMode="inter_word"
-            android:textSize="16dp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/atc"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-
-        <!-- Course CardView -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/course_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/course_info"
-            app:cardCornerRadius="8dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp">
-
-                <ImageView
-                    android:id="@+id/course_image"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/km"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/course_title"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Department:\nComputer Science"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/course_image"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/instructor_institution"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="11dp"
-                    android:text="Institution:\nIIT Bombay"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/course_image"
-                    app:layout_constraintTop_toBottomOf="@+id/course_title" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Expertise: Process Control\nEngineering"
-                    android:textStyle="bold"
-                    android:paddingTop="14dp"
-                    android:textSize="17dp"
-                    app:layout_constraintStart_toEndOf="@+id/course_image"
-                    app:layout_constraintTop_toBottomOf="@+id/instructor_institution"
-                    android:paddingStart="16dp" />
-
-                <TextView
-                    android:id="@+id/course_description"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:textSize="15sp"
-                    android:paddingStart="10dp"
-                    android:text="Prof.Kannan\n Moudgalya"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/instructor_institution"
-                    app:layout_constraintBottom_toBottomOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <!-- Course Code CardView -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/course_code_cardview"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/course_duration_cardview"
-            app:layout_constraintTop_toBottomOf="@+id/course_card"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="8dp">
-
-            <!-- Course Code Content -->
+            <!-- Section: About The Course -->
             <TextView
-                android:id="@+id/course_code"
+                android:id="@+id/atc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="12dp"
-                android:text="Course Code\nIT5103"
-                android:textSize="18sp" />
-        </androidx.cardview.widget.CardView>
+                android:text="About The Course"
+                android:textColor="#0A2540"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.01"
+                android:layout_marginBottom="8dp" />
 
-        <!-- Course Duration CardView -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/course_duration_cardview"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/course_code_cardview"
-            app:layout_constraintTop_toBottomOf="@+id/course_card"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp">
-
-            <!-- Course Duration Content -->
             <TextView
-                android:id="@+id/course_duration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="12dp"
-                android:text="Course Duration\nSelf Paced"
-                android:textSize="18sp" />
-        </androidx.cardview.widget.CardView>
-
-        <!-- Course Link CardView -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/course_link_cardview"
-            android:layout_width="338dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/course_duration_cardview"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="8dp"
-            tools:ignore="MissingConstraints,NotSibling">
-
-            <!-- Course Link Content -->
-            <TextView
-                android:id="@+id/course_link"
+                android:id="@+id/course_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:text="Course Link \nhttps://onlinecourses.swayam2.ac.in/aic20_sp32/preview"
-                android:textSize="18sp"
-                android:autoLink="web" />
-        </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+                android:text="Introduction to Web Development with PHP and SQL serves as a gateway to understanding the fundamentals of web programming using PHP and SQL. Students will gain essential knowledge and practical skills in building dynamic web applications by exploring topics such as PHP syntax, SQL database management, and integration techniques. Through hands-on projects and exercises, students will not only grasp theoretical concepts but also develop proficiency in applying PHP and SQL to real-world scenarios. By the end of the course, students will possess a solid foundation in web development with PHP and SQL, paving the way for further exploration and advancement in the field of web development and database management."
+                android:textSize="14sp"
+                android:textColor="#5A6B7B"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Instructor Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/course_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="16dp">
+
+                        <ImageView
+                            android:id="@+id/course_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/km"
+                            android:contentDescription="Instructor" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/course_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Prof. Kannan Moudgalya"
+                            android:textColor="#0A2540"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:id="@+id/instructor_institution"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Computer Science · IIT Bombay"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:id="@+id/course_description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Expertise: Process Control Engineering"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="2dp"
+                            android:maxLines="2"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Course Code + Duration Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <!-- Course Code Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/course_code_cardview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:gravity="center"
+                        android:minHeight="100dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:cardBackgroundColor="#0A2540"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginBottom="10dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_code"
+                                android:contentDescription="Course Code"
+                                app:tint="#FFFFFF" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="IT5103"
+                            android:textColor="#0A2540"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Course Code"
+                            android:textColor="#5A6B7B"
+                            android:textSize="12sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Course Duration Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/course_duration_cardview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="#E1E7ED"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:gravity="center"
+                        android:minHeight="100dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:cardBackgroundColor="#0A2540"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="0dp"
+                            android:layout_marginBottom="10dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_clock"
+                                android:contentDescription="Course Duration"
+                                app:tint="#FFFFFF" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Self Paced"
+                            android:textColor="#0A2540"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Course Duration"
+                            android:textColor="#5A6B7B"
+                            android:textSize="12sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- Course Link Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/course_link_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:minHeight="72dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="14dp">
+
+                        <ImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_link"
+                            android:contentDescription="Course Link"
+                            app:tint="#FFFFFF" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Course Link"
+                            android:textColor="#0A2540"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:id="@+id/course_link"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="onlinecourses.swayam2.ac.in"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="2dp"
+                            android:maxLines="1"
+                            android:ellipsize="middle"
+                            android:autoLink="web" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_open_in_new"
+                        android:contentDescription="Open link"
+                        app:tint="#0A2540"
+                        android:alpha="0.5" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

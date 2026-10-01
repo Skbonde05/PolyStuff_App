@@ -2,58 +2,118 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="baby_pink">#FC8ECA</color>
-    <color name="blue">#3F51B5</color>
-    <color name="yellow">#FFC107</color>
-    <color name="sky_blue">#00BCD4</color>
-    <color name="textColor">#121212</color>
-    <color name="red">#ED1B34</color>
-    <color name="green">#4CAF50</color>
-    <color name="green2">#00BCD4</color>
-    <color name="deeppurple">#7c4dff</color>
-    <color name="lightGray">#6A6060</color>
-    <color name="purple">#9C27B0</color>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorAccent">#00BCD4</color>
-    <color name="colorPrimaryVariant">#3700B3</color>
-    <color name="colorOnPrimary">#FFFFFF</color>
-    <color name="colorPrimaryLight">#6200EE</color> <!-- Primary color for light theme -->
-    <color name="colorPrimaryDarkLight">#3700B3</color> <!-- Darker variant of primary color for light theme -->
-    <color name="colorOnPrimaryLight">#FFFFFF</color>
-    <color name="colorPrimaryDark">#BB86FC</color> <!-- Primary color for dark theme -->
-    <color name="colorPrimaryDarkVariant">#3700B3</color> <!-- Darker variant of primary color for dark theme -->
-    <color name="colorOnPrimaryDark">#000000</color>
-    <color name="colorTextLight">#000000</color> <!-- Black text for light theme -->
-    <color name="colorBackgroundLight">#FFFFFF</color> <!-- Light background for light theme -->
-    <color name="colorTextDark">#FFFFFF</color> <!-- White text for dark theme -->
-    <color name="colorBackgroundDark">#121212</color> <!-- Dark background for dark theme -->
-    <color name="dropdown_bg_light">#FFFFFF</color>
-    <color name="dropdown_text_light">#000000</color>
-    <color name="dropdown_bg_dark">#121212</color>
-    <color name="dropdown_text_dark">#FFFFFF</color>
 
+    <!-- Option 4: Modern Vibrant Slate Light Theme Colors -->
+    <color name="slate_bg">#F8FAFC</color>
+    <color name="slate_surface">#FFFFFF</color>
+    <color name="slate_border">#E2E8F0</color>
+    <color name="slate_text_primary">#0F172A</color>
+    <color name="slate_text_secondary">#475569</color>
+    <color name="slate_text_muted">#64748B</color>
 
+    <!-- Vibrant Accents -->
+    <color name="indigo_primary">#4F46E5</color>
+    <color name="indigo_primary_dark">#4338CA</color>
+    <color name="indigo_container">#EEF2FF</color>
+    <color name="indigo_on_container">#3730A3</color>
 
-    <color name="tab_text_color">#000000</color>
+    <color name="violet_accent">#7C3AED</color>
+    <color name="cyan_accent">#0EA5E9</color>
+    <color name="cyan_container">#E0F2FE</color>
+    <color name="cyan_on_container">#0369A1</color>
 
-    <color name="top_bg">#EEEBEB</color>
+    <color name="emerald_accent">#10B981</color>
+    <color name="emerald_container">#D1FAE5</color>
+    <color name="emerald_on_container">#047857</color>
 
-    <color name="math_stat">#00BCD4</color>
-    <color name="math_end">#F8F8FA</color>
+    <color name="amber_accent">#F59E0B</color>
+    <color name="amber_container">#FEF3C7</color>
+    <color name="amber_on_container">#B45309</color>
 
-    <!-- Smart Notes Design Palette -->
-    <color name="smart_bg_start">#E0E7FF</color>
-    <color name="smart_bg_end">#E0F2FE</color>
-    <color name="smart_primary">#2563EB</color>
-    <color name="smart_primary_dark">#1D4ED8</color>
+    <color name="rose_accent">#EF4444</color>
+    <color name="rose_container">#FEE2E2</color>
+
+    <!-- MD3 Core Palette Aliases -->
+    <color name="md_theme_light_primary">#4F46E5</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#EEF2FF</color>
+    <color name="md_theme_light_onPrimaryContainer">#3730A3</color>
+    <color name="md_theme_light_secondary">#0EA5E9</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_secondaryContainer">#E0F2FE</color>
+    <color name="md_theme_light_onSecondaryContainer">#0369A1</color>
+    <color name="md_theme_light_tertiary">#7C3AED</color>
+    <color name="md_theme_light_onTertiary">#FFFFFF</color>
+    <color name="md_theme_light_tertiaryContainer">#F3E8FF</color>
+    <color name="md_theme_light_onTertiaryContainer">#6B21A8</color>
+    <color name="md_theme_light_error">#EF4444</color>
+    <color name="md_theme_light_errorContainer">#FEE2E2</color>
+    <color name="md_theme_light_onError">#FFFFFF</color>
+    <color name="md_theme_light_onErrorContainer">#991B1B</color>
+    <color name="md_theme_light_background">#F8FAFC</color>
+    <color name="md_theme_light_onBackground">#0F172A</color>
+    <color name="md_theme_light_surface">#FFFFFF</color>
+    <color name="md_theme_light_onSurface">#0F172A</color>
+    <color name="md_theme_light_surfaceVariant">#F1F5F9</color>
+    <color name="md_theme_light_onSurfaceVariant">#475569</color>
+    <color name="md_theme_light_outline">#CBD5E1</color>
+    <color name="md_theme_light_inverseOnSurface">#F8FAFC</color>
+    <color name="md_theme_light_inverseSurface">#1E293B</color>
+    <color name="md_theme_light_inversePrimary">#C7D2FE</color>
+    <color name="md_theme_light_shadow">#0F172A</color>
+    <color name="md_theme_light_surfaceTint">#4F46E5</color>
+    <color name="md_theme_light_outlineVariant">#E2E8F0</color>
+    <color name="md_theme_light_scrim">#000000</color>
+
+    <color name="md_theme_dark_primary">#C7D2FE</color>
+    <color name="md_theme_dark_onPrimary">#1E1B4B</color>
+    <color name="md_theme_dark_primaryContainer">#312E81</color>
+    <color name="md_theme_dark_onPrimaryContainer">#EEF2FF</color>
+    <color name="md_theme_dark_secondary">#38BDF8</color>
+    <color name="md_theme_dark_onSecondary">#082F49</color>
+    <color name="md_theme_dark_secondaryContainer">#0C4A6E</color>
+    <color name="md_theme_dark_onSecondaryContainer">#E0F2FE</color>
+    <color name="md_theme_dark_tertiary">#C084FC</color>
+    <color name="md_theme_dark_onTertiary">#3B0764</color>
+    <color name="md_theme_dark_tertiaryContainer">#581C87</color>
+    <color name="md_theme_dark_onTertiaryContainer">#F3E8FF</color>
+    <color name="md_theme_dark_error">#FCA5A5</color>
+    <color name="md_theme_dark_errorContainer">#7F1D1D</color>
+    <color name="md_theme_dark_onError">#450A0A</color>
+    <color name="md_theme_dark_onErrorContainer">#FEE2E2</color>
+    <color name="md_theme_dark_background">#0F172A</color>
+    <color name="md_theme_dark_onBackground">#F8FAFC</color>
+    <color name="md_theme_dark_surface">#1E293B</color>
+    <color name="md_theme_dark_onSurface">#F8FAFC</color>
+    <color name="md_theme_dark_surfaceVariant">#334155</color>
+    <color name="md_theme_dark_onSurfaceVariant">#94A3B8</color>
+    <color name="md_theme_dark_outline">#64748B</color>
+    <color name="md_theme_dark_inverseOnSurface">#0F172A</color>
+    <color name="md_theme_dark_inverseSurface">#F8FAFC</color>
+    <color name="md_theme_dark_inversePrimary">#4F46E5</color>
+    <color name="md_theme_dark_shadow">#000000</color>
+    <color name="md_theme_dark_surfaceTint">#C7D2FE</color>
+    <color name="md_theme_dark_outlineVariant">#334155</color>
+    <color name="md_theme_dark_scrim">#000000</color>
+
+    <!-- Legacy aliases -->
+    <color name="smart_primary">#4F46E5</color>
+    <color name="smart_primary_dark">#4338CA</color>
     <color name="smart_card_bg">#FFFFFF</color>
     <color name="smart_card_stroke">#E2E8F0</color>
     <color name="smart_text_main">#0F172A</color>
     <color name="smart_text_muted">#64748B</color>
     <color name="smart_accent_pdf">#EF4444</color>
-    <color name="smart_accent_docx">#3B82F6</color>
-    <color name="smart_accent_img">#8B5CF6</color>
-    <color name="smart_accent_vid">#F97316</color>
+    <color name="smart_accent_docx">#4F46E5</color>
+    <color name="smart_accent_img">#7C3AED</color>
+    <color name="smart_accent_vid">#F59E0B</color>
     <color name="smart_accent_cyan">#0EA5E9</color>
-
+    <color name="colorSurfaceVariant">#F1F5F9</color>
+    <color name="math_stat">#4F46E5</color>
+    <color name="math_end">#6366F1</color>
+    <color name="lightGray">#E2E8F0</color>
+    <color name="dropdown_bg_dark">#1E293B</color>
+    <color name="dropdown_text_dark">#F8FAFC</color>
+    <color name="dropdown_bg_light">#FFFFFF</color>
+    <color name="dropdown_text_light">#0F172A</color>
 </resources>

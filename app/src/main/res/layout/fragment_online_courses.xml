@@ -1,334 +1,610 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6E4E1"
+    android:fitsSystemWindows="true"
+    android:background="#F5F7FA"
     tools:context=".OnlineCoursesFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <!-- Navy Blue App Bar with Back Button -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:minHeight="?attr/actionBarSize"
-        tools:ignore="MissingConstraints">
+        android:layout_height="wrap_content"
+        android:background="#0A2540"
+        app:elevation="0dp"
+        app:liftOnScroll="true"
+        app:liftOnScrollTargetViewId="@id/nestedScrollView">
 
-        <ImageButton
-            android:id="@+id/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackground"
-            android:contentDescription="@string/back_button_description"
-            android:src="@drawable/ic_arrow_back"
-            tools:ignore="TouchTargetSizeCheck" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#0A2540"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationIconTint="#FFFFFF"
+            app:title="Online Courses"
+            app:titleTextColor="#FFFFFF"
+            app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge"
+            app:titleCentered="false" />
 
-        <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Online Courses"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:layout_marginLeft="30dp"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    </androidx.appcompat.widget.Toolbar>
-
-
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingTop="75dp"
-        android:paddingBottom="25dp"
-        android:gravity="center_horizontal"
-        tools:ignore="MissingDefaultResource">
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:background="#F5F7FA"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="24dp">
 
-            <LinearLayout
+            <!-- C++ Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cpp"
                 android:layout_width="match_parent"
-                android:layout_height="800dp"
-                android:paddingBottom="20dp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
-                <!-- CardView for "Computing Essentials" -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cpp"
-                    android:layout_width="320dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="30dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="3dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
+                    android:padding="16dp"
+                    android:minHeight="88dp">
+
+                    <!-- Icon container: Navy Blue -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="16dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/c_"
+                            android:contentDescription="C++"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_2"
-                        android:orientation="horizontal">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                        <!-- Content for Computing Essentials -->
                         <TextView
-                            android:layout_width="180dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="C++"
-                            android:paddingTop="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:textSize="23sp"
-                            android:textStyle="bold" />
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="30dp"
-                            android:src="@drawable/c_" />
+                            android:text="C++ Programming"
+                            android:textColor="#0A2540"
+                            android:textSize="17sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
 
-                        <!-- You can add more content here -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Object-Oriented Concepts"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp" />
+
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:contentDescription="Navigate"
+                        app:tint="#0A2540"
+                        android:alpha="0.5" />
 
-                <!-- CardView for "Communication Skill I" -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/java"
-                    android:layout_width="320dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Java Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/java"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="3dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
+                    android:padding="16dp"
+                    android:minHeight="88dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="16dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/java"
+                            android:contentDescription="Java" />
+
+                    </com.google.android.material.card.MaterialCardView>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_5"
-                        android:orientation="horizontal">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                        <!-- Content for Communication Skill I -->
                         <TextView
-                            android:layout_width="180dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Java"
-                            android:paddingTop="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:textSize="23sp"
-                            android:textStyle="bold" />
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="30dp"
-                            android:src="@drawable/java" />
+                            android:text="Java Programming"
+                            android:textColor="#0A2540"
+                            android:textSize="17sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
 
-                        <!-- You can add more content here -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Core &amp; Advanced Java"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp" />
+
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:contentDescription="Navigate"
+                        app:tint="#0A2540"
+                        android:alpha="0.5" />
 
-                <!-- CardView for "Communication Skill II" -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/iot"
-                    android:layout_width="320dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- IOT Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/iot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="3dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
+                    android:padding="16dp"
+                    android:minHeight="88dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="16dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/iot"
+                            android:contentDescription="IoT"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_4"
-                        android:orientation="horizontal">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                        <!-- Content for Communication Skill II -->
                         <TextView
-                            android:layout_width="180dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="IOT"
-                            android:paddingTop="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:textSize="23sp"
-                            android:textStyle="bold" />
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="30dp"
-                            android:src="@drawable/iot" />
-                        <!-- You can add more content here -->
+                            android:text="Internet of Things (IoT)"
+                            android:textColor="#0A2540"
+                            android:textSize="17sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sensors &amp; Embedded Systems"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp" />
+
                     </LinearLayout>
 
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:contentDescription="Navigate"
+                        app:tint="#0A2540"
+                        android:alpha="0.5" />
 
-                </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-                <!-- CardView for "Applied Mathematics I" -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/php"
-                    android:layout_width="320dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- PHP Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/php"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="3dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
+                    android:padding="16dp"
+                    android:minHeight="88dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="16dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/php"
+                            android:contentDescription="PHP"
+                             />
+
+                    </com.google.android.material.card.MaterialCardView>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_6"
-                        android:orientation="horizontal">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                        <!-- Content for Applied Mathematics I -->
                         <TextView
-                            android:layout_width="180dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="PHP"
-                            android:paddingTop="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:textSize="23sp"
-                            android:textStyle="bold" />
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="30dp"
-                            android:src="@drawable/php" />
+                            android:text="PHP &amp; Web Development"
+                            android:textColor="#0A2540"
+                            android:textSize="17sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
 
-                        <!-- You can add morecontent here -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Server-Side Scripting"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp" />
+
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:contentDescription="Navigate"
+                        app:tint="#0A2540"
+                        android:alpha="0.5" />
 
-                <!-- CardView for "Applied Mathematics II" -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/python"
-                    android:layout_width="320dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Python Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/python"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="3dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
+                    android:padding="16dp"
+                    android:minHeight="88dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="16dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/python"
+                            android:contentDescription="Python"
+                             />
+
+                    </com.google.android.material.card.MaterialCardView>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_2"
-                        android:orientation="horizontal">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                        <!-- Content for Applied Mathematics II -->
                         <TextView
-                            android:layout_width="180dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Python"
-                            android:paddingTop="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:textSize="23sp"
-                            android:textStyle="bold" />
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="30dp"
-                            android:src="@drawable/python" />
+                            android:text="Python Programming"
+                            android:textColor="#0A2540"
+                            android:textSize="17sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
 
-                        <!-- You can add more content here -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Data Analysis &amp; Scripting"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp" />
+
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:contentDescription="Navigate"
+                        app:tint="#0A2540"
+                        android:alpha="0.5" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/c"
-                    android:layout_width="320dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- C Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="3dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
+                    android:padding="16dp"
+                    android:minHeight="88dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="16dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/pic"
+                            android:contentDescription="C"
+                             />
+
+                    </com.google.android.material.card.MaterialCardView>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_4"
-                        android:orientation="horizontal">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                        <!-- Content for Applied Mathematics II -->
                         <TextView
-                            android:layout_width="180dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="C"
-                            android:paddingTop="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:textSize="23sp"
-                            android:textStyle="bold" />
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="30dp"
-                            android:src="@drawable/pic" />
+                            android:text="C Programming"
+                            android:textColor="#0A2540"
+                            android:textSize="17sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
 
-                        <!-- You can add more content here -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fundamentals of C"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp" />
+
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:contentDescription="Navigate"
+                        app:tint="#0A2540"
+                        android:alpha="0.5" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/ds"
-                    android:layout_width="320dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Data Structure Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/ds"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="#E1E7ED"
+                app:strokeWidth="1dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="3dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
+                    android:padding="16dp"
+                    android:minHeight="88dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        app:cardBackgroundColor="#0A2540"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        android:layout_marginEnd="16dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ds"
+                            android:contentDescription="Data Structures"
+                            />
+
+                    </com.google.android.material.card.MaterialCardView>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_5"
-                        android:orientation="horizontal">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                        <!-- Content for Applied Mathematics II -->
                         <TextView
-                            android:layout_width="180dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Data Structure"
-                            android:paddingTop="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:textSize="23sp"
-                            android:textStyle="bold" />
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="30dp"
-                            android:src="@drawable/ds" />
+                            android:text="Data Structures"
+                            android:textColor="#0A2540"
+                            android:textSize="17sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01" />
 
-                        <!-- You can add more content here -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Algorithms &amp; Data Types"
+                            android:textColor="#5A6B7B"
+                            android:textSize="13sp"
+                            android:letterSpacing="0.01"
+                            android:layout_marginTop="4dp" />
+
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:contentDescription="Navigate"
+                        app:tint="#0A2540"
+                        android:alpha="0.5" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

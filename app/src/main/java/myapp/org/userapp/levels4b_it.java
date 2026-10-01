@@ -6,6 +6,7 @@ import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -31,22 +32,32 @@ public class levels4b_it extends AppCompatActivity {
         // Initialize Mobile Ads SDK
         MobileAds.initialize(this, initializationStatus -> {});
 
-        // Load banner ad
+        // Load banner ad (null-safe)
         AdView adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+        if (adView != null) {
+            AdRequest adRequest = new AdRequest.Builder().build();
+            adView.loadAd(adRequest);
+        }
 
         // Load interstitial ad
         loadInterstitialAd();
 
-        // Back button with interstitial ad
+        // -------- Back button (null-safe, ImageButton OR Toolbar fallback) --------
         ImageButton backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(v -> {
-            showInterstitialAd(() -> {
+        if (backButton != null) {
+            backButton.setOnClickListener(v -> showInterstitialAd(() -> {
                 startActivity(new Intent(levels4b_it.this, ItLevels.class));
                 finish();
-            });
-        });
+            }));
+        } else {
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            if (toolbar != null) {
+                toolbar.setNavigationOnClickListener(v -> showInterstitialAd(() -> {
+                    startActivity(new Intent(levels4b_it.this, ItLevels.class));
+                    finish();
+                }));
+            }
+        }
 
         // Initialize card views and set click listeners
         initializeCardViews();
@@ -73,50 +84,58 @@ public class levels4b_it extends AppCompatActivity {
             mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
                 @Override
                 public void onAdDismissedFullScreenContent() {
-                    loadInterstitialAd(); // Load next ad
-                    afterAdClosed.run(); // Execute the intended action
+                    loadInterstitialAd();
+                    afterAdClosed.run();
                 }
 
                 @Override
                 public void onAdFailedToShowFullScreenContent(com.google.android.gms.ads.AdError adError) {
-                    afterAdClosed.run(); // Proceed if ad fails to show
-                    loadInterstitialAd(); // Try loading another ad
+                    afterAdClosed.run();
+                    loadInterstitialAd();
                 }
             });
             mInterstitialAd.show(this);
         } else {
-            afterAdClosed.run(); // If no ad loaded, proceed immediately
-            loadInterstitialAd(); // Load ad for next time
+            afterAdClosed.run();
+            loadInterstitialAd();
         }
     }
 
     private void initializeCardViews() {
-        se_it = findViewById(R.id.se_it);
-        st_it = findViewById(R.id.st_it);
+        se_it  = findViewById(R.id.se_it);
+        st_it  = findViewById(R.id.st_it);
         jp2_it = findViewById(R.id.jp2_it);
         iot_it = findViewById(R.id.iot_it);
         nma_it = findViewById(R.id.nma_it);
 
-        // Set click listeners with interstitial ads
-        se_it.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels4b_it.this, se_it.class))));
+        if (se_it != null) {
+            se_it.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels4b_it.this, "se_it")));
+        }
 
-        st_it.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels4b_it.this, st_it.class))));
+        if (st_it != null) {
+            st_it.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels4b_it.this, "st_it")));
+        }
 
-        jp2_it.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels4b_it.this, jp2_it.class))));
+        if (jp2_it != null) {
+            jp2_it.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels4b_it.this, "jp2_it")));
+        }
 
-        iot_it.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels4b_it.this, iot_it.class))));
+        if (iot_it != null) {
+            iot_it.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels4b_it.this, "iot_it")));
+        }
 
-        nma_it.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels4b_it.this, nma_it.class))));
+        if (nma_it != null) {
+            nma_it.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels4b_it.this, "nma_it")));
+        }
     }
 
     @Override
     protected void onDestroy() {
-        // Clean up resources
         if (mInterstitialAd != null) {
             mInterstitialAd = null;
         }

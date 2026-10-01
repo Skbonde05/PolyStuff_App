@@ -5,6 +5,7 @@ public class UserProfile {
     private String name;
     private String email;
     private String username;
+    private String imageUrl;
     private boolean isAdmin;
     private String role;
     private long createdAt;
@@ -52,6 +53,14 @@ public class UserProfile {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public boolean isAdmin() {

@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -18,6 +19,7 @@ import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 public class levels1_it extends AppCompatActivity {
+
     private CardView cms1_it, cms2_it, m1_it, m2_it, physics_it;
     private InterstitialAd mInterstitialAd;
     private final String INTERSTITIAL_AD_ID = "ca-app-pub-8830492032016236/3616577654";
@@ -32,22 +34,32 @@ public class levels1_it extends AppCompatActivity {
         // Initialize Mobile Ads SDK
         MobileAds.initialize(this, initializationStatus -> {});
 
-        // Load banner ad
+        // Load banner ad (null-safe)
         AdView adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+        if (adView != null) {
+            AdRequest adRequest = new AdRequest.Builder().build();
+            adView.loadAd(adRequest);
+        }
 
         // Load interstitial ad
         loadInterstitialAd();
 
-        // Back button
+        // -------- Back button (null-safe, ImageButton OR Toolbar fallback) --------
         ImageButton backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(v -> {
-            showInterstitialAd(() -> {
+        if (backButton != null) {
+            backButton.setOnClickListener(v -> showInterstitialAd(() -> {
                 startActivity(new Intent(levels1_it.this, ItLevels.class));
                 finish();
-            });
-        });
+            }));
+        } else {
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            if (toolbar != null) {
+                toolbar.setNavigationOnClickListener(v -> showInterstitialAd(() -> {
+                    startActivity(new Intent(levels1_it.this, ItLevels.class));
+                    finish();
+                }));
+            }
+        }
 
         // Initialize card views and set click listeners
         initializeCardViews();
@@ -92,25 +104,35 @@ public class levels1_it extends AppCompatActivity {
     }
 
     private void initializeCardViews() {
-        cms1_it = findViewById(R.id.cms1_it);
-        cms2_it = findViewById(R.id.cms2_it);
-        m1_it = findViewById(R.id.m1_it);
-        m2_it = findViewById(R.id.m2_it);
+        cms1_it    = findViewById(R.id.cms1_it);
+        cms2_it    = findViewById(R.id.cms2_it);
+        m1_it      = findViewById(R.id.m1_it);
+        m2_it      = findViewById(R.id.m2_it);
         physics_it = findViewById(R.id.physics_it);
 
-        cms1_it.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels1_it.this, cms1_it.class))));
+        if (cms1_it != null) {
+            cms1_it.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels1_it.this, "cms1_it")));
+        }
 
-        cms2_it.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels1_it.this, cms2_it.class))));
+        if (cms2_it != null) {
+            cms2_it.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels1_it.this, "cms2_it")));
+        }
 
-        m1_it.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels1_it.this, m1_it.class))));
+        if (m1_it != null) {
+            m1_it.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels1_it.this, "m1_it")));
+        }
 
-        m2_it.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels1_it.this, m2_it.class))));
+        if (m2_it != null) {
+            m2_it.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels1_it.this, "m2_it")));
+        }
 
-        physics_it.setOnClickListener(v -> showInterstitialAd(() ->
-                startActivity(new Intent(levels1_it.this, physics_it.class))));
+        if (physics_it != null) {
+            physics_it.setOnClickListener(v -> showInterstitialAd(() ->
+                    SubjectListActivity.launch(levels1_it.this, "physics_it")));
+        }
     }
 }

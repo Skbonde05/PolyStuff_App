@@ -2,30 +2,23 @@ package myapp.org.userapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class SearchManager {
 
     private static SearchManager instance;
     private final Context context;
-    private List<SearchEntry> searchEntries;
+    private final List<SearchEntry> searchEntries;
 
     private SearchManager(Context context) {
         this.context = context.getApplicationContext();
-        searchEntries = new ArrayList<>();
+        this.searchEntries = new ArrayList<>();
         initializeMappings();
     }
 
@@ -43,7 +36,7 @@ public class SearchManager {
 
     private void loadEntriesFromAssets() {
         try {
-            String json = loadJsonFromAssets(context, "subjects_data.json");
+            String json = AssetUtils.loadJsonFromAssets(context, "subjects_data.json");
             JSONArray subjects = new JSONArray(json);
 
             for (int i = 0; i < subjects.length(); i++) {
@@ -54,7 +47,9 @@ public class SearchManager {
                 if (pdfs != null && pdfs.length() > 0) {
                     for (int j = 0; j < pdfs.length(); j++) {
                         JSONObject pdfObj = pdfs.getJSONObject(j);
-                        String title = pdfObj.optString("title", "").replace("\\n", "").trim();
+                        String title = pdfObj.optString("title", "")
+                                .replace("\\n", "")
+                                .trim();
                         String url = pdfObj.optString("url", "");
                         if (!title.isEmpty()) {
                             searchEntries.add(new SearchEntry(key, title, url));
@@ -87,28 +82,93 @@ public class SearchManager {
         searchEntries.add(new SearchEntry("aap_mcq_main", "MAD MCQ's", null));
     }
 
+    /**
+     * Tries to navigate to a matching screen for the query.
+     * First checks known top-level courses (Python, DS, OS, etc.),
+     * then checks the JSON-based subject/PDF entries.
+     */
     public boolean navigateTo(String query) {
-        if (query == null || query.trim().isEmpty()) {
-            return false;
-        }
+        if (query == null || query.trim().isEmpty()) return false;
 
-        String normalizedQuery = query.trim().toLowerCase();
+        // 1. Try top-level course shortcuts first
+        if (navigateToCourse(query.trim())) return true;
 
-        // 1. Try exact title match first
+        String normalizedQuery = query.trim().toLowerCase(Locale.ROOT);
+
+        // 2. Exact title match
         for (SearchEntry entry : searchEntries) {
-            if (entry.getDisplayName().equalsIgnoreCase(query.trim()) || entry.getDisplayName().toLowerCase().equalsIgnoreCase(normalizedQuery)) {
+            if (entry.getDisplayName().equalsIgnoreCase(query.trim())) {
                 return launchEntry(entry);
             }
         }
 
-        // 2. Try partial match
+        // 3. Partial match
         for (SearchEntry entry : searchEntries) {
-            if (entry.getDisplayName().toLowerCase().contains(normalizedQuery)) {
+            if (entry.getDisplayName().toLowerCase(Locale.ROOT).contains(normalizedQuery)) {
                 return launchEntry(entry);
             }
         }
 
         return false;
+    }
+
+    /**
+     * Handles top-level course keywords and opens the corresponding activity.
+     * Returns true if a course was matched and launched.
+     */
+    private boolean navigateToCourse(String query) {
+        String q = query.toLowerCase(Locale.ROOT);
+
+        try {
+            if (q.contains("python") || q.contains("pwp")) {
+                launchActivity(pwp.class);
+            } else if (q.contains("data structure") || q.contains("dsa") || q.equals("ds")) {
+                launchActivity(ds.class);
+            } else if (q.contains("oop") || q.contains("object oriented")
+                    || q.contains("c++") || q.contains("cpp")) {
+                launchActivity(cpp.class);
+            } else if (q.contains("operating system") || q.equals("os")) {
+                launchActivity(os.class);
+            } else if (q.contains("computer network") || q.contains("network") || q.contains("acn")) {
+                launchActivity(acn.class);
+            } else if (q.contains("cloud") || q.equals("cc")) {
+                launchActivity(cc.class);
+            } else if (q.contains("android") || q.equals("aap")) {
+                launchActivity(aap.class);
+            } else if (q.contains("java")) {
+                launchActivity(jp2.class);
+            } else if (q.contains("data mining") || q.equals("dmi")) {
+                launchActivity(dmi.class);
+            } else if (q.contains("php") || q.contains("sql")) {
+                launchActivity(php_information.class);
+            } else if (q.contains("iot") || q.contains("internet of things")) {
+                launchActivity(iot_information.class);
+            } else if (q.contains("c programming") || q.equals("c")) {
+                launchActivity(c_information.class);
+            } else if (q.contains("java information") || q.contains("java course")) {
+                launchActivity(java_information.class);
+            } else if (q.contains("php information")) {
+                launchActivity(php_information.class);
+            } else if (q.contains("feedback")) {
+                launchActivity(feedback.class);
+            } else if (q.contains("rate") || q.contains("rating")) {
+                launchActivity(rateus.class);
+            } else if (q.contains("notification")) {
+                launchActivity(notifications.class);
+            } else {
+                return false;
+            }
+            return true;
+        } catch (Exception e) {
+            android.util.Log.e("SearchManager", "Course navigation failed", e);
+            return false;
+        }
+    }
+
+    private void launchActivity(Class<?> activityClass) {
+        Intent intent = new Intent(context, activityClass);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
     }
 
     private boolean launchEntry(SearchEntry entry) {
@@ -129,26 +189,13 @@ public class SearchManager {
                 return true;
             }
         } catch (Exception e) {
-            Toast.makeText(context, "Navigation error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            android.util.Log.e("SearchManager", "Entry navigation failed", e);
         }
         return false;
     }
 
     public int getSize() {
         return searchEntries.size();
-    }
-
-    private String loadJsonFromAssets(Context context, String filename) throws IOException {
-        InputStream is = context.getAssets().open(filename);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-        StringBuilder sb = new StringBuilder();
-        String line;
-        while ((line = reader.readLine()) != null) {
-            sb.append(line);
-        }
-        reader.close();
-        is.close();
-        return sb.toString();
     }
 
     static class SearchEntry {
@@ -162,16 +209,8 @@ public class SearchManager {
             this.pdfUrl = pdfUrl;
         }
 
-        String getSubjectKey() {
-            return subjectKey;
-        }
-
-        String getDisplayName() {
-            return displayName;
-        }
-
-        String getPdfUrl() {
-            return pdfUrl;
-        }
+        String getSubjectKey()    { return subjectKey; }
+        String getDisplayName()   { return displayName; }
+        String getPdfUrl()        { return pdfUrl; }
     }
 }

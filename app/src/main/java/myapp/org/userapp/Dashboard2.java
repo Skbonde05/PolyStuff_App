@@ -37,8 +37,13 @@ public class Dashboard2 extends AppCompatActivity {
 
         Button nextButton = findViewById(R.id.button);
         nextButton.setOnClickListener(v -> {
-            // Start the Login1 activity
-            Intent intent = new Intent(Dashboard2.this, LoginActivity1.class);
+            Intent intent = new Intent(Dashboard2.this, SignUpActivity.class);
+            startActivity(intent);
+        });
+
+        Button alreadyHaveAccountButton = findViewById(R.id.button2);
+        alreadyHaveAccountButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Dashboard2.this, LoginActivity.class);
             startActivity(intent);
         });
     }

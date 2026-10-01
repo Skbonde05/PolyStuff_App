@@ -7,9 +7,6 @@
 # Keep PDF Viewer library classes
 -keep class com.github.barteksc.pdfviewer.** { *; }
 
-# Keep PdfViewer subclasses referenced via reflection
--keep class myapp.org.userapp.*_pdf { *; }
-
 # Keep class names for reflection-based lookup (SearchManager)
 -keepnames class myapp.org.userapp.**
 
