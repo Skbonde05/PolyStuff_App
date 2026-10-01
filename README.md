@@ -4,13 +4,13 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue" alt="License"></a>
   <a href="https://developer.android.com/studio"><img src="https://img.shields.io/badge/IDE-Android%20Studio-green?logo=android" alt="Android Studio"></a>
-  <a href="https://www.java.com/"><img src="https://img.shields.io/badge/Java-11-orange?logo=java" alt="Java"></a>
-  <a href="https://firebase.google.com/"><img src="https://img.shields.io/badge/Backend-Firebase-yellow?logo=firebase" alt="Firebase"></a>
+  <a href="https://www.java.com/"><img src="https://img.shields.io/badge/Java-17-orange?logo=java" alt="Java"></a>
+  <a href="https://firebase.google.com/"><img src="https://img.shields.io/badge/Backend-Firebase%20%2B%20Supabase-yellow?logo=firebase" alt="Backend"></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/Skbonde05/PolyStuff" target="_blank">
-    <img src="https://img.shields.io/badge/🌐 Live%20Demo-Check%20Now-brightgreen?style=for-the-badge" alt="Live Demo"/>
+  <a href="https://github.com/Skbonde05/PolyStuff_App" target="_blank">
+    <img src="https://img.shields.io/badge/🌐 Repository-Check%20Now-brightgreen?style=for-the-badge" alt="Repository"/>
   </a>
 </p>
 
@@ -78,14 +78,31 @@ In Firebase Realtime Database, set the user node:
 ## 📦 Storage: GitHub + jsDelivr CDN  
 
 PDFs are stored in the `pdf/` folder of this GitHub repository and served via jsDelivr CDN for fast, free delivery.
-- **Repository**: `Shivam154CO/PolyStuff_App`
-- **CDN Base**: `https://cdn.jsdelivr.net/gh/Shivam154CO/PolyStuff_App@main/pdf/`
-- **Raw GitHub**: `https://raw.githubusercontent.com/Shivam154CO/PolyStuff_App/main/pdf/`
+- **Repository**: `Skbonde05/PolyStuff_App`
+- **CDN Base**: `https://cdn.jsdelivr.net/gh/Skbonde05/PolyStuff_App@main/pdf/`
+- **Raw GitHub**: `https://raw.githubusercontent.com/Skbonde05/PolyStuff_App/main/pdf/`
+
+### How PDFs Are Served
+1. PDF metadata (title + URL) is fetched from **Supabase** (`content_items` table) or the legacy **assets JSON** (`subjects_data.json`).
+2. The app extracts the PDF filename and resolves it to a jsDelivr CDN URL pointing to this repository.
+3. `PdfViewerActivity` downloads the PDF via `HttpURLConnection` (with redirect handling and filename casing fallbacks) and caches it to the app's internal cache directory (`cache/pdfs/`).
+4. PDFs are rendered with the `android-pdf-viewer` library from the cached file.
+
+### Adding New PDFs
+1. Place the PDF in the local `pdf/` folder.
+2. Commit and push to the remote repository:
+   ```bash
+   git add pdf/<your-file>.pdf
+   git commit -m "Add PDF"
+   git push origin main
+   ```
+3. jsDelivr will serve it automatically at `https://cdn.jsdelivr.net/gh/Skbonde05/PolyStuff_App@main/pdf/<filename>`.
+4. The app already handles filename casing variations (`UNIT`/`unit`/`Unit`) via `StorageConfig.generateFileNameVariations()`.
 
 ### Why PDFs Might Not Open
-1. **Expired Firebase URLs**: Old `subjects_data.json` entries contain Firebase Storage URLs that may have expired download tokens. The app now automatically tries jsDelivr CDN first.
-2. **Files not pushed to GitHub**: Ensure all PDFs in the local `pdf/` folder are committed and pushed to the remote repository.
-3. **Network issues**: The app requires internet to load PDFs from CDN.
+1. **Files not pushed to GitHub**: Ensure all PDFs in the local `pdf/` folder are committed and pushed to the remote repository.
+2. **Network issues**: The app requires internet to load PDFs from the CDN.
+3. **Filename mismatch**: If the filename in Supabase/assets doesn't match the committed file, the app tries casing variations and `_186_N3` suffix variations before failing.
 
 ---
 
@@ -94,10 +111,11 @@ PDFs are stored in the `pdf/` folder of this GitHub repository and served via js
 ### Firebase (`google-services.json`)
 Place your `google-services.json` in `app/`.
 
-### Supabase (Optional, for future use)
+### Supabase (Active Backend)
 1. Create a Supabase project at [supabase.com](https://supabase.com).
 2. Update `app/src/main/java/myapp/org/userapp/supabase/SupabaseConfig.java` with your project URL and anon key.
 3. Configure Row Level Security (RLS) policies in Supabase.
+4. The `content_items` table stores PDF metadata (title, URL, subject/unit, sort order). `ContentRepository` queries it and rewrites URLs to the jsDelivr CDN.
 
 ---
 
